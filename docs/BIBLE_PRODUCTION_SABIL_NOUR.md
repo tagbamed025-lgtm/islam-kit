@@ -22,6 +22,7 @@ Toujours identique : polices **Anton** (titres), **Cormorant Garamond italique**
 2. **Rendu cinéma** (reels hadith et vidéos longues du vendredi ; modèles : « La natte » V3 et Mus'ab V2) : photos plein écran avec mouvements de caméra lents, poussière dans la lumière, fondus enchaînés, texte crème avec ombre, sous-titres courts (2–4 mots) mot à mot, bandeau émeraude incliné avec mot clé en doré, étiquette de série en pastille verte (« HADITHS · NN », « COMPAGNONS · NN »), carte de fin arabe + source sur vert profond, puis écran Abonne-toi.
 3. **Récitation** : fond émeraude profond + halo doré, arche dorée qui se dessine, poussière dorée, étiquette « CORAN · SOURATE · N:V », arabe Amiri Quran crème-or, traduction Cormorant italique, dernier passage en doré avec ﴿numéro﴾, crédits (récitateur + traducteur), logo.
 4. **Photos** (hadith / invocation / verset) : carré, arche verte sur fond crème, bandeau « HADITH » / « INVOCATION » vert, arabe vert, citation en Cormorant, source en petites capitales.
+5. **Rappel (typographique, proposé le 09/10/2026 après le test RAP-01)** : aucune image à générer. Fond crème #F4F1EA + grain pour les phrases d'accroche et de conseil (texte #141414, mot clé en émeraude, apparition mot à mot calée sur la voix) ; **fond émeraude profond avec arche dorée** pour les citations (hadith, verset, invocation) : arabe Amiri crème-or, traduction Cormorant italique, source en doré. Étiquette « RAPPEL · NN ».
 - Le reel « Le chien et le puits » reste dans l'ancien style ; les hadiths suivants suivent le rendu cinéma.
 - **Miniatures** : 1 visuel fort, 2 à 4 mots en Anton très gros, bandeau émeraude avec mot clé doré, logo discret, aucun visage de compagnon, aucune représentation du Prophète ﷺ. Formats 1080×1920 et 1280×720. Miniature récitation : fond émeraude + arche, mot arabe clé en or, accroche fidèle au verset, jamais trompeuse.
 
@@ -100,6 +101,8 @@ Total : 2 vidéos du vendredi, 2 reels compagnons, 2 reels hadith, 2 récitation
 
 **Heures de publication (hypothèse de départ, heure de Dakar, à tester 2 semaines)** : photos 7h30 ; reels 18h30 ; récitation samedi 20h ; vidéo du vendredi 9h. (France = +2 h.)
 
+**Fin d'un Rappel** : carton source (références des citations) + « Une histoire chaque vendredi sur @sabilnour » + écran Abonne-toi. Pas de carton « Ce qu'on retient » (réservé aux reels compagnons).
+
 **Format Rappel — règles** : un seul message ; appuyé sur un hadith authentique ou un verset avec source affichée ; aucun jugement sur des personnes ou des catégories ; aucun avis personnel, fiqh, fatwa ; pas de récit sans source ; ouverture par une phrase d'accroche. Premier Rappel validé par Mo (09/10/2026) : « Tout le monde commet des péchés… » (voir `scripts/fr/RAP-01-peches.md`).
 
 ## 6. Code couleur des scripts (validé le 09/10/2026)
@@ -113,7 +116,7 @@ Dans les scripts remis par Claude :
 ## 7. Méthode : 3 types de discussions (validée le 09/10/2026)
 Une discussion = une tâche. Le modèle est choisi au début et ne change plus. Les codes ci-dessus s'écrivent en début de message ; pas de numéro à taper.
 
-1. **#SCRIPT (Sonnet)** — par lot (1 cycle de 14 jours, ou 2 cycles). Livrables : scripts sourcés ; texte voix off seul ; liste des images nommées ; prompts d'images en anglais (un par ligne, bloc de style inclus) ; titres et légendes des photos ; titre + miniature suggérée. Après validation et « ok voix » : génération de la voix (estimation du coût d'abord) et rangement dans `voix/fr/`.
+1. **#SCRIPT (Sonnet)** — par lot (1 cycle de 14 jours, ou 2 cycles). Livrables : scripts sourcés ; texte voix off seul ; **découpage en scènes avec le texte affiché à l'écran (vert) et la source de chaque scène** ; style visuel du contenu (apparition / cinéma / typographique) ; liste des images nommées ; prompts d'images en anglais (un par ligne, bloc de style inclus) ; titres et légendes des photos ; titre + miniature suggérée. Après validation et « ok voix » : génération de la voix (estimation du coût d'abord) et rangement dans `voix/fr/`.
 2. **Mo** — génère les images à partir des prompts et les dépose dans `images/par_contenu/<ID>/` (via GitHub, sans les coller dans le chat) ; seules les images vraiment nouvelles sont à générer (voir §9).
 3. **#MONTAGE (Opus)** — une discussion par format (ex. les 2 reels hadith du cycle ; les 2 reels compagnons ; la vidéo du vendredi, validée partie par partie ~1 min). Lit la bible, récupère le dépôt, lit script + voix + images, monte, livre MP4 + miniatures, met à jour la bible et le catalogue.
 - Les photos et les récitations sont légères : elles peuvent se faire dans la discussion #SCRIPT ou dans une discussion à part.
