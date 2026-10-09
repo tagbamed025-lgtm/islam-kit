@@ -17,7 +17,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
 #tag{position:absolute;left:60px;top:150px;font-family:Inter;font-weight:600;font-size:24px;letter-spacing:.3em;color:#FBF6EA;background:var(--acc);padding:13px 20px 13px 24px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:5}
 #tag b{color:var(--gold);font-weight:800}
 #fil{position:absolute;left:50%;bottom:150px;width:120px;transform:translateX(-50%);opacity:.55;z-index:5}
-.blk{position:absolute;left:70px;right:70px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.blk{position:absolute;left:70px;right:70px;top:1010px;height:700px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .anton{font-family:Anton,sans-serif;text-transform:uppercase;color:var(--ink);letter-spacing:1px}
 .ln{white-space:nowrap;line-height:1.06}
 .w{display:inline-block;white-space:pre;will-change:transform,opacity}
@@ -33,11 +33,28 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
 .rule{width:220px;height:2px;background:var(--gold);margin:46px auto 0;transform-origin:50% 50%}
 .ar{font-family:Amiri,serif;font-weight:700;direction:rtl;color:var(--gold2);font-size:96px;line-height:1.5;white-space:nowrap}
 .disc{border-radius:50%;background:var(--acc)}
+#OB{position:absolute;inset:0;pointer-events:none}
+.ob{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform,opacity}
+.ob img{display:block;width:100%;filter:drop-shadow(0 30px 34px rgba(60,40,10,.28)) drop-shadow(0 6px 8px rgba(60,40,10,.18))}
+.sh{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(60,40,10,.30),rgba(60,40,10,0));}
+.glow{position:absolute;border-radius:50%;pointer-events:none}
 #fade{position:absolute;inset:0;background:#000;pointer-events:none;z-index:9}
 </style></head>
 <body><div id="stage">
 <div class="L" id="cream"></div>
 <div id="LS"></div>
+<div id="OB">
+ <div class="glow" id="g2" style="left:140px;top:240px;width:800px;height:800px;background:radial-gradient(closest-side,rgba(237,203,133,.55),rgba(237,203,133,0))"></div>
+ <div class="glow" id="g4" style="left:-60px;top:100px;width:1000px;height:1000px;background:radial-gradient(closest-side,rgba(255,214,140,.75),rgba(255,200,120,.25) 40%,rgba(255,200,120,0))"></div>
+ <svg id="rays" width="1080" height="1100" style="position:absolute;left:0;top:0"></svg>
+ <div class="sh" id="sh1" style="left:190px;top:820px;width:700px;height:90px"></div>
+ <div class="sh" id="sh3" style="left:330px;top:905px;width:420px;height:60px"></div>
+ <div class="sh" id="sh4" style="left:300px;top:850px;width:520px;height:60px"></div>
+ <div class="ob" id="o1" style="width:820px;left:130px;top:250px"><img src="img/cut_S01_tapis.png"></div>
+ <div class="ob" id="o2" style="width:860px;left:110px;top:330px"><img src="img/cut_S02_mains.png" style="-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 98%)"></div>
+ <div class="ob" id="o3" style="width:620px;left:230px;top:200px"><img src="img/cut_S03_silhouette.png"></div>
+ <div class="ob" id="o4" style="width:860px;left:120px;top:400px"><img src="img/cut_S04_lampe.png"></div>
+</div>
 <div class="L" id="LE" style="opacity:0"><div id="em"></div><div id="halo"></div>
  <svg id="arch" width="1080" height="1920"><path id="archP" d="M150 1500 L150 760 Q150 470 540 330 Q930 470 930 760 L930 1500" fill="none" stroke="#EDCB85" stroke-width="3" opacity=".85"/>
  <path id="archP2" d="M180 1470 L180 770 Q180 500 540 368 Q900 500 900 770 L900 1470" fill="none" stroke="#EDCB85" stroke-width="1.2" opacity=".45"/></svg>
@@ -97,11 +114,14 @@ $('LZ').innerHTML=`
 </div>`;
 // ajuste chaque bloc crème à la largeur
 function fit(){
-  for(const s of ['S1','S2','S3','S4']){const b=$('b'+s);let f=170;b.style.fontSize=f+'px';
+  for(const s of ['S1','S2','S3','S4']){const b=$('b'+s);let f=150;b.style.fontSize=f+'px';
     const mw=()=>Math.max(...[...b.querySelectorAll('.ln')].map(l=>l.scrollWidth));
     while(mw()>900&&f>60){f-=4;b.style.fontSize=f+'px';}}
   const a=$('ar');let f=96;a.style.fontSize=f+'px';while(a.scrollWidth>720&&f>40){f-=4;a.style.fontSize=f+'px';}
 }
+{const r=$('rays');let s='';for(let i=0;i<14;i++){const a=(-90+(i-6.5)*13)*Math.PI/180;
+ s+=`<line x1="${160}" y1="${440}" x2="${160+Math.cos(a)*900}" y2="${440+Math.sin(a)*900}" stroke="rgba(237,190,110,.35)" stroke-width="${10+i%3*6}" stroke-linecap="round"/>`;}r.innerHTML=s;}
+const wt=(s,txt)=>{for(const ln of W[s])for(const w of ln)if(w[0].startsWith(txt))return w[1];return SC[s];};
 const archLen=[$('archP').getTotalLength(),$('archP2').getTotalLength()];
 function words(root,T){
   for(const w of root.querySelectorAll('.w')){const t0=+w.dataset.t-0.06;const p=P(T,t0,.32,eo5);
@@ -114,6 +134,31 @@ function render(T){
     const on=T>=t0-.01&&T<t1+.35;b.style.display=on?'flex':'none';if(!on)continue;
     const o=s==='S4'?1:1-P(T,t1,.3);b.style.opacity=o;b.style.transform=`translateY(${-P(T,t1,.35)*80}px)`;
     words(b,T);}
+  // ---- objets en mouvement (S1–S4)
+  const vis=(s,T)=>{const t0=SC[s],t1=nextOf(s);return T>=t0-.01&&T<t1+.4;};
+  const out=(s,T)=>1-P(T,nextOf(s),.35,eio);
+  // S1 tapis : tombe du haut en tournant, se pose, puis dérive lente
+  {const el=$('o1'),t0=SC.S1+.05,on=vis('S1',T);el.style.display=$('sh1').style.display=on?'block':'none';
+   if(on){const p=P(T,t0,.7,bk),q=P(T,t0,.7,eo3);const o=out('S1',T);
+    el.style.opacity=Math.min(q*1.4,1)*o;el.style.transform=`translateY(${(1-p)*-520+(1-o)*-60}px) rotate(${lerp(-14,-3,p)+(T-t0)*.6}deg) scale(${lerp(1.25,1,q)*(1+(T-t0)*.012)})`;
+    $('sh1').style.opacity=q*o;$('sh1').style.transform=`scaleX(${lerp(.4,1,q)})`;}}
+  // S2 mains : montent depuis le bas, halo doré à « personne »
+  {const el=$('o2'),t0=SC.S2+.05,on=vis('S2',T);el.style.display=$('g2').style.display=on?'block':'none';
+   if(on){const p=P(T,t0,.9,eo5);const o=out('S2',T);const fl=Math.sin((T-t0)*1.6)*8;
+    el.style.opacity=p*o;el.style.transform=`translateY(${(1-p)*420+fl+(1-o)*60}px) scale(${lerp(.92,1,p)*(1+(T-t0)*.01)})`;
+    const g=P(T,wt('S2','PERSONNE')-.1,.8,eio);$('g2').style.opacity=g*o*(.85+.15*Math.sin(T*3));$('g2').style.transform=`scale(${lerp(.6,1.1,g)})`;}}
+  // S3 silhouette : avance, puis trébuche sur « tombe »
+  {const el=$('o3'),t0=SC.S3+.05,on=vis('S3',T);el.style.display=$('sh3').style.display=on?'block':'none';
+   if(on){const p=P(T,t0,.8,eo5);const o=out('S3',T);const tb=wt('S3','TOMBE');const k=P(T,tb-.05,.45,bk);
+    const shake=T>tb&&T<tb+.35?Math.sin((T-tb)*70)*6*(1-(T-tb)/.35):0;
+    el.style.opacity=p*o;el.style.transform=`translateX(${(1-p)*-380+k*40+shake}px) translateY(${k*36}px) rotate(${k*9}deg) scale(${1+(T-t0)*.012})`;
+    $('sh3').style.opacity=p*o;$('sh3').style.transform=`translateX(${k*60}px) scaleX(${1+k*.25})`;}}
+  // S4 lampe : apparaît, la flamme s'éclaire sur « guider », rayons sur « protéger »
+  {const el=$('o4'),t0=SC.S4+.05,on=T>=SC.S4-.01&&T<SC.S5+.6;['o4','g4','rays','sh4'].forEach(i=>$(i).style.display=on?'block':'none');
+   if(on){const p=P(T,t0,.7,bk);el.style.opacity=P(T,t0,.3);el.style.transform=`scale(${p*(1+(T-t0)*.012)})`;
+    $('sh4').style.opacity=P(T,t0,.5);
+    const g=P(T,wt('S4','GUIDER')-.1,.9,eio);$('g4').style.opacity=g*(.8+.2*Math.sin(T*7.3)*Math.sin(T*3.1));$('g4').style.transform=`scale(${lerp(.3,1,g)})`;
+    const r=P(T,wt('S4','PROTÉGER')-.05,1.0,eio);$('rays').style.opacity=r*.9;$('rays').style.transform=`rotate(${(T-t0)*1.5}deg)`;$('rays').style.transformOrigin='160px 440px';}}
   // émeraude : entrée en cercle à S5, arche qui se dessine
   const e0=SC.S5;const eo=P(T,e0-.05,.55,eio);const ein=T>=e0-.05&&T<SC.END1+.6;
   $('LE').style.display=ein?'block':'none';

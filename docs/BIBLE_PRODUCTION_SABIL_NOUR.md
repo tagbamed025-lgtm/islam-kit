@@ -22,7 +22,7 @@ Toujours identique : polices **Anton** (titres), **Cormorant Garamond italique**
 2. **Rendu cinéma** (reels hadith et vidéos longues du vendredi ; modèles : « La natte » V3 et Mus'ab V2) : photos plein écran avec mouvements de caméra lents, poussière dans la lumière, fondus enchaînés, texte crème avec ombre, sous-titres courts (2–4 mots) mot à mot, bandeau émeraude incliné avec mot clé en doré, étiquette de série en pastille verte (« HADITHS · NN », « COMPAGNONS · NN »), carte de fin arabe + source sur vert profond, puis écran Abonne-toi.
 3. **Récitation** : fond émeraude profond + halo doré, arche dorée qui se dessine, poussière dorée, étiquette « CORAN · SOURATE · N:V », arabe Amiri Quran crème-or, traduction Cormorant italique, dernier passage en doré avec ﴿numéro﴾, crédits (récitateur + traducteur), logo.
 4. **Photos** (hadith / invocation / verset) : carré, arche verte sur fond crème, bandeau « HADITH » / « INVOCATION » vert, arabe vert, citation en Cormorant, source en petites capitales.
-5. **Rappel (typographique, proposé le 09/10/2026 après le test RAP-01)** : aucune image à générer. Fond crème #F4F1EA + grain pour les phrases d'accroche et de conseil (texte #141414, mot clé en émeraude, apparition mot à mot calée sur la voix) ; **fond émeraude profond avec arche dorée** pour les citations (hadith, verset, invocation) : arabe Amiri crème-or, traduction Cormorant italique, source en doré. Étiquette « RAPPEL · NN ».
+5. **Rappel (typographique + objets en mouvement, validé le 09/10/2026)** : sur les scènes de conseil, objets détourés (1 par scène, fond uni, aucun visage) qui apparaissent et bougent au-dessus du texte sur fond crème ; pas de photo plein écran. Fond crème #F4F1EA + grain pour les phrases d'accroche et de conseil (texte #141414, mot clé en émeraude, apparition mot à mot calée sur la voix) ; **fond émeraude profond avec arche dorée** pour les citations (hadith, verset, invocation) : arabe Amiri crème-or, traduction Cormorant italique, source en doré. Étiquette « RAPPEL · NN ».
 - Le reel « Le chien et le puits » reste dans l'ancien style ; les hadiths suivants suivent le rendu cinéma.
 - **Miniatures** : 1 visuel fort, 2 à 4 mots en Anton très gros, bandeau émeraude avec mot clé doré, logo discret, aucun visage de compagnon, aucune représentation du Prophète ﷺ. Formats 1080×1920 et 1280×720. Miniature récitation : fond émeraude + arche, mot arabe clé en or, accroche fidèle au verset, jamais trompeuse.
 
@@ -202,7 +202,7 @@ Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → calcul des
 | REC-01-hadid-57-20 | La vie d'ici-bas n'est qu'un jeu… \| Sourate Al-Hadîd 57:20 | livré |
 | REC-02-kahf-18-46 | Tes biens, tes enfants… et ce qui dure vraiment \| Sourate Al-Kahf 18:46 | livré |
 | PHO-S1 (×5) | Photos semaine 1 + invocation 2721 + richesse 6446 + verset 33:23 | livrées |
-| RAP-01-peches | « Tout le monde commet des péchés… \| Rappel » (09/10, typographique, 31,5 s) | livré |
+| RAP-01-peches | « Tout le monde commet des péchés… \| Rappel » (09/10, typographique + objets en mouvement, 31,5 s) | livré (v2) |
 Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 
 ## 13. Questions ouvertes
@@ -222,3 +222,4 @@ Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 - 09/10 : voix Sébastien – Narrator v3 inscrite (voice_id) ; Claude génère la voix off ; dépôt GitHub `islam-kit` créé et structuré ; format Rappel ajouté ; plan de la version anglaise.
 - 09/10/2026 (suite) : méthode PDF validée (`docs/METHODE_PRODUCTION.pdf`) ; instructions collées dans le projet ; migration des anciens contenus dans le dépôt : scripts (`scripts/fr/`), voix (`voix/fr/`), images (`images/par_contenu/`), moteur de montage par format (`moteur/`), sons (`sons/`), polices et logos (`charte/`), catalogue (`catalogue/catalogue.json`).
 - 09/10/2026 (soir) : montage RAP-01 livré (format Rappel typographique ; moteur `moteur/rappel-peches/` ; arabe de l'invocation vérifié sur sunnah.com ; Coran 2:34 copié de quran.com ; aucun son ni fond vocal pendant la citation coranique).
+- 09/10/2026 (v2) : RAP-01 refait avec 4 objets détourés en mouvement sur fond crème (tapis, mains, silhouette de dos, lampe) — règle ajoutée au §2 point 5.

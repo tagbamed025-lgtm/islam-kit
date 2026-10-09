@@ -2,7 +2,7 @@
 # AUCUN son ni fond vocal pendant la citation coranique (S6). Écrit audio/sfx.wav et coupe audio/pad.wav sous S6.
 import numpy as np, soundfile as sf, json
 tl=json.load(open('timeline.json')); SC=tl['SC']; DUR=tl['DUR']; SR=48000
-B='../../sons/banque_utilisee/'
+B='/home/claude/islam-kit/sons/banque_utilisee/'
 def ld(n):
     x,sr=sf.read(B+n); x=x.mean(1) if x.ndim>1 else x
     if sr!=SR: x=np.interp(np.arange(int(len(x)*SR/sr))*sr/SR,np.arange(len(x)),x)
@@ -12,6 +12,12 @@ def put(n,t,g,end=False):
     x=ld(n)*g; i=max(int((t-(len(x)/SR if end else 0))*SR),0); out[i:i+len(x)]+=x[:len(out)-i]
 put('whoosh_1.wav',SC['S1'],.25); put('best_boom.wav',1.15,.35)
 for s in ['S2','S3','S4']: put('whoosh_3.wav',SC[s]-.1,.22)
+W=tl['W']
+def wt(sc,txt): return next(w[1] for ln in W[sc] for w in ln if w[0].startswith(txt))
+put('thunk.wav',SC['S1']+.7,.30)                 # le tapis se pose
+put('whoosh_5.wav',SC['S2']+.05,.18)             # les mains montent
+put('impact_b3.wav',wt('S3','TOMBE')+.05,.28)    # la silhouette trébuche
+put('best_pop.wav',SC['S4']+.25,.25)             # la lampe apparaît
 put('riser_b2.wav',SC['S5']+.05,.30,end=True); put('impact_b1.wav',SC['S5']+.05,.35)
 put('whoosh_2.wav',SC['END1']-.1,.25); put('whoosh_4.wav',SC['END2']-.1,.22); put('best_pop.wav',SC['END2']+1.0,.35)
 out=out[:int(DUR*SR)]; out[int((SC['S6']-.05)*SR):int(SC['S7']*SR)]=0
