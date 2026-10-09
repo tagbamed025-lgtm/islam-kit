@@ -1,7 +1,6 @@
 # REC-05-baqarah-2-153 — Sourate Al-Baqarah 2:153
 
-Statut : script à valider (09/10/2026).
-Récitateur proposé : Abou Bakr Ash-Shâtirî (à confirmer ou changer).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-05-baqarah-2-153.mp3` (16,6 s, extrait de la vidéo fournie par Mo). Récitateur : Mishary Alafasy.
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Al-Baqarah · verset 153 »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : verset unique, ne pas le couper en plein milieu.
 

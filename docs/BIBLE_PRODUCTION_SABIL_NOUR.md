@@ -161,6 +161,7 @@ islam-kit/
   scripts/en/  <ID>.md   version anglaise (plus tard)
   voix/fr/     <ID>.mp3  voix off ElevenLabs
   voix/en/     <ID>.mp3
+  audio/recitations/  <ID>.mp3  audio du récitateur (récitations du Coran — déposé par Mo, pas ElevenLabs)
   images/par_contenu/<ID>/   <ID>_S<scène>_<sujet>_<n°>.png   (+ cut_*.png détourées)
   images/banque/<thème>/     images réutilisables (maison, désert, nuit, pain, lampe…)
   moteur/      modèles HTML, scripts de montage, rendu, mixage
@@ -203,12 +204,14 @@ Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → calcul des
 | REC-02-kahf-18-46 | Tes biens, tes enfants… et ce qui dure vraiment \| Sourate Al-Kahf 18:46 | livré |
 | PHO-S1 (×5) | Photos semaine 1 + invocation 2721 + richesse 6446 + verset 33:23 | livrées |
 | RAP-01-peches | « Tout le monde commet des péchés… \| Rappel » (09/10, typographique + objets en mouvement, 31,5 s) | livré (v2) |
-| REC-03-sharh-94-5-8 | Après chaque épreuve… il y a une facilité \| Sourate Ash-Sharh 94:5-8 | script à valider |
-| REC-04-rad-13-28 | C'est par Son évocation que les cœurs se tranquillisent \| Sourate Ar-Ra'd 13:28 | script à valider |
-| REC-05-baqarah-2-153 | Cherche secours dans la patience et la prière \| Sourate Al-Baqarah 2:153 | script à valider |
-| REC-06-talaq-65-2-3 | Quiconque craint Allah… Il lui donnera une issue \| Sourate At-Talaq 65:2-3 | script à valider |
-| REC-07-mulk-67-1-2 | Il a créé la mort et la vie… pour vous éprouver \| Sourate Al-Mulk 67:1-2 | script à valider |
-| REC-08-asr-103 | Par le Temps… l'homme est en perdition, sauf \| Sourate Al-'Asr | script à valider |
+| REC-03-sharh-94-5-8 | Après chaque épreuve… il y a une facilité \| Sourate Ash-Sharh 94:5-8 | audio déposé (Alafasy), script à valider |
+| REC-04-rad-13-28 | C'est par Son évocation que les cœurs se tranquillisent \| Sourate Ar-Ra'd 13:28 | audio déposé (Ash-Shâtirî), script à valider |
+| REC-05-baqarah-2-153 | Cherche secours dans la patience et la prière \| Sourate Al-Baqarah 2:153 | audio déposé (Alafasy), script à valider |
+| REC-06-zumar-39-53 | Ne désespère jamais de la miséricorde d'Allah \| Sourate Az-Zumar 39:53 | script à valider (remplace At-Talaq) |
+| REC-07-mulk-67-1-2 | Il a créé la mort et la vie… pour vous éprouver \| Sourate Al-Mulk 67:1-2 | audio déposé (Alafasy), script à valider |
+| REC-08-asr-103 | Par le Temps… l'homme est en perdition, sauf \| Sourate Al-'Asr | audio déposé (Wadee' Al-Yamani), script à valider |
+| REC-09-ikhlas-112 | Une sourate qui vaut le tiers du Coran \| Sourate Al-Ikhlas | script à valider |
+| REC-10-yunus-10-62 | Les alliés d'Allah n'ont ni crainte ni chagrin \| Sourate Yunus 10:62 | script à valider |
 Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 
 ## 13. Questions ouvertes
@@ -230,3 +233,4 @@ Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 - 09/10/2026 (soir) : montage RAP-01 livré (format Rappel typographique ; moteur `moteur/rappel-peches/` ; arabe de l'invocation vérifié sur sunnah.com ; Coran 2:34 copié de quran.com ; aucun son ni fond vocal pendant la citation coranique).
 - 09/10/2026 (v2) : RAP-01 refait avec 4 objets détourés en mouvement sur fond crème (tapis, mains, silhouette de dos, lampe) — règle ajoutée au §2 point 5.
 - 09/10/2026 (nuit) : 6 scripts de récitation écrits pour couvrir les 3 prochains samedis de récitation (cycles 2 et 3) : REC-03 (Ash-Sharh 94:5-8), REC-04 (Ar-Ra'd 13:28), REC-05 (Al-Baqarah 2:153), REC-06 (At-Talaq 65:2-3), REC-07 (Al-Mulk 67:1-2), REC-08 (Al-'Asr 103 entière). Traductions Hamidullah vérifiées par recherche web (quran.com/fr, quran-uni.com) ; texte arabe à revérifier au montage sur quran.com + alquran.cloud comme d'habitude. Récitateur proposé par défaut : Abou Bakr Ash-Shâtirî (comme REC-01/02), à confirmer par Mo.
+- 09/10/2026 (soir, suite) : Mo a déposé dans le chat l'audio de 5 récitateurs réels (vidéos mp4, audio extrait en mp3) pour REC-03, REC-04, REC-05, REC-07, REC-08 — récitateurs : Mishary Alafasy (REC-03, REC-05, REC-07), Abou Bakr Ash-Shâtirî (REC-04), Wadee' Al-Yamani (REC-08). Nouveau dossier `audio/recitations/<ID>.mp3` créé pour cet usage (distinct de `voix/fr/`, réservé à la voix ElevenLabs du narrateur). At-Talaq (ancien REC-06) écarté par Mo (verset trop long) et remplacé par Az-Zumar 39:53 (nouveau REC-06). Mo a demandé 2 versets de plus pour arriver à 8 vidéos sur le mois : REC-09 (Al-Ikhlas 112, sourate entière) et REC-10 (Yunus 10:62). Pas encore d'audio déposé pour REC-06, REC-09, REC-10.

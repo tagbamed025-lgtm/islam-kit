@@ -1,7 +1,6 @@
 # REC-07-mulk-67-1-2 — Sourate Al-Mulk 67:1-2
 
-Statut : script à valider (09/10/2026).
-Récitateur proposé : Abou Bakr Ash-Shâtirî (à confirmer ou changer).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-07-mulk-67-1-2.mp3` (26,3 s, extrait de la vidéo fournie par Mo). Récitateur : Mishary Alafasy.
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Al-Mulk · versets 1-2 »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : les deux premiers versets forment une seule phrase (Celui qui détient la royauté → qui a créé la mort et la vie pour éprouver), à garder entiers.
 

@@ -1,7 +1,6 @@
 # REC-03-sharh-94-5-8 — Sourate Ash-Sharh 94:5-8
 
-Statut : script à valider (09/10/2026).
-Récitateur proposé : Abou Bakr Ash-Shâtirî (comme REC-01 et REC-02 — à confirmer ou changer).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-03-sharh-94-5-8.mp3` (18,0 s, extrait de la vidéo fournie par Mo). Récitateur : Mishary Alafasy.
 Structure (bible §2 et §10, validée 30/09/2026) : (1) ouverture directe sur la récitation dès la 1re seconde ; (2) carte de présentation de la sourate (nom arabe + « Sourate Ash-Sharh · verset 5-8 »), ~2,5 s, silencieuse ; (3) écran « Abonne-toi — UN VERSET, UNE LUMIÈRE », silencieux.
 Découpage : à faire au montage selon les pauses réelles du récitateur (détection de silences + reconnaissance vocale en arabe). Ne pas couper le verset 48:8 en plein milieu — l'enchaînement 5→6→7→8 forme un seul mouvement (la facilité après l'épreuve, puis l'appel à se tourner vers Allah), à garder entier si le récitateur le permet.
 

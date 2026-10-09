@@ -1,7 +1,6 @@
 # REC-08-asr-103 — Sourate Al-'Asr (103) — sourate entière
 
-Statut : script à valider (09/10/2026).
-Récitateur proposé : Abou Bakr Ash-Shâtirî (à confirmer ou changer).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-08-asr-103.mp3` (21,8 s, extrait de la vidéo fournie par Mo). Récitateur : Wadee' Al-Yamani.
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Al-'Asr · 3 versets »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : sourate très courte (3 versets, 14 mots) — probablement la plus courte vidéo du lot ; la garder entière sans coupe.
 
