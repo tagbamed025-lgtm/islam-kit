@@ -1,0 +1,9 @@
+# Dépendances npm (réinstallées via `npm install` dans moteur/, voir package.json)
+node_modules/
+
+# Copies locales de travail pour le rendu (régénérées depuis charte/ à chaque session)
+moteur/photo/grain.png
+moteur/photo/logo.png
+
+# Dossiers de sortie de rendu local (le livrable final va dans images/par_contenu/<ID>/ ou est envoyé à Mo)
+moteur/photo/out_lot02/
