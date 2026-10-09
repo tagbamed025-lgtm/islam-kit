@@ -36,7 +36,9 @@ Toujours identique : polices **Anton** (titres), **Cormorant Garamond italique**
   - Jamais de génération « pour réessayer » sans accord de Mo (chaque génération coûte des crédits).
   - Nombre de variantes à choisir : **à décider** (1 = économique, 2 = confort pour choisir une prise).
 - Fichier voix rangé dans le dépôt : `voix/fr/<ID>.mp3` (même ID que le contenu). Version anglaise : `voix/en/<ID>.mp3`.
-- **À tester** (rien n'est supposé acquis) : récupération du fichier audio depuis le connecteur vers l'espace de travail ; balises d'expression v3 ; voix anglaise.
+- **Variantes : toujours 1 seule prise** (Mo prend la « génération 1 »). Coût mesuré : ~385 crédits ElevenLabs (~0,07 $) pour ~25 s de voix.
+- **Test du 09/10/2026 (RAP-01)** : génération OK via le connecteur (24,6 s). **Le téléchargement du fichier audio est bloqué depuis l'espace de travail de Claude** (le serveur de stockage ElevenLabs est refusé par le réseau). Conséquence : Claude génère la voix et note son identifiant, mais le fichier MP3 doit être **téléchargé par Mo depuis le lien du flow ElevenLabs** (un clic) puis déposé dans `voix/fr/<ID>.mp3` sur GitHub. Le montage lit ensuite le MP3 depuis le dépôt.
+- **À tester** : balises d'expression v3 ; voix anglaise ; autre route pour récupérer l'audio sans passage par Mo.
 
 ## 4. Sons (validé)
 - Fond vocal sans instrument (fredonnement), baissé sous la voix, coupé sous le Coran.
