@@ -347,6 +347,23 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+  },
+  {
+   "id": "PHO-lot-02-oct-dec-en",
+   "type": "PHO",
+   "titre": "English version of the 18-photo lot (PHO-02-EN to PHO-19-EN), same dates",
+   "statut": "livré (18 images rendues) — relecture à faire ; décision de lancer l'anglais maintenant plutôt que dans 3-5 mois, confirmée par Mo le 09/10/2026",
+   "date": "2026-10-09",
+   "duree_s": null,
+   "format": "4:5",
+   "style": "photo",
+   "sources": "mêmes références que PHO-lot-02-oct-dec, traductions officielles sunnah.com (hadiths) et Saheeh International (versets, quran.com)",
+   "script": "scripts/en/PHO-lot-02-oct-dec.md",
+   "voix": null,
+   "images": "images/par_contenu/PHO-lot-02-oct-dec-en/",
+   "miniatures": null,
+   "reference_mp4": null,
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
   }
  ]
 }
