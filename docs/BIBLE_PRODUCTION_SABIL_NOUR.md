@@ -162,10 +162,11 @@ islam-kit/
   images/banque/<thème>/     images réutilisables (maison, désert, nuit, pain, lampe…)
   moteur/      modèles HTML, scripts de montage, rendu, mixage
   sons/        banque de sons
-  charte/      logo, polices, bannière, fonds, grain
-  miniatures/  <ID>_1080x1920.png, <ID>_1280x720.png
+  charte/      logo/ (logo seul, profils, filigrane, 4 logos), youtube/ (bannière, textes), grain_papier.png ; polices (Anton, Cormorant Garamond, Amiri, Inter)
+  miniatures/  <ID>_1080x1920.png, <ID>_1280x720.png (nouveaux contenus)
+  references/  vidéos MP4 de référence (une par format), miniatures et photos modèles + README
 ```
-Les MP4 finaux restent dans Google Drive (`Sabil Nour/Rendus/`), jamais dans GitHub (poids).
+Les MP4 finaux « à publier » restent dans Google Drive (`Sabil Nour/Rendus/`), pas dans GitHub (poids). **Exception (demande de Mo, 09/10/2026) : `references/videos/`** contient une version finale de chaque format (reel compagnon, reel hadith, vidéo du vendredi, récitation) comme modèle. **Avant de monter un nouveau contenu, toute discussion regarde `references/README.md` et le MP4 du même format.**
 
 ### Nommage des contenus (ID)
 `<TYPE>-<NN>-<sujet>` en minuscules sans accents :
