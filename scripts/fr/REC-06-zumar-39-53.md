@@ -1,7 +1,6 @@
 # REC-06-zumar-39-53 — Sourate Az-Zumar 39:53
 
-Statut : script à valider (09/10/2026) — remplace REC-06-talaq-65-2-3 (At-Talaq écarté, verset trop long et moins direct ; décision de Mo du 09/10/2026).
-Récitateur proposé : à définir par Mo (pas encore d'audio déposé pour celui-ci).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-06-zumar-39-53.mp3` (32,2 s). Récitateur : Mishary Alafasy. Remplace REC-06-talaq-65-2-3 (At-Talaq écarté, verset trop long et moins direct ; décision de Mo du 09/10/2026).
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Az-Zumar · verset 53 »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : verset unique, ne pas le couper en plein milieu.
 

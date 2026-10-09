@@ -1,7 +1,6 @@
 # REC-09-ikhlas-112 — Sourate Al-Ikhlas (112) — sourate entière
 
-Statut : script à valider (09/10/2026) — ajouté pour compléter le lot à 8 récitations (décision de Mo du 09/10/2026).
-Récitateur proposé : à définir par Mo (pas encore d'audio déposé pour celui-ci).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-09-ikhlas-112.mp3` (17,2 s). Récitateur : Mishary Alafasy.
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Al-Ikhlas · 4 versets »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : sourate très courte (4 versets), à garder entière sans coupe.
 

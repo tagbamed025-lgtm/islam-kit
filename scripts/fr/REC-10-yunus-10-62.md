@@ -1,7 +1,6 @@
 # REC-10-yunus-10-62 — Sourate Yunus 10:62
 
-Statut : script à valider (09/10/2026) — ajouté pour compléter le lot à 8 récitations (décision de Mo du 09/10/2026).
-Récitateur proposé : à définir par Mo (pas encore d'audio déposé pour celui-ci).
+Statut : audio déposé par Mo (09/10/2026), script à valider. Audio : `audio/recitations/REC-10-yunus-10-62.mp3` (19,0 s, fichier envoyé sans nom — **à confirmer par Mo que c'est bien Yunus 10:62**, c'est la seule récitation du lot qui restait sans audio). Récitateur : non identifié (à confirmer par Mo).
 Structure (bible §2 et §10) : (1) ouverture directe sur la récitation ; (2) carte de la sourate (« Sourate Yunus · verset 62 »), ~2,5 s, silencieuse ; (3) écran Abonne-toi, silencieux.
 Découpage : verset unique, ne pas le couper en plein milieu.
 
