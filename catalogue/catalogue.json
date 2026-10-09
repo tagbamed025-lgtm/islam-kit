@@ -330,6 +330,23 @@
    "miniatures": null,
    "reference_mp4": "references/videos/REC-02-kahf-18-46.mp4",
    "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+  },
+  {
+   "id": "PHO-lot-02-oct-dec",
+   "type": "PHO",
+   "titre": "Lot de 18 photos (PHO-02 à PHO-19), 2/semaine du 13/10 au 10/12/2026",
+   "statut": "scripts rédigés, sources à relire par une personne de confiance",
+   "date": "2026-10-09",
+   "duree_s": null,
+   "format": "4:5",
+   "style": "photo",
+   "sources": "Bukhârî 13, 69, 5027, 6018, 6114, 6117, 10 ; Muslim 37, 41, 45, 47, 91, 1734, 2609 ; Tirmidhî 1954, 1956, 1987 ; Abû Dâwud 1522 ; Coran 2:152, 2:286, 3:159, 16:97, 49:13, 65:3",
+   "script": "scripts/fr/PHO-lot-02-oct-dec.md",
+   "voix": null,
+   "images": null,
+   "miniatures": null,
+   "reference_mp4": null,
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
   }
  ]
 }
