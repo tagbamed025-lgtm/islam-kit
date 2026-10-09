@@ -1,6 +1,6 @@
 # BIBLE DE PRODUCTION — Sabil Nour (سبيل النور)
 
-Version 2 — brouillon du 09/10/2026 (en attente de validation de Mo).
+Version 2 — **validée par Mo le 09/10/2026** (« ok bible »).
 Cette bible REMPLACE `chaine-islam-reference.md` : tout ce qui y était a été repris, rien n'est perdu. Elle est mise à jour à la fin de chaque contenu.
 
 ---
@@ -102,7 +102,7 @@ Total : 2 vidéos du vendredi, 2 reels compagnons, 2 reels hadith, 2 récitation
 
 **Format Rappel — règles** : un seul message ; appuyé sur un hadith authentique ou un verset avec source affichée ; aucun jugement sur des personnes ou des catégories ; aucun avis personnel, fiqh, fatwa ; pas de récit sans source ; ouverture par une phrase d'accroche. Premier Rappel validé par Mo (09/10/2026) : « Tout le monde commet des péchés… » (voir `scripts/fr/RAPPEL-01-peches.md`).
 
-## 6. Code couleur des scripts (PROPOSITION — à valider par Mo)
+## 6. Code couleur des scripts (validé le 09/10/2026)
 Dans les scripts remis par Claude :
 - noir : texte de la voix off (le seul qui part à ElevenLabs) ;
 - vert : texte affiché à l'écran ;
@@ -110,7 +110,7 @@ Dans les scripts remis par Claude :
 - gris italique : indication de son ou de montage ;
 - bleu : image à fournir, nommée `S<scène>_<sujet>_<n°>`.
 
-## 7. Méthode : 3 types de discussions (proposition à valider)
+## 7. Méthode : 3 types de discussions (validée le 09/10/2026)
 Une discussion = une tâche. Le modèle est choisi au début et ne change plus. Les codes ci-dessus s'écrivent en début de message ; pas de numéro à taper.
 
 1. **#SCRIPT (Sonnet)** — par lot (1 cycle de 14 jours, ou 2 cycles). Livrables : scripts sourcés ; texte voix off seul ; liste des images nommées ; prompts d'images en anglais (un par ligne, bloc de style inclus) ; titres et légendes des photos ; titre + miniature suggérée. Après validation et « ok voix » : génération de la voix (estimation du coût d'abord) et rangement dans `voix/fr/`.
@@ -203,12 +203,11 @@ Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → calcul des
 Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 
 ## 13. Questions ouvertes
-- Nombre de variantes de voix (1 ou 2).
-- Récupération de l'audio depuis ElevenLabs vers le montage : à tester sur une phrase.
+- Récupération de l'audio : bloquée côté Claude (voir §3) ; Mo télécharge et dépose le MP3. À rechercher : une autre route.
+- Montage du Rappel RAP-01 : servira de test de toute la méthode, dans une nouvelle discussion lancée par Mo une fois le kit terminé.
 - Format quiz YouTube : proposé (1 par cycle, à la place d'une photo, une seule bonne réponse, explication sourcée) — en attente du « go » de Mo.
 - Horaires de publication : à tester 2 semaines.
 - Le reel Anas fait 56 s pour un objectif de 45 s : à trancher.
-- Code couleur des scripts (§6) et méthode en 3 discussions (§7) : à valider.
 
 ## 14. Historique
 - 27–28/09/2026 : pilote Khalid ; nom Sabil Nour ; kit YouTube.
