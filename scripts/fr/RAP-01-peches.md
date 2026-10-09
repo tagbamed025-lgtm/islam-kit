@@ -54,3 +54,9 @@ Typographique, aucune image : fond crème pour le conseil, fond émeraude + arch
 | S7 | Dis : « Ô Celui qui retourne les cœurs, raffermis mon cœur dans Ta religion. » | يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ + traduction FR — Tirmidhî 2140 (doré) | émeraude + arche |
 | Fin | — | carton source + « Une histoire chaque vendredi sur @sabilnour » + Abonne-toi | crème / émeraude |
 L'arabe de l'invocation est à vérifier sur sunnah.com avant l'affichage. Pauses : minimums de la bible §3 (durée estimée 32 à 35 s).
+
+## Montage (09/10/2026)
+- Arabe de l'invocation vérifié sur sunnah.com (Tirmidhî 2140) : يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ
+- Coran 2:34 affiché : « …Iblîs qui refusa, s'enfla d'orgueil… » (Hamidullah, quran.com).
+- Pauses ajoutées : +0,03 s (« péchés. »), +0,05 s (« d'Allah. »), +0,01 s (avant l'invocation), +0,37 s (« Dis : » avant la citation), silence final porté à 1,2 s.
+- MP4 : « Tout le monde commet des péchés… – Rappel.mp4 » (31,5 s, −14 LUFS) ; miniatures dans `miniatures/RAP-01-peches/`.

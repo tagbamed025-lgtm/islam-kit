@@ -174,19 +174,21 @@
   {
    "id": "RAP-01-peches",
    "type": "RAP",
-   "titre": "Tout le monde commet des péchés (Rappel)",
-   "statut": "script validé ; voix générée (09/10) ; montage à faire (test de la méthode)",
+   "titre": "Tout le monde commet des péchés… | Rappel",
+   "statut": "livré (09/10/2026) — relecture par une personne de confiance avant publication",
    "date": "2026-10-09",
-   "duree_s": 24.7,
+   "duree_s": 31.5,
    "format": "9:16",
    "style": "typographique (crème + cartes émeraude, aucune image)",
    "sources": "Tirmidhî 2140 (hasan) ; Muslim 2654 ; Coran 2:34",
    "script": "scripts/fr/RAP-01-peches.md",
    "voix": "voix/fr/RAP-01-peches.mp3",
    "images": "images/par_contenu/RAP-01-peches/",
-   "miniatures": null,
-   "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "miniatures": "miniatures/RAP-01-peches/",
+   "reference_mp4": "references/videos/RAP-01-peches.mp4",
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "moteur": "moteur/rappel-peches/",
+   "mp4_nom": "Tout le monde commet des péchés… – Rappel.mp4"
   }
  ]
 }

@@ -14,6 +14,7 @@ Les MP4 finaux « à publier » restent dans Google Drive ; ceux-ci servent uniq
 | `videos/VID-01-khalid.mp4` | « Khalid ibn al-Walid » | 76,6 s | 9:16 | Pilote compagnon (style apparition) |
 | `videos/REC-02-kahf-18-46.mp4` | Récitation Al-Kahf 18:46 | 24,2 s | 9:16 | **Référence des récitations** (structure actuelle : ouverture sur la récitation) |
 | `videos/REC-01-hadid-57-20.mp4` | Récitation Al-Hadîd 57:20 | 55,2 s | 9:16 | Ancienne structure (intro de 2 s) |
+| `videos/RAP-01-peches.mp4` | Rappel « Tout le monde commet des péchés… » (09/10) | 31,5 s | 9:16 | **Référence des Rappels** (typographique crème + citations émeraude) |
 | `miniatures/` | Miniatures 1080×1920 et 1280×720 des vidéos ci-dessus | — | — | Style des miniatures |
 | `photos/` | 5 photos de la semaine 1 | — | carré | Style des photos (hadith / invocation / verset) |
 

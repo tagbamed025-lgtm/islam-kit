@@ -202,12 +202,12 @@ Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → calcul des
 | REC-01-hadid-57-20 | La vie d'ici-bas n'est qu'un jeu… \| Sourate Al-Hadîd 57:20 | livré |
 | REC-02-kahf-18-46 | Tes biens, tes enfants… et ce qui dure vraiment \| Sourate Al-Kahf 18:46 | livré |
 | PHO-S1 (×5) | Photos semaine 1 + invocation 2721 + richesse 6446 + verset 33:23 | livrées |
-| RAP-01-peches | « Tout le monde commet des péchés » (Rappel, 09/10) | script validé, sources à vérifier |
+| RAP-01-peches | « Tout le monde commet des péchés… \| Rappel » (09/10, typographique, 31,5 s) | livré |
 Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 
 ## 13. Questions ouvertes
 - Récupération de l'audio : bloquée côté Claude (voir §3) ; Mo télécharge et dépose le MP3. À rechercher : une autre route.
-- Montage du Rappel RAP-01 : servira de test de toute la méthode, dans une nouvelle discussion lancée par Mo une fois le kit terminé.
+- Rappel RAP-01 : avec les seuls minimums du §3, la voix ne passe que de 24,7 s à 25,6 s (+0,94 s) ; si Mo la trouve encore rapide, proposer `atempo` −4/5 % ou des minimums plus longs.
 - Format quiz YouTube : proposé (1 par cycle, à la place d'une photo, une seule bonne réponse, explication sourcée) — en attente du « go » de Mo.
 - Horaires de publication : à tester 2 semaines.
 - Le reel Anas fait 56 s pour un objectif de 45 s : à trancher.
@@ -221,3 +221,4 @@ Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 - 04/10 : règle des photos (titre = nom du fichier + légende).
 - 09/10 : voix Sébastien – Narrator v3 inscrite (voice_id) ; Claude génère la voix off ; dépôt GitHub `islam-kit` créé et structuré ; format Rappel ajouté ; plan de la version anglaise.
 - 09/10/2026 (suite) : méthode PDF validée (`docs/METHODE_PRODUCTION.pdf`) ; instructions collées dans le projet ; migration des anciens contenus dans le dépôt : scripts (`scripts/fr/`), voix (`voix/fr/`), images (`images/par_contenu/`), moteur de montage par format (`moteur/`), sons (`sons/`), polices et logos (`charte/`), catalogue (`catalogue/catalogue.json`).
+- 09/10/2026 (soir) : montage RAP-01 livré (format Rappel typographique ; moteur `moteur/rappel-peches/` ; arabe de l'invocation vérifié sur sunnah.com ; Coran 2:34 copié de quran.com ; aucun son ni fond vocal pendant la citation coranique).

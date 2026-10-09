@@ -9,6 +9,7 @@ Chaque dossier est une COPIE de travail d'un contenu livré (HTML d'animation + 
 | Vidéo du vendredi (16:9) | `video-longue-musab/` | `build_html.py`, `engine.html`, `timeline.py`, rendu par parties (`part.sh`, `render_range.py`) |
 | Extrait vertical d'une vidéo longue | `extrait-vertical-musab/` | Mis de côté (décision du 30/09/2026) |
 | Récitation | `recitation-kahf/` (structure actuelle) · `recitation-hadid/` | Aucun son sous le Coran |
+| Rappel (typographique) | `rappel-peches/` | Pauses bible §3, aucune image, citations sur émeraude + arche |
 | Photo | `photo/` | `photo.html`, `photos.json`, `shot.py` (1080×1350) |
 | Calage voix → mots | `asr/` | `asr.mjs` (Whisper-small via `@xenova/transformers`) |
 

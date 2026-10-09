@@ -1,0 +1,154 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(fonts/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F,U+2026}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(fonts/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(fonts/cormorant-garamond-latin-ext-500-italic.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Amiri;font-weight:700;src:url(fonts/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(fonts/inter-latin-800-normal.woff2)}
+:root{--cream:#F4F1EA;--cream2:#FBF6EA;--gold:#EDCB85;--gold2:#EBD9A4;--acc:#0F5B46;--ink:#141414}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--cream)}
+.L{position:absolute;inset:0;overflow:hidden}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;opacity:.5;mix-blend-mode:multiply;pointer-events:none}
+#tag{position:absolute;left:60px;top:150px;font-family:Inter;font-weight:600;font-size:24px;letter-spacing:.3em;color:#FBF6EA;background:var(--acc);padding:13px 20px 13px 24px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:5}
+#tag b{color:var(--gold);font-weight:800}
+#fil{position:absolute;left:50%;bottom:150px;width:120px;transform:translateX(-50%);opacity:.55;z-index:5}
+.blk{position:absolute;left:70px;right:70px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.anton{font-family:Anton,sans-serif;text-transform:uppercase;color:var(--ink);letter-spacing:1px}
+.ln{white-space:nowrap;line-height:1.06}
+.w{display:inline-block;white-space:pre;will-change:transform,opacity}
+.anton .k{color:var(--acc)}
+#em{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 45%,#13684F 0%,#0B4636 55%,#06291F 100%)}
+#halo{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(237,203,133,.20) 0%,rgba(237,203,133,.06) 30%,rgba(237,203,133,0) 55%)}
+#arch{position:absolute;left:0;top:0}
+.chip{position:absolute;left:50%;top:430px;transform:translateX(-50%);font-family:Inter;font-weight:800;letter-spacing:.26em;font-size:24px;color:var(--gold);border:1.5px solid rgba(237,203,133,.6);padding:13px 26px;white-space:nowrap}
+.q{position:absolute;left:170px;right:170px;top:0;height:1920px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.corm{font-family:Corm,serif;font-style:italic;font-weight:500;color:var(--cream2);font-size:78px;line-height:1.12}
+.corm .k{color:var(--gold)}
+.src{font-family:Inter;font-weight:600;font-size:25px;line-height:1.7;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-top:56px;white-space:nowrap}
+.rule{width:220px;height:2px;background:var(--gold);margin:46px auto 0;transform-origin:50% 50%}
+.ar{font-family:Amiri,serif;font-weight:700;direction:rtl;color:var(--gold2);font-size:96px;line-height:1.5;white-space:nowrap}
+.disc{border-radius:50%;background:var(--acc)}
+#fade{position:absolute;inset:0;background:#000;pointer-events:none;z-index:9}
+</style></head>
+<body><div id="stage">
+<div class="L" id="cream"></div>
+<div id="LS"></div>
+<div class="L" id="LE" style="opacity:0"><div id="em"></div><div id="halo"></div>
+ <svg id="arch" width="1080" height="1920"><path id="archP" d="M150 1500 L150 760 Q150 470 540 330 Q930 470 930 760 L930 1500" fill="none" stroke="#EDCB85" stroke-width="3" opacity=".85"/>
+ <path id="archP2" d="M180 1470 L180 770 Q180 500 540 368 Q900 500 900 770 L900 1470" fill="none" stroke="#EDCB85" stroke-width="1.2" opacity=".45"/></svg>
+ <div class="chip" id="chip">HADITH</div>
+ <div id="LQ"></div>
+</div>
+<div class="L" id="LZ" style="display:none"></div>
+<div id="grain"></div>
+<img id="fil" src="img/fil.png">
+<div id="tag">RAPPEL · <b>01</b></div>
+<div id="fade"></div>
+</div>
+<script>
+const TL=__TL__;
+const {SC,W,X,DUR}=TL;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo3=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5), eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo3)=>e(cl((t-t0)/d));
+const $=id=>document.getElementById(id);
+const ORDER=['S1','S2','S3','S4','S5','S6','S7','END1','END2'];
+const nextOf=s=>SC[ORDER[ORDER.indexOf(s)+1]]??DUR;
+// --- blocs crème (S1–S4)
+const LS=$('LS');
+for(const s of ['S1','S2','S3','S4']){
+  const b=document.createElement('div');b.className='blk anton';b.id='b'+s;
+  b.innerHTML=W[s].map(ln=>'<div class="ln">'+ln.map(w=>`<span class="w${w[2]?' k':''}" data-t="${w[1]}">${w[0]}</span>`).join(' ')+'</div>').join('');
+  LS.appendChild(b);
+}
+// --- citations (S5–S7)
+const LQ=$('LQ');
+const SRC={S5:"Jâmi' at-Tirmidhî 2140<br>Sahîh Muslim 2654",S6:"Coran · Al-Baqara 2:34<br>trad. Hamidullah",S7:"Jâmi' at-Tirmidhî 2140 · hasan"};
+for(const s of ['S5','S6','S7']){
+  const q=document.createElement('div');q.className='q';q.id='q'+s;
+  let h='';
+  if(s==='S7')h+=`<div class="ar" id="ar">يَا مُقَلِّبَ الْقُلُوبِ<br>ثَبِّتْ قَلْبِي عَلَى دِينِكَ</div><div class="rule" id="rule7" style="margin:30px auto 40px"></div>`;
+  h+='<div class="corm"'+(s==='S7'?' style="font-size:72px"':'')+'>'+W[s].map(ln=>'<div class="ln">'+ln.map(w=>`<span class="w${w[2]?' k':''}" data-t="${w[1]}">${w[0]}</span>`).join(' ')+'</div>').join('')+'</div>';
+  h+=`<div class="rule" id="rule${s}"></div><div class="src" id="src${s}">${SRC[s]}</div>`;
+  q.innerHTML=h;LQ.appendChild(q);
+}
+// --- fin : carton source puis abonne-toi
+$('LZ').innerHTML=`
+<div id="Z1" class="L"><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 45%,#13684F 0%,#0B4636 55%,#06291F 100%)"></div>
+ <div class="q" style="left:90px;right:90px">
+  <div class="src" id="z1a" style="margin:0 0 50px;font-size:24px;letter-spacing:.34em;color:rgba(237,203,133,.8)">SOURCES</div>
+  <div class="corm" id="z1b" style="font-size:58px;line-height:1.45">Jâmi' at-Tirmidhî 2140 <span style="color:var(--gold)">(hasan)</span><br>Sahîh Muslim 2654<br>Coran, Al-Baqara 2:34<br><span style="font-size:42px;opacity:.8">traduction Hamidullah</span></div>
+  <div class="rule" id="z1r" style="margin-top:60px"></div>
+  <div class="anton" id="z1c" style="margin-top:60px;color:var(--cream2);font-size:58px;line-height:1.2">UNE HISTOIRE CHAQUE VENDREDI<br><span style="color:var(--gold)">SUR @SABILNOUR</span></div>
+ </div></div>
+<div id="Z2" class="L" style="background:var(--cream)">
+ <div id="hDisc" class="disc" style="position:absolute;left:260px;top:500px;width:560px;height:560px"></div>
+ <img id="hLogo" src="img/logo.png" style="position:absolute;left:350px;top:590px;width:380px">
+ <div id="hT" class="anton" style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-size:170px;line-height:1">ABONNE-TOI</div>
+ <div id="hS" style="position:absolute;left:0;right:0;top:1345px;text-align:center;font-family:Inter;font-weight:600;font-size:28px;letter-spacing:.3em;color:var(--ink)">UNE HISTOIRE CHAQUE VENDREDI</div>
+ <div id="hB" style="position:absolute;left:340px;top:1440px;width:400px;text-align:center;font-family:Inter;font-size:34px;font-weight:800;color:#F4F1EA;background:var(--acc);padding:28px 0;border-radius:80px;letter-spacing:.2em">S'ABONNER</div>
+</div>`;
+// ajuste chaque bloc crème à la largeur
+function fit(){
+  for(const s of ['S1','S2','S3','S4']){const b=$('b'+s);let f=170;b.style.fontSize=f+'px';
+    const mw=()=>Math.max(...[...b.querySelectorAll('.ln')].map(l=>l.scrollWidth));
+    while(mw()>900&&f>60){f-=4;b.style.fontSize=f+'px';}}
+  const a=$('ar');let f=96;a.style.fontSize=f+'px';while(a.scrollWidth>720&&f>40){f-=4;a.style.fontSize=f+'px';}
+}
+const archLen=[$('archP').getTotalLength(),$('archP2').getTotalLength()];
+function words(root,T){
+  for(const w of root.querySelectorAll('.w')){const t0=+w.dataset.t-0.06;const p=P(T,t0,.32,eo5);
+    w.style.opacity=p;w.style.transform=`translateY(${(1-p)*34}px) scale(${lerp(1.08,1,p)})`;
+    w.style.filter=p<1?`blur(${(1-p)*6}px)`:'none';}
+}
+function render(T){
+  // crème S1–S4 : le bloc courant sort vers le haut quand le suivant arrive
+  for(const s of ['S1','S2','S3','S4']){const b=$('b'+s);const t0=SC[s],t1=nextOf(s);
+    const on=T>=t0-.01&&T<t1+.35;b.style.display=on?'flex':'none';if(!on)continue;
+    const o=s==='S4'?1:1-P(T,t1,.3);b.style.opacity=o;b.style.transform=`translateY(${-P(T,t1,.35)*80}px)`;
+    words(b,T);}
+  // émeraude : entrée en cercle à S5, arche qui se dessine
+  const e0=SC.S5;const eo=P(T,e0-.05,.55,eio);const ein=T>=e0-.05&&T<SC.END1+.6;
+  $('LE').style.display=ein?'block':'none';
+  $('LE').style.opacity=1;$('LE').style.clipPath=`circle(${eo*1250}px at 540px 960px)`;
+  ['archP','archP2'].forEach((id,i)=>{const p=P(T,e0+.15+i*.15,1.4,eio);const el=$(id);el.style.strokeDasharray=archLen[i];el.style.strokeDashoffset=archLen[i]*(1-p);});
+  $('halo').style.opacity=.75+.25*Math.sin(T*1.3);
+  const chipTxt=T<SC.S6?'HADITH':T<SC.S7?'CORAN · 2:34':'INVOCATION';$('chip').textContent=chipTxt;
+  for(const s of ['S5','S6','S7']){const q=$('q'+s);const t0=SC[s],t1=nextOf(s);
+    const on=T>=t0-.01&&T<t1+.4;q.style.display=on?'flex':'none';if(!on)continue;
+    const o=s==='S7'?1:1-P(T,t1,.35);q.style.opacity=o;
+    words(q,T);
+    const sk='src'+s;const ts=X[sk];
+    $('rule'+s).style.transform=`scaleX(${P(T,ts-.15,.5)})`;
+    const sp=P(T,ts,.5,eo5);$(sk).style.opacity=sp;$(sk).style.transform=`translateY(${(1-sp)*16}px)`;}
+  {const c=P(T,SC.S5+.3,.5);const sw=Math.min(1-P(T,SC.S6-.05,.15)+P(T,SC.S6+.1,.3),1-P(T,SC.S7-.05,.15)+P(T,SC.S7+.1,.3));$('chip').style.opacity=c*cl(sw);}
+  // invocation arabe : révélée de droite à gauche
+  {const a=$('ar');const p1=P(T,X.arS7,1.1,eio);a.style.clipPath=`inset(-20% 0 -20% ${100-p1*100}%)`;
+   $('rule7').style.transform=`scaleX(${P(T,X.arS7+.9,.5)})`;}
+  // fin
+  const z=T>=SC.END1-.01;$('LZ').style.display=z?'block':'none';
+  if(z){const h=T-SC.END1;const z1=$('Z1');z1.style.display=T<SC.END2+.4?'block':'none';
+    z1.style.opacity=P(h,0,.35);
+    $('z1a').style.opacity=P(h,.1,.4);$('z1b').style.opacity=P(h,.2,.5);$('z1b').style.transform=`translateY(${(1-P(h,.2,.6,eo5))*20}px)`;
+    $('z1r').style.transform=`scaleX(${P(h,.6,.5)})`;$('z1c').style.opacity=P(h,.8,.5);$('z1c').style.transform=`translateY(${(1-P(h,.8,.6,eo5))*20}px)`;
+    const g=T-SC.END2;const z2=$('Z2');z2.style.display=g>=0?'block':'none';
+    if(g>=0){z2.style.clipPath=`circle(${P(g,0,.45,eio)*1250}px at 540px 780px)`;
+     $('hDisc').style.transform=`scale(${P(g,.05,.6,bk)})`;$('hLogo').style.transform=`scale(${P(g,.2,.6,bk)})`;
+     const tp=P(g,.35,.4,eo5);$('hT').style.transform=`scale(${lerp(1.5,1,tp)})`;$('hT').style.opacity=g>.35?1:0;
+     $('hS').style.opacity=P(g,.7,.5);const b=P(g,1.0,.5,bk);$('hB').style.transform=`scale(${b*(1+(g>1.8&&g<2.0?.06:0))})`;}}
+  // étiquette, filigrane, grain
+  const inEnd=T>=SC.END1;$('tag').style.opacity=inEnd?0:1;$('fil').style.opacity=T<SC.S5?.5:0;
+  $('grain').style.opacity=T>=SC.S5&&T<SC.END2?.22:.5;
+  const f=Math.floor(T*30);$('grain').style.transform=`translate(${(f*137)%200-100}px,${(f*271)%200-100}px)`;
+  $('fade').style.opacity=Math.max(1-cl(T/.2),cl((T-(DUR-.4))/.4));
+}
+window.render=render;window.DUR=DUR;window.READY=false;
+document.fonts.ready.then(()=>{fit();render(0);window.READY=true;});
+</script></body></html>
