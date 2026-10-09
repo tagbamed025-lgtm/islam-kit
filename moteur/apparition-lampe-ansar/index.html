@@ -1,0 +1,316 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Amiri;font-weight:400;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+:root{--sh:drop-shadow(0 30px 34px rgba(45,35,15,.30)) drop-shadow(0 7px 9px rgba(45,35,15,.20));--bg:#F4F1EA;--ink:#141414;--acc:#0F5B46;--gold:#EBD9A4;--mut:#8a857a}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.scene{position:absolute;inset:0;display:none;transform-origin:50% 45%}
+.full{position:absolute;inset:0}
+.a{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform}
+.anton{font-family:Anton,Amiri,sans-serif;text-transform:uppercase;line-height:.9;color:var(--ink);white-space:nowrap;letter-spacing:.5px}
+.corm{font-family:Corm,Amiri,serif;font-style:italic;font-weight:500;color:var(--ink);line-height:1.12;text-align:center}
+.inter{font-family:Inter,Amiri,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.32em;color:var(--ink);white-space:nowrap}
+.ar{font-family:Amiri,serif;direction:rtl;color:var(--ink);white-space:nowrap}
+.acc{color:var(--acc)} .gold{color:var(--gold)} .cream{color:#F4F1EA}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .02em .12em;margin:-.16em 0 -.12em}
+.wi{display:inline-block}
+.disc{border-radius:50%;background:var(--acc)}
+.rule{height:3px;background:var(--acc)}
+img{display:block}
+img.obj{filter:var(--sh)}
+.fade{-webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 100%)}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;pointer-events:none;opacity:.9;mix-blend-mode:multiply}
+#vig{position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(ellipse 70% 45% at 0% 0%,rgba(40,32,20,.16),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 0%,rgba(40,32,20,.12),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 0% 100%,rgba(40,32,20,.14),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 100%,rgba(40,32,20,.16),transparent 70%)}
+#tag{position:absolute;left:60px;top:150px;font-family:Inter;font-weight:600;font-size:22px;letter-spacing:.3em;color:var(--mut)}
+#tag b{color:var(--acc);font-weight:800}
+#bar{position:absolute;left:0;bottom:0;height:8px;background:var(--acc);width:0}
+.chip{font-family:Inter;font-weight:600;text-transform:uppercase;letter-spacing:.28em;background:#141414;color:#F4F1EA;padding:.5em .95em;white-space:nowrap}
+.src{font-family:Inter;font-weight:600;letter-spacing:.24em;color:var(--mut);white-space:nowrap;font-size:22px}
+.card{background:#FBFAF6;box-shadow:0 40px 80px rgba(40,30,10,.22),0 6px 18px rgba(40,30,10,.12)}
+.night{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,#14151c 0%,#07080c 70%)}
+</style></head>
+<body><div id="stage">
+<div id="scenes"></div>
+<div id="vig"></div>
+<div id="grain"></div>
+<div id="tag">LES ANSÂR · <b>MÉDINE</b></div>
+<div id="bar"></div>
+</div>
+<script>
+const W=1080,H=1920,CX=540;const OFF=.3;const N=t=>OFF+t+(t>22.5?1.0:0)+(t>30.3?.4:0)+(t>39.1?.5:0);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
+const bk=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo)=>e(cl((t-t0)/d));
+function tf(el,x,y,o={}){const s=o.s??1,r=o.r??0,ax=o.ax??50,ay=o.ay??50;
+ el.style.transformOrigin=`${ax}% ${ay}%`;
+ el.style.transform=`translate(${x}px,${y}px) translate(${-ax}%,${-ay}%) rotate(${r}deg) scale(${s})`;
+ if(o.o!==undefined)el.style.opacity=o.o; if(o.f!==undefined)el.style.filter=o.f+(el.classList.contains('obj')?' var(--sh)':'');}
+const WD=(txt)=>txt.split(' ').map(w=>{let c='';if(w.length>2&&w.startsWith('*')&&w.endsWith('*')){w=w.slice(1,-1);c=' acc'}if(w.length>2&&w.startsWith('_')&&w.endsWith('_')){w=w.slice(1,-1);c=' gold'}if(w==='ﷺ')return `<span class="w"><span class="wi" style="font-family:Amiri;font-style:normal">ﷺ</span></span>`;return `<span class="w"><span class="wi${c}">${w}</span></span>`}).join(' ');
+function rw(el,t,t0,st=.06,d=.5){el.querySelectorAll('.wi').forEach((s,i)=>{const p=P(t,t0+i*st,d,eo5);if(p>0)mark(s,'word');s.style.transform=`translateY(${(1-p)*115}%)`;});}
+function rwT(el,t,times,d=.45){el.querySelectorAll('.wi').forEach((s,i)=>{const p=P(t,N(times[Math.min(i,times.length-1)]),d,eo5);if(p>0)mark(s,'word');s.style.transform=`translateY(${(1-p)*115}%)`;});}
+function slam(el,x,y,t,t0,o={}){if(t>=t0)mark(el,'slam');const p=P(t,t0,.4,ex);tf(el,x,y,{s:lerp(o.from??1.8,1,p)*(o.s??1),r:o.r??0,o:t<t0?0:cl((t-t0)/.07)});
+ const g=t-t0; el.style.textShadow=(g>0&&g<.2)?`${-10*(1-g/.2)}px 0 rgba(15,91,70,.75),${10*(1-g/.2)}px 0 rgba(190,50,40,.45)`:'none';}
+function fadeUp(el,x,y,t,t0,d=.5,dist=40,o={}){const p=P(t,t0,d,eo5);if(p>0)mark(el,'fade');tf(el,x,y+(1-p)*dist,{o:p*(o.o??1),s:o.s??1,f:o.f});}
+function shk(t,t0,d,a){if(t<t0||t>t0+d)return[0,0];const k=1-(t-t0)/d;return[Math.sin(t*97)*a*k,Math.cos(t*71)*a*k];}
+const flick=t=>.78+.12*Math.sin(t*23.0)*Math.sin(t*7.3)+.08*Math.sin(t*41.7+1.3);
+const S=[];let CUR=0;const EV=[];const seen=new WeakSet();
+function mark(el,k){if(!seen.has(el)){seen.add(el);EV.push([k,+CUR.toFixed(3)]);}}
+function scene(s,e,html,up,o={}){const d=document.createElement('div');d.className='scene';d.innerHTML=html;document.getElementById('scenes').appendChild(d);
+ const $=id=>d.querySelector('#'+id);S.push({s:N(s),e:N(e),d,$,up,zoom:o.zoom??.035,dark:!!o.dark});}
+const pos=(el,x,y,o={})=>tf(el,x,y,o);
+function chipIn(el,x,y,t,t0){const p=P(t,t0,.45,eo5);if(p>0)mark(el,'fade');el.style.clipPath=`inset(0 ${100-p*100}% 0 0)`;tf(el,x,y,{o:t<t0?0:1});}
+function srcIn(el,x,y,t,t0){fadeUp(el,x,y,t,t0,.6,16);}
+const op=(el,v)=>{el.style.opacity=v};
+
+/* S1 — Médine, un soir : poussée lente vers la fenêtre allumée */
+scene(-.3,4.5,`
+<img id="bg" class="a fade" src="raw/L1.png" style="width:1300px;height:1300px">
+<div id="gw" class="a" style="width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,214,140,.75) 0%,rgba(255,190,110,.25) 40%,rgba(255,190,110,0) 70%);mix-blend-mode:screen"></div>
+<div id="c" class="a chip" style="font-size:24px">MÉDINE · UN SOIR</div>
+<div id="t1" class="a anton" style="font-size:112px">${WD("UN HOMME")}</div>
+<div id="t2" class="a anton acc" style="font-size:210px">AFFAMÉ</div>
+<div id="t3" class="a corm" style="font-size:70px">${WD("vient trouver le Prophète ﷺ.")}</div>`,
+(T,$)=>{const lt=T-N(-.3);const s=1.0+.10*eio(cl(lt/5));
+ tf($('bg'),CX,650,{s,ax:42,ay:51});tf($('gw'),439+(439-439)*s,663,{s:s*(.92+.08*flick(T)),o:.55+.45*P(T,N(.2),1.2)});
+ chipIn($('c'),CX,1250,T,N(-.1));
+ pos($('t1'),CX,1390);rw($('t1'),T,N(1.44),.12);
+ slam($('t2'),CX,1560,T,N(1.74),{from:1.7});
+ pos($('t3'),CX,1730);rwT($('t3'),T,[2.1,2.26,2.52,2.68,3.3]);},{zoom:.0});
+
+/* S2 — que de l'eau (goutte) puis l'appel du Prophète */
+scene(4.5,9.5,`
+<div id="gA" class="full">
+ <svg id="drop" class="a" width="150" height="210" viewBox="0 0 160 220"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a8a6c"/><stop offset="1" stop-color="#0F5B46"/></linearGradient></defs><path d="M80 8 C80 8 18 102 18 148 a62 62 0 0 0 124 0 C142 102 80 8 80 8Z" fill="url(#dg)"/><ellipse cx="58" cy="140" rx="12" ry="22" fill="rgba(255,255,255,.35)"/></svg>
+ <svg id="rip" class="a" width="700" height="200" viewBox="0 0 700 200"><ellipse id="r1" cx="350" cy="100" rx="60" ry="14" fill="none" stroke="#0F5B46" stroke-width="3"/><ellipse id="r2" cx="350" cy="100" rx="60" ry="14" fill="none" stroke="#0F5B46" stroke-width="2"/></svg>
+ <div id="t1" class="a anton" style="font-size:92px">${WD("CHEZ LE PROPHÈTE ﷺ,")}</div>
+ <div id="t2" class="a anton" style="font-size:112px">${WD("IL N'Y A")}</div>
+ <div id="t3" class="a anton acc" style="font-size:168px">QUE DE L'EAU.</div>
+</div>
+<div id="gB" class="full">
+ <img id="sd" class="a obj" src="img/cut_L2.png" style="height:640px">
+ <div id="u1" class="a corm" style="font-size:72px">${WD("Il demande qui veut accueillir")}</div>
+ <div id="u2" class="a anton acc" style="font-size:150px">CET HOMME</div>
+ <div id="u3" class="a corm" style="font-size:72px">${WD("pour la nuit.")}</div>
+</div>`,
+(T,$)=>{const fa=1-P(T,N(6.66),.3);op($('gA'),fa);op($('gB'),P(T,N(6.66),.3));
+ const pd=P(T,N(4.6),.55,x=>x*x);tf($('drop'),CX,lerp(200,560,pd),{o:T<N(4.6)?0:1-P(T,N(5.2),.25),s:lerp(.8,1,pd)});if(T>N(5.15))mark($('drop'),'pop');
+ const rp=P(T,N(5.15),1.1,eo);tf($('rip'),CX,640,{o:(1-rp)*(T>N(5.15)?1:0)});$('r1').setAttribute('rx',60+260*rp);$('r1').setAttribute('ry',14+50*rp);$('r2').setAttribute('rx',60+160*rp);$('r2').setAttribute('ry',14+32*rp);
+ pos($('t1'),CX,880);rw($('t1'),T,N(4.55),.09);
+ pos($('t2'),CX,1040);rw($('t2'),T,N(5.62),.1);
+ const [sx,sy]=shk(T,N(6.1),.35,10);slam($('t3'),CX+sx,1220+sy,T,N(6.1),{from:1.6});
+ const sl=P(T,N(6.7),.7,eo5);tf($('sd'),CX+(1-sl)*500,560,{o:sl});
+ pos($('u1'),CX,1060);rwT($('u1'),T,[6.74,6.84,7.26,7.7,7.88]);
+ slam($('u2'),CX,1230,T,N(8.26),{from:1.5});
+ pos($('u3'),CX,1390);rwT($('u3'),T,[8.62,8.78,8.9]);},{zoom:.025});
+
+/* S3 — un homme des Ansâr : la porte de sa maison */
+scene(9.5,12.4,`
+<img id="bg" class="a fade" src="raw/L2.png" style="width:1240px;height:1240px">
+<div id="t1" class="a anton" style="font-size:112px">${WD("UN HOMME")}</div>
+<div id="t2" class="a anton acc" style="font-size:190px">DES ANSÂR</div>
+<div id="t3" class="a corm" style="font-size:72px">${WD("se lève et l'emmène chez lui.")}</div>`,
+(T,$)=>{const lt=T-N(9.5);tf($('bg'),CX,600,{s:1.06-.06*eio(cl(lt/3)),o:P(T,N(9.5),.4)});
+ pos($('t1'),CX,1330);rw($('t1'),T,N(9.5),.12);
+ slam($('t2'),CX,1490,T,N(9.88),{from:1.7});
+ pos($('t3'),CX,1680);rwT($('t3'),T,[10.34,10.62,10.88,11.44,11.68,11.86]);},{zoom:.02});
+
+/* S4 — la femme murmure */
+scene(12.4,15.7,`
+<img id="bw" class="a obj" src="img/cut_L3.png" style="width:520px">
+<div id="t0" class="a inter" style="font-size:26px">SA FEMME LUI MURMURE</div>
+<div id="q1" class="a corm" style="font-size:84px">${WD("« Nous n'avons que")}</div>
+<div id="q2" class="a anton acc" style="font-size:150px">LE REPAS</div>
+<div id="q3" class="a anton" style="font-size:150px">${WD("DES ENFANTS. »")}</div>`,
+(T,$)=>{const lt=T-N(12.4);fadeUp($('bw'),CX,500-lt*6,T,N(12.45),.7,40);
+ fadeUp($('t0'),CX,830,T,N(12.5),.5,20);
+ pos($('q1'),CX,960);rwT($('q1'),T,[13.64,14.02,14.18,14.3]);
+ slam($('q2'),CX,1130,T,N(14.55),{from:1.6});
+ pos($('q3'),CX,1290);rw($('q3'),T,N(14.85),.12);},{zoom:.03});
+
+/* S5 — la décision */
+scene(15.7,17.3,`
+<div id="t1" class="a anton" style="font-size:112px">${WD("ALORS ILS")}</div>
+<div id="t2" class="a anton acc" style="font-size:210px">PRENNENT</div>
+<div id="r" class="a rule" style="width:620px;height:6px"></div>
+<div id="t3" class="a anton" style="font-size:118px">${WD("UNE DÉCISION.")}</div>`,
+(T,$)=>{const [sx,sy]=shk(T,N(16.06),.3,10);
+ pos($('t1'),CX,780);rw($('t1'),T,N(15.7),.1);
+ slam($('t2'),CX+sx,960+sy,T,N(16.06),{from:1.7});
+ tf($('r'),CX,1110,{});$('r').style.transform+=` scaleX(${P(T,N(16.3),.5,eo5)})`;
+ pos($('t3'),CX,1240);rw($('t3'),T,N(16.34),.12);},{zoom:.05});
+
+/* S6 — les enfants s'endorment (la nuit tombe) */
+scene(17.3,19.9,`
+<div id="nt" class="full" style="background:linear-gradient(to bottom,#1b2233 0%,rgba(27,34,51,0) 60%)"></div>
+<svg id="moon" class="a" width="200" height="200" viewBox="0 0 200 200"><defs><mask id="mm"><rect width="200" height="200" fill="#fff"/><circle cx="128" cy="78" r="70" fill="#000"/></mask></defs><circle cx="100" cy="100" r="78" fill="#EBD9A4" mask="url(#mm)"/></svg>
+<img id="bl" class="a obj" src="img/cut_L7.png" style="width:800px">
+<div id="t1" class="a corm" style="font-size:74px;width:940px;white-space:normal">${WD("Elle occupe les enfants jusqu'à ce qu'ils")}</div>
+<div id="t2" class="a anton acc" style="font-size:150px">S'ENDORMENT.</div>`,
+(T,$)=>{const lt=T-N(17.3);op($('nt'),.85*P(T,N(17.3),2.2,eio));
+ tf($('moon'),760,300+(1-P(T,N(17.4),1.5,eo5))*80,{o:P(T,N(17.4),1.2)});
+ fadeUp($('bl'),CX,720,T,N(17.36),.7,40);
+ pos($('t1'),CX,1240);rwT($('t1'),T,[17.34,17.44,17.74,17.88,18.16,18.6,18.86]);
+ slam($('t2'),CX,1440,T,N(19.0),{from:1.5});},{zoom:.03});
+
+/* S7 — elle sert le repas */
+scene(19.9,21.3,`
+<img id="bw" class="a obj" src="img/cut_L3.png" style="width:760px">
+<div id="t1" class="a anton" style="font-size:118px">${WD("ELLE SERT")}</div>
+<div id="t2" class="a anton acc" style="font-size:170px">LE REPAS…</div>`,
+(T,$)=>{const lt=T-N(19.9);tf($('bw'),CX,640,{s:P(T,N(19.94),.5,bk)*(1+.03*lt)});if(T>N(19.94))mark($('bw'),'pop');
+ pos($('t1'),CX,1240);rwT($('t1'),T,[19.88,20.04]);
+ slam($('t2'),CX,1410,T,N(20.42),{from:1.5});},{zoom:.03});
+
+/* S8 — la lampe : la pénombre monte pendant la pause */
+scene(21.3,23.0,`
+<div id="dk" class="full" style="background:radial-gradient(ellipse 55% 40% at 50% 34%,rgba(7,8,12,0) 0%,rgba(7,8,12,.92) 75%)"></div>
+<div id="sun" class="a" style="width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,226,160,.85) 0%,rgba(235,200,120,.35) 35%,rgba(235,200,120,0) 70%)"></div>
+<img id="lp" class="a obj" src="img/cut_L4.png" style="width:660px">
+<div id="t1" class="a corm" style="font-size:76px">${WD("…fait semblant d'arranger")}</div>
+<div id="t2" class="a anton" style="font-size:150px">LA LAMPE…</div>`,
+(T,$)=>{const lt=T-N(21.3);const dkp=P(T,N(21.6),2.2,eio);op($('dk'),dkp);
+ tf($('sun'),CX,610,{s:(.9+.12*dkp)*flick(T),o:P(T,N(21.3),.4)*(.6+.4*dkp)});
+ fadeUp($('lp'),CX,640,T,N(21.32),.5,30,{s:1+.08*eio(cl(lt/2.7))});
+ const c=dkp>.5?'#F4F1EA':'#141414';$('t1').style.color=c;$('t2').style.color=dkp>.5?'#EBD9A4':'#141414';
+ pos($('t1'),CX,1230);rwT($('t1'),T,[21.24,21.38,21.7]);
+ pos($('t2'),CX,1380);rw($('t2'),T,N(22.02),.12);},{zoom:.04});
+
+/* S9 — ...et l'éteint : coupe au noir */
+scene(23.0,23.7,`
+<div class="night"></div>
+<img id="lp" class="a" src="img/cut_L5.png" style="width:660px;filter:brightness(.62) contrast(1.1)">
+<div id="t0" class="a anton cream" style="font-size:120px">…ET</div>
+<div id="t1" class="a anton gold" style="font-size:230px">L'ÉTEINT.</div>`,
+(T,$)=>{const [sx,sy]=shk(T,N(23.1),.45,16);
+ tf($('lp'),CX+sx,640+sy,{o:P(T,N(23.0),.25)});
+ fadeUp($('t0'),CX,1130,T,N(23.0),.25,20);
+ slam($('t1'),CX+sx,1320+sy,T,N(23.1),{from:1.9});},{zoom:.05,dark:true});
+
+/* S10 — dans le noir */
+scene(23.7,28.1,`
+<div class="night"></div>
+<img id="bw" class="a" src="raw/L6.png" style="width:1000px;filter:brightness(.38) saturate(.4) sepia(.2) hue-rotate(180deg);-webkit-mask-image:radial-gradient(ellipse 50% 46% at 50% 50%,#000 30%,transparent 72%)">
+<div id="t1" class="a anton cream" style="font-size:120px">DANS LE NOIR,</div>
+<div id="t2" class="a corm cream" style="font-size:74px;width:900px;white-space:normal">${WD("le couple fait semblant de manger.")}</div>
+<div id="t3" class="a anton gold" style="font-size:150px">L'INVITÉ</div>
+<div id="t4" class="a anton cream" style="font-size:112px">${WD("MANGE À SA FAIM.")}</div>`,
+(T,$)=>{const lt=T-N(23.7);tf($('bw'),CX,560,{s:1.04+.04*lt/4.4,o:P(T,N(23.9),1.2)});
+ fadeUp($('t1'),CX,1060,T,N(23.72),.6,30);
+ pos($('t2'),CX,1220);rwT($('t2'),T,[24.72,24.94,25.14,25.38,25.66,25.82]);
+ slam($('t3'),CX,1420,T,N(26.6),{from:1.5});
+ pos($('t4'),CX,1570);rwT($('t4'),T,[26.92,27.14,27.3,27.42]);},{zoom:.025,dark:true});
+
+/* S11 — le ventre vide */
+scene(28.1,30.3,`
+<div class="night"></div>
+<div id="t1" class="a corm cream" style="font-size:88px">${WD("Eux passent la nuit…")}</div>
+<div id="t2" class="a anton cream" style="font-size:170px">LE VENTRE</div>
+<div id="t3" class="a anton gold" style="font-size:330px">VIDE.</div>`,
+(T,$)=>{pos($('t1'),CX,760);rwT($('t1'),T,[28.1,28.22,28.44,28.56]);
+ fadeUp($('t2'),CX,960,T,N(29.26),.4,30);
+ const [sx,sy]=shk(T,N(29.6),.4,14);slam($('t3'),CX+sx,1210+sy,T,N(29.6),{from:1.9});},{zoom:.04,dark:true});
+
+/* S12 — le lendemain matin : explosion de lumière */
+scene(30.3,34.3,`
+<img id="bg" class="a fade" src="raw/L8.png" style="width:1300px;height:1300px">
+<div id="burst" class="full" style="background:radial-gradient(circle at 50% 30%,#FFFDF5 0%,#FFF3D6 45%,#F4F1EA 100%)"></div>
+<div id="t1" class="a anton" style="font-size:150px">LE LENDEMAIN</div>
+<div id="t2" class="a anton acc" style="font-size:190px">MATIN,</div>
+<div id="t3" class="a inter" style="font-size:30px">LE PROPHÈTE ﷺ LEUR DIT</div>`,
+(T,$)=>{const lt=T-N(30.3);tf($('bg'),CX,620,{s:1.12-.08*eio(cl(lt/4.4))});
+ op($('burst'),1-P(T,N(30.3)+.15,1.1,eo));if(T>N(30.3)+.05)mark($('burst'),'fade');
+ pos($('t1'),CX,1340);rw($('t1'),T,N(30.4),.12);
+ slam($('t2'),CX,1510,T,N(30.72),{from:1.5});
+ fadeUp($('t3'),CX,1680,T,N(31.7),.6,20);},{zoom:.02});
+
+/* S13 — la parole du Prophète ﷺ (mot à mot) */
+scene(34.3,39.1,`
+<img id="bg" class="a" src="raw/L8.png" style="width:1300px;height:1300px;opacity:.45;filter:blur(6px) saturate(.6)">
+<div id="card" class="a card" style="width:960px;height:1000px"></div>
+<div id="qm" class="a corm acc" style="font-size:260px;line-height:1">“</div>
+<div id="q1" class="a corm" style="font-size:84px">${WD("Cette nuit,")}</div>
+<div id="q2" class="a anton acc" style="font-size:140px">ALLAH A RI,</div>
+<div id="q3" class="a corm" style="font-size:72px">${WD("ou s'est émerveillé,")}</div>
+<div id="q4" class="a corm" style="font-size:72px;width:820px;white-space:normal">${WD("de ce que vous avez *fait*.")}</div>
+<div id="s" class="a src">SAHÎH AL-BUKHÂRÎ 3798</div>`,
+(T,$)=>{tf($('bg'),CX,700,{s:1.1});
+ tf($('card'),CX,980,{s:P(T,N(34.3),.5,bk),o:P(T,N(34.3),.2)});
+ fadeUp($('qm'),CX,600,T,N(34.4),.5,20);
+ pos($('q1'),CX,760);rwT($('q1'),T,[34.5,34.66]);
+ slam($('q2'),CX,930,T,N(35.42),{from:1.5});
+ pos($('q3'),CX,1100);rwT($('q3'),T,[36.46,36.6,36.8]);
+ pos($('q4'),CX,1230);rwT($('q4'),T,[37.34,37.86,37.98,38.1,38.2,38.4]);
+ srcIn($('s'),CX,1410,T,N(38.6));},{zoom:.02});
+
+/* S14 — le verset 59:9 */
+scene(39.1,44.2,`
+<div id="card" class="a card" style="width:960px;height:1060px"></div>
+<div id="t0" class="a inter acc" style="font-size:24px">ALLAH RÉVÈLE À LEUR SUJET</div>
+<div id="ar" class="a ar acc" style="font-size:74px;font-weight:700;line-height:1.7;text-align:center;white-space:normal;width:840px">وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ<br>وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ</div>
+<div id="r" class="a rule" style="width:220px"></div>
+<div id="fr" class="a corm" style="font-size:64px;width:820px;white-space:normal">${WD("« Ils les *préfèrent* à eux-mêmes, même s'il y a pénurie chez eux. »")}</div>
+<div id="s" class="a src">CORAN · AL-HASHR 59:9</div>`,
+(T,$)=>{tf($('card'),CX,960,{s:P(T,N(39.1),.5,bk),o:P(T,N(39.1),.2)});
+ fadeUp($('t0'),CX,540,T,N(39.2),.5,16);
+ const a=P(T,N(39.5),1.3,eio);tf($('ar'),CX,720,{o:a>0?1:0});$('ar').style.clipPath=`inset(0 0 0 ${100-a*100}%)`;if(a>0)mark($('ar'),'arabic');
+ tf($('r'),CX,920,{});$('r').style.transform+=` scaleX(${P(T,N(40.3),.5)})`;
+ pos($('fr'),CX,1130);rw($('fr'),T,N(40.8),.17);
+ srcIn($('s'),CX,1410,T,N(42.9));},{zoom:.02});
+
+/* S15 — ce qu'on retient */
+scene(44.2,48.4,`
+<img id="dt" class="a obj" src="img/cut_L9.png" style="width:520px">
+<div id="c" class="a chip" style="font-size:24px">CE QU'ON RETIENT</div>
+<div id="t1" class="a anton" style="font-size:170px">DONNER…</div>
+<div id="t2" class="a anton" style="font-size:88px">${WD("MÊME CE DONT ON A")}</div>
+<div id="t3" class="a anton acc" style="font-size:190px">SOI-MÊME</div>
+<div id="t4" class="a anton acc" style="font-size:190px">BESOIN.</div>
+<div id="s" class="a src" style="font-size:20px">SAHÎH AL-BUKHÂRÎ 3798 · SAHÎH MUSLIM 2054</div>`,
+(T,$)=>{const lt=T-N(44.2);fadeUp($('dt'),CX,420-lt*5,T,N(44.22),.7,40);
+ chipIn($('c'),CX,700,T,N(44.25));
+ slam($('t1'),CX,860,T,N(44.35),{from:1.7});
+ pos($('t2'),CX,1010);rw($('t2'),T,N(44.95),.1);
+ const [sx,sy]=shk(T,N(45.85),.4,14);slam($('t3'),CX+sx,1170+sy,T,N(45.85),{from:1.8});
+ slam($('t4'),CX,1350,T,N(46.2),{from:1.6});
+ srcIn($('s'),CX,1540,T,N(46.9));},{zoom:.035});
+
+/* S16 — abonne-toi */
+scene(48.4,51.4,`
+<div id="disc" class="a disc" style="width:560px;height:560px"></div>
+<img id="lg" class="a" src="img/logo.png" style="width:380px">
+<div id="t1" class="a anton" style="font-size:170px">ABONNE-TOI</div>
+<div id="t2" class="a inter" style="font-size:30px">UNE HISTOIRE CHAQUE VENDREDI</div>
+<div id="btn" class="a inter" style="font-size:34px;font-weight:800;color:#F4F1EA;background:var(--acc);padding:28px 60px;border-radius:80px;letter-spacing:.2em">S'ABONNER</div>`,
+(T,$)=>{const t=T-N(48.4);tf($('disc'),CX,780,{s:P(t,0,.6,bk)});
+ tf($('lg'),CX,780,{s:P(t,.15,.6,bk)});
+ slam($('t1'),CX,1240,t,.3,{from:1.4});fadeUp($('t2'),CX,1350,t,.6,.5,20);
+ const b=P(t,.9,.5,bk);if(t>.9)mark($('btn'),'pop');tf($('btn'),CX,1500,{s:b*(1+(t>1.7&&t<1.9?.06:0))});},{zoom:.02});
+
+const DUR=N(51.4);
+function render(T){CUR=T;let dark=false;
+ for(const sc of S){const on=T>=sc.s&&T<sc.e;sc.d.style.display=on?'block':'none';
+  if(on){dark=sc.dark;const lt=T-sc.s;sc.d.style.transform=`scale(${1+sc.zoom*lt/(sc.e-sc.s)})`;sc.up(T+0.07,sc.$);}}
+ const f=Math.floor(T*30);const gx=(f*137)%200, gy=(f*271)%200;const g=document.getElementById('grain');g.style.transform=`translate(${gx-100}px,${gy-100}px)`;g.style.mixBlendMode=dark?'screen':'multiply';g.style.opacity=dark?.35:.9;
+ document.getElementById('stage').style.opacity=Math.min(cl(T/.3),T>DUR-.5?1-(T-(DUR-.5))/.5:1);
+ document.getElementById('tag').style.opacity=T<N(48.4)?1:0;
+ document.getElementById('bar').style.width=(1080*cl(T/N(48.4)))+'px';document.getElementById('bar').style.opacity=T<N(48.4)?1:0;
+}
+window.render=render;window.EV=EV;window.DUR=DUR;window.N=N;window.S=S;
+document.fonts.ready.then(()=>{render(0);window.READY=true;});
+</script></body></html>

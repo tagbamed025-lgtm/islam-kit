@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000}
+.c{position:relative;overflow:hidden;background:#F4F1EA}
+.light{position:absolute;border-radius:50%;background:radial-gradient(circle,#FFF6DE 0%,#EBD9A4 30%,rgba(235,217,164,.35) 55%,rgba(244,241,234,0) 72%)}
+.grain{position:absolute;inset:0;background:url(img/grain.png);opacity:.35;mix-blend-mode:multiply}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 45%,rgba(20,20,20,.55) 100%)}
+.ar{position:absolute;font-family:Amiri;font-weight:700;color:#0F5B46;opacity:.13;white-space:nowrap;direction:rtl}
+img{position:absolute;display:block}
+.t{position:absolute;font-family:Anton;text-transform:uppercase;line-height:.92;text-align:center;left:0;right:0}
+.k{color:#141414;text-shadow:0 6px 0 rgba(0,0,0,.08)}
+.band{position:absolute;left:0;right:0;background:#0F5B46;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.band .t{color:#FFF6DE;position:relative}
+.band .t b{color:#EBD9A4;font-weight:400}
+.tag{position:absolute;font-family:Inter;font-weight:800;letter-spacing:.18em;color:#F4F1EA;background:#141414;padding:.35em .8em}
+.logo{position:absolute;opacity:.95}
+</style></head><body>
+<div class="c" id="c"></div>
+<script>
+const F=new URLSearchParams(location.search).get('f')||'v';
+const c=document.getElementById('c');
+if(F==='v'){
+c.style.width='1080px';c.style.height='1920px';
+c.innerHTML=`
+<div class="light" style="width:1500px;height:1500px;left:-210px;top:420px"></div>
+<img src="img/cut_L5.png" style="width:760px;left:50%;top:620px;transform:translateX(-50%);filter:drop-shadow(0 40px 40px rgba(0,0,0,.4))">
+<div class="grain"></div><div class="vig"></div>
+<div class="tag" style="font-size:30px;left:50%;top:95px;transform:translateX(-50%)">LES ANSÂR · MÉDINE</div>
+<div class="t k" style="font-size:190px;top:190px">ILS ONT</div>
+<div class="t k" style="font-size:190px;top:370px">ÉTEINT…</div>
+<div class="band" style="top:1560px;padding:24px 0 14px;transform:rotate(-3deg);left:-40px;right:-40px">
+  <div class="t" style="font-size:190px;color:#EBD9A4">LA LAMPE.</div>
+</div>
+<img class="logo" src="img/logo.png" style="width:110px;right:40px;top:40px">`;
+}else{
+c.style.width='1280px';c.style.height='720px';
+c.innerHTML=`
+<div class="light" style="width:1100px;height:1100px;left:600px;top:-220px"></div>
+<img src="img/cut_L5.png" style="width:470px;left:780px;top:90px;filter:drop-shadow(0 30px 30px rgba(0,0,0,.4))">
+<div class="grain"></div><div class="vig"></div>
+<div class="tag" style="font-size:20px;left:60px;top:60px">LES ANSÂR · MÉDINE</div>
+<div class="t k" style="font-size:112px;top:120px;left:56px;right:auto;text-align:left">ILS ONT<br>ÉTEINT…</div>
+<div class="band" style="top:420px;left:-30px;width:760px;padding:18px 0 10px 80px;transform:rotate(-3deg)">
+  <div class="t" style="font-size:118px;text-align:left;color:#EBD9A4">LA LAMPE.</div>
+</div>
+<img class="logo" src="img/logo.png" style="width:80px;left:40px;bottom:30px">`;
+}
+</script></body></html>

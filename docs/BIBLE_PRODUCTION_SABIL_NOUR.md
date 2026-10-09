@@ -217,3 +217,4 @@ Deux extraits de Mus'ab en reel : faits puis mis de côté (décision du 30/09).
 - 03/10 : reel de la lampe des Ansâr (rendu enrichi).
 - 04/10 : règle des photos (titre = nom du fichier + légende).
 - 09/10 : voix Sébastien – Narrator v3 inscrite (voice_id) ; Claude génère la voix off ; dépôt GitHub `islam-kit` créé et structuré ; format Rappel ajouté ; plan de la version anglaise.
+- 09/10/2026 (suite) : méthode PDF validée (`docs/METHODE_PRODUCTION.pdf`) ; instructions collées dans le projet ; migration des anciens contenus dans le dépôt : scripts (`scripts/fr/`), voix (`voix/fr/`), images (`images/par_contenu/`), moteur de montage par format (`moteur/`), sons (`sons/`), polices et logos (`charte/`), catalogue (`catalogue/catalogue.json`).

@@ -1,0 +1,376 @@
+[
+ {
+  "type": "photo",
+  "img": "M18_mount_uhud",
+  "start": 0,
+  "end": 3.92,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M01_bedouin_cloak",
+  "start": 4.68,
+  "end": 7.52,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M01_bedouin_cloak",
+  "start": 7.6,
+  "end": 10.58,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M01_bedouin_cloak",
+  "start": 10.6,
+  "end": 13.5,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M05_elegant_walker",
+  "start": 13.66,
+  "end": 17.52,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M02_mecca_dusk",
+  "start": 17.6,
+  "end": 20.42,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M03_noble_silk",
+  "start": 20.56,
+  "end": 23.34,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M03_noble_silk",
+  "start": 23.64,
+  "end": 27.1,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M04_perfume_incense",
+  "start": 27.1,
+  "end": 30.56,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M04_perfume_incense",
+  "start": 30.56,
+  "end": 35.06,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M05_elegant_walker",
+  "start": 35.06,
+  "end": 40.16,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M06_oil_lamp_house",
+  "start": 40.16,
+  "end": 47.04,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M06_oil_lamp_house",
+  "start": 47.06,
+  "end": 51.86,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M06_oil_lamp_house",
+  "start": 52,
+  "end": 54.04,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M06_oil_lamp_house",
+  "start": 54.74,
+  "end": 57.760000000000005,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M07_bolted_door",
+  "start": 57.760000000000005,
+  "end": 60.78,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M07_bolted_door",
+  "start": 61.06,
+  "end": 63.64,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M07_bolted_door",
+  "start": 63.7,
+  "end": 65.78,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M07_bolted_door",
+  "start": 66.42,
+  "end": 71.44,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M08_patched_garment",
+  "start": 71.44,
+  "end": 72.7,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M09_red_sea_boat",
+  "start": 72.7,
+  "end": 79.5,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M08_patched_garment",
+  "start": 79.5,
+  "end": 85.82,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M08_patched_garment",
+  "start": 85.82,
+  "end": 88.18,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M10_desert_road_walker",
+  "start": 88.18,
+  "end": 89.88,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M11_lush_oasis",
+  "start": 90.76,
+  "end": 97.52,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M11_lush_oasis",
+  "start": 97.52,
+  "end": 101.22,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M12_two_travelers",
+  "start": 101.22,
+  "end": 110.66,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M15_clan_chief_spear",
+  "start": 110.66,
+  "end": 118.36,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M16_seated_listener",
+  "start": 118.4,
+  "end": 121.5,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M16_seated_listener",
+  "start": 121.5,
+  "end": 129.22,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M14_spear_sand",
+  "start": 129.22,
+  "end": 131.56,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M13_rugs_teaching",
+  "start": 132.2,
+  "end": 135.04,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M17_tribal_gathering",
+  "start": 135.2,
+  "end": 147.94,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M17_tribal_gathering",
+  "start": 147.94,
+  "end": 151.22,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M11_lush_oasis",
+  "start": 151.22,
+  "end": 156.04,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M13_rugs_teaching",
+  "start": 156.64,
+  "end": 158.66,
+  "kb": "zoomin"
+ },
+ {
+  "type": "motion",
+  "name": "title_card",
+  "start": 158.72,
+  "end": 160.78
+ },
+ {
+  "type": "motion",
+  "name": "banner_handoff",
+  "start": 161.32,
+  "end": 164.26
+ },
+ {
+  "type": "motion",
+  "name": "troops_clash",
+  "start": 164.28,
+  "end": 168.02
+ },
+ {
+  "type": "motion",
+  "name": "banner_falls",
+  "start": 168.16,
+  "end": 171.06
+ },
+ {
+  "type": "photo",
+  "img": "M20_fallen_banner",
+  "start": 171.1,
+  "end": 173.0,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M20_fallen_banner",
+  "start": 173.0,
+  "end": 178.39,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M01_bedouin_cloak",
+  "start": 178.39,
+  "end": 183.78,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M21_dry_grass",
+  "start": 183.78,
+  "end": 192.34,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M24_graves_uhud",
+  "start": 193.18,
+  "end": 197.78,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M23_abundant_meal",
+  "start": 197.9,
+  "end": 201.34,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M23_abundant_meal",
+  "start": 202.26,
+  "end": 208.1,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M22_modest_meal",
+  "start": 208.18,
+  "end": 211.02,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M22_modest_meal",
+  "start": 210.66,
+  "end": 216.38,
+  "kb": "pan-r"
+ },
+ {
+  "type": "photo",
+  "img": "M23_abundant_meal",
+  "start": 216.62,
+  "end": 221.06,
+  "kb": "zoomout"
+ },
+ {
+  "type": "photo",
+  "img": "M22_modest_meal",
+  "start": 221.06,
+  "end": 222.6,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M24_graves_uhud",
+  "start": 222.68,
+  "end": 229.82,
+  "kb": "pan-l"
+ },
+ {
+  "type": "photo",
+  "img": "M25_fiery_horizon",
+  "start": 230.56,
+  "end": 232.48,
+  "kb": "zoomin"
+ },
+ {
+  "type": "photo",
+  "img": "M26_golden_rays",
+  "start": 232.48,
+  "end": 237.94,
+  "kb": "zoomout"
+ }
+]

@@ -1,0 +1,4 @@
+file 'vid_partie1.mp4'
+file 'vid_partie2.mp4'
+file 'vid_partie3.mp4'
+file 'vid_partie4b.mp4'

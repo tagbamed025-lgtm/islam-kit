@@ -1,0 +1,305 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Play;font-weight:800;src:url(node_modules/@fontsource/playfair-display/files/playfair-display-latin-800-normal.woff2)}
+@font-face{font-family:Play;font-weight:900;src:url(node_modules/@fontsource/playfair-display/files/playfair-display-latin-900-normal.woff2)}
+@font-face{font-family:Play;font-weight:700;font-style:italic;src:url(node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-italic.woff2)}
+@font-face{font-family:Mont;font-weight:400;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-400-normal.woff2)}
+@font-face{font-family:Mont;font-weight:500;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-500-normal.woff2)}
+@font-face{font-family:Mont;font-weight:600;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2)}
+@font-face{font-family:Mont;font-weight:700;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2)}
+:root{--bg:#F5F0E8;--ink:#1A1A1A;--gold:#C17F3A;--mut:#7a7066;--sh:drop-shadow(0 30px 30px rgba(60,45,25,.22)) drop-shadow(0 6px 8px rgba(60,45,25,.16))}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.scene{position:absolute;inset:0;display:none;transform-origin:50% 45%}
+.a{position:absolute;left:0;top:0;transform-origin:50% 50%}
+.play{font-family:Play;font-weight:800;color:var(--ink);line-height:1.02;white-space:nowrap;letter-spacing:-1px}
+.it{font-family:Play;font-style:italic;font-weight:700;color:var(--gold)}
+.mont{font-family:Mont;font-weight:500;color:var(--ink);white-space:nowrap}
+.caps{font-family:Mont;font-weight:600;text-transform:uppercase;letter-spacing:.24em;color:var(--ink);white-space:nowrap}
+.chip{font-family:Mont;font-weight:600;letter-spacing:.26em;color:#F5F0E8;background:var(--ink);padding:16px 30px 15px;font-size:28px;white-space:nowrap}
+.gold{color:var(--gold)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.14em .02em .14em;margin:-.14em 0 -.14em}
+.wi{display:inline-block}
+img{display:block}
+img.obj{filter:var(--sh)}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;opacity:.55;pointer-events:none}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 90% 70% at 50% 45%,transparent 60%,rgba(80,60,30,.10))}
+#sig{position:absolute;right:60px;top:150px;font-family:Mont;font-weight:500;font-size:24px;color:var(--mut);letter-spacing:.08em}
+#bl{position:absolute;left:465px;top:1612px;width:150px;height:6px;background:var(--gold)}
+</style></head>
+<body><div id="stage"><div id="scenes"></div><div id="vig"></div><div id="grain"></div><div id="sig">M. M. TAGBA</div><div id="bl"></div></div>
+<script src="dots.js"></script><script>
+const CX=540;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,p)=>a+(b-a)*p;
+const eo=x=>1-Math.pow(1-x,3),eo5=x=>1-Math.pow(1-x,5),lin=x=>x,eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x),bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo)=>e(cl((t-t0)/d));
+let CUR=0;const EV=[];const seen=new WeakSet();const twn=new Map();
+function mark(el,k){if(!seen.has(el)){seen.add(el);EV.push([k,+CUR.toFixed(3)]);}}
+function tf(el,x,y,o={}){const s=o.s??1,r=o.r??0,ax=o.ax??50,ay=o.ay??50;el.style.transformOrigin=`${ax}% ${ay}%`;
+ el.style.transform=`translate(${x}px,${y}px) translate(${-ax}%,${-ay}%) rotate(${r}deg) scale(${s})`;if(o.o!==undefined)el.style.opacity=o.o;if(o.f!==undefined)el.style.filter=o.f+(el.classList.contains('obj')?' var(--sh)':'');}
+const WD=(txt)=>txt.split(' ').map(w=>{let c='';if(w.length>2&&w.startsWith('*')&&w.endsWith('*')){w=w.slice(1,-1);c=' it'}return `<span class="w"><span class="wi${c}">${w}</span></span>`}).join(' ');
+function rw(el,t,t0,st=.07,d=.55){el.querySelectorAll('.wi').forEach((s,i)=>{const p=P(t,t0+i*st,d,eo5);if(p>0)mark(s,'word');s.style.transform=`translateY(${(1-p)*112}%)`;});}
+function slam(el,x,y,t,t0,o={}){if(t>=t0)mark(el,'slam');const p=P(t,t0,.45,ex);tf(el,x,y,{s:lerp(o.from??1.35,1,p),o:t<t0?0:cl((t-t0)/.08),ax:o.ax,ay:o.ay});}
+function fu(el,x,y,t,t0,d=.55,dist=30,o={}){const p=P(t,t0,d,eo5);if(p>0)mark(el,'fade');tf(el,x,y+(1-p)*dist,{o:p,ax:o.ax,ay:o.ay,s:o.s});}
+function chip(el,x,y,t,t0){const p=P(t,t0,.5,eo5);if(p>0)mark(el,'fade');tf(el,x,y,{ax:0});el.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;}
+function tw(el,txt,t,t0,cps){const n=Math.floor(cl((t-t0)*cps,0,txt.length));const o=twn.get(el)||0;for(let k=o;k<n;k++)EV.push(['type',+CUR.toFixed(3)]);if(n>o)twn.set(el,n);el.textContent=txt.slice(0,n);}
+function draw(p,v){p.style.strokeDasharray='1 1';p.style.strokeDashoffset=1-v;}
+function shk(t,t0,d,a){if(t<t0||t>t0+d)return[0,0];const k=1-(t-t0)/d;return[Math.sin(t*97)*a*k,Math.cos(t*71)*a*k];}
+function count(el,t,t0,d,to,fmt){const p=P(t,t0,d,eo);if(p>0&&p<1&&Math.floor(p*14)!==+(el.dataset.k||-1)){el.dataset.k=Math.floor(p*14);EV.push(['tick',+CUR.toFixed(3)]);}el.textContent=fmt(to*p);}
+const S=[];
+function scene(s,e,html,up,o={}){const d=document.createElement('div');d.className='scene';d.innerHTML=html;document.getElementById('scenes').appendChild(d);S.push({s,e,d,$:id=>d.querySelector('#'+id),up,zoom:o.zoom??.03});}
+// dashed gold circle that draws itself
+let cid=0;function dcircle(id,r,sw=4){cid++;return `<svg id="${id}" class="a" width="${2*r+20}" height="${2*r+20}" viewBox="${-r-10} ${-r-10} ${2*r+20} ${2*r+20}"><defs><mask id="m${cid}"><circle r="${r}" fill="none" stroke="#fff" stroke-width="${sw+6}" pathLength="1" transform="rotate(-90)" class="dm"/></mask></defs><circle r="${r}" fill="none" stroke="#C17F3A" stroke-width="${sw}" stroke-dasharray="14 12" mask="url(#m${cid})"/></svg>`}
+function dcd(svg,p){const m=svg.querySelector('.dm');m.style.strokeDasharray='1 1';m.style.strokeDashoffset=1-p;}
+const phone=(id,w=300)=>`<div id="${id}" class="a" style="width:${w}px;height:${w*2}px;border-radius:${w*.14}px;background:linear-gradient(160deg,#3a3a3a,#0d0d0d 40%);padding:${w*.05}px;box-shadow:0 40px 50px rgba(60,45,25,.25),0 8px 12px rgba(60,45,25,.18)"><div style="width:100%;height:100%;border-radius:${w*.1}px;background:linear-gradient(125deg,#1c1c1c 0 45%,#2b2b2b 45% 55%,#141414 55%)"></div></div>`;
+const ICON={cam:'<path d="M-40 -22h18l8-12h28l8 12h18a6 6 0 0 1 6 6v44a6 6 0 0 1-6 6h-80a6 6 0 0 1-6-6v-44a6 6 0 0 1 6-6z" fill="#1A1A1A"/><circle cy="6" r="17" fill="#F5F0E8"/><circle cy="6" r="10" fill="#1A1A1A"/>',
+ pin:'<path d="M0 44C-16 20-32 4-32-14a32 32 0 0 1 64 0C32 4 16 20 0 44z" fill="#1A1A1A"/><circle cy="-14" r="12" fill="#F5F0E8"/>',
+ note:'<path d="M-10 -40L30 -48V20" stroke="#1A1A1A" stroke-width="9" fill="none"/><path d="M-10 -40V30" stroke="#1A1A1A" stroke-width="9"/><ellipse cx="-24" cy="30" rx="16" ry="12" fill="#1A1A1A"/><ellipse cx="16" cy="20" rx="16" ry="12" fill="#1A1A1A"/><path d="M-10-40L30-48V-32L-10-24z" fill="#1A1A1A"/>',
+ brain:'<rect x="-34" y="-34" width="68" height="68" rx="10" fill="none" stroke="#1A1A1A" stroke-width="8"/><text y="14" text-anchor="middle" font-family="Mont" font-weight="700" font-size="36" fill="#1A1A1A">IA</text>'+[-20,0,20].map(v=>`<path d="M${v} -34v-14M${v} 34v14M-34 ${v}h-14M34 ${v}h14" stroke="#1A1A1A" stroke-width="6"/>`).join(''),
+ bars:'<rect x="-42" y="0" width="20" height="40" fill="#1A1A1A"/><rect x="-10" y="-22" width="20" height="62" fill="#1A1A1A"/><rect x="22" y="-46" width="20" height="86" fill="#1A1A1A"/>',
+ cursor:'<rect x="-46" y="-40" width="92" height="64" rx="6" fill="none" stroke="#1A1A1A" stroke-width="7"/><path d="M-20 38h40M0 24v14" stroke="#1A1A1A" stroke-width="7"/><path d="M4-20l26 12-11 4 8 13-6 4-8-13-9 8z" fill="#C17F3A"/>'};
+const icon=(id,k,s=1)=>`<svg id="${id}" class="a" width="${140*s}" height="${140*s}" viewBox="-70 -70 140 140">${ICON[k]}</svg>`;
+
+/* P1 — N95 (0–3.2) */
+scene(0,3.2,`
+<div id="c" class="chip a">TECH HISTORY</div>
+<div id="t" class="a play" style="font-size:170px">${WD('Nokia *N95.*')}</div>
+${dcircle('ci',330)}
+<img id="ph" class="a obj" src="img/n95.png" style="height:560px">
+<div id="s" class="a mont" style="font-size:46px">Tu te souviens ?</div>`,
+(t,$)=>{chip($('c'),90,320,t,.05);tf($('t'),CX,500);rw($('t'),t,.25,.12);
+ tf($('ci'),CX,1040);dcd($('ci'),P(t,.2,1.1,eio));
+ const p=P(t,.45,.9,eo5);tf($('ph'),CX,1040+(1-p)*120,{o:p,s:lerp(.92,1,p)});
+ fu($('s'),CX,1470,t,1.3);});
+
+/* P2 — Tout le monde (3.2–6.2) */
+const crowd=(()=>{let g='';const rows=[[0,1280,9,.72],[1,1420,8,.82]];for(const [ri,y,n,sc] of rows){for(let i=0;i<n;i++){const x=60+i*(960/(n-1))+(ri?60:0)-(ri?60:0)+(i%2?12:-8);const raise=(i+ri)%3!==1;const s=sc*(0.9+((i*37)%10)/40);
+ g+=`<g class="pp" data-x="${x}" data-y="${y}" data-s="${s}" transform="translate(${x},${y}) scale(${s})"><circle cy="-118" r="36" fill="#1A1A1A"/><path d="M-62 330V-30q0-50 62-50t62 50V330z" fill="#1A1A1A"/>${raise?`<path d="M${i%2?40:-40} -60L${i%2?70:-70} -210" stroke="#1A1A1A" stroke-width="28" stroke-linecap="round"/><rect x="${i%2?52:-88}" y="-280" width="36" height="62" rx="6" fill="#1A1A1A"/><rect class="scr" x="${i%2?57:-83}" y="-274" width="26" height="44" rx="3" fill="#C17F3A" opacity="0"/>`:''}</g>`;}}return g;})();
+scene(3.2,6.2,`
+<svg id="cr" class="a" width="1080" height="1920" viewBox="0 0 1080 1920" style="left:0;top:0">${crowd}</svg>
+<div id="t1" class="a mont" style="font-size:46px">${WD('Ce téléphone que')}</div>
+<div id="t2" class="a play" style="font-size:150px">${WD('*tout* *le* *monde*')}</div>
+<div id="t3" class="a play" style="font-size:150px">${WD('voulait.')}</div>`,
+(t,$)=>{tf($('t1'),CX,330);rw($('t1'),t,.05);tf($('t2'),CX,470);rw($('t2'),t,.4,.1);tf($('t3'),CX,630);rw($('t3'),t,1.2);
+ [...$('cr').querySelectorAll('.pp')].forEach((g,i)=>{const p=P(t,.1+i*.05,.8,eo5);g.setAttribute('transform',`translate(${g.dataset.x},${+g.dataset.y+(1-p)*500}) scale(${g.dataset.s})`);});
+ [...$('cr').querySelectorAll('.scr')].forEach((r,i)=>r.setAttribute('opacity',P(t,1.0+i*.08,.3)));});
+
+/* P3 — Le futur (6.2–10.6) */
+scene(6.2,10.6,`
+<div id="c" class="chip a">2007</div>
+<div id="t" class="a play" style="font-size:180px">${WD('Le *futur.*')}</div>
+<img id="ph" class="a obj" src="img/n95.png" style="height:500px">
+${['cam','pin','note'].map((k,i)=>icon('i'+i,k)).join('')}
+${['APPAREIL PHOTO','GPS','MUSIQUE'].map((k,i)=>`<div id="l${i}" class="a caps" style="font-size:22px">${k}</div>`).join('')}
+<div id="s1" class="a" style="width:2px;height:150px;background:#cfc5b6"></div><div id="s2" class="a" style="width:2px;height:150px;background:#cfc5b6"></div>`,
+(t,$)=>{const ph=P(t,0,.6,eo5);tf($('ph'),CX,860,{o:ph,s:lerp(1.08,1,ph)});
+ for(let i=0;i<3;i++){const t0=.25+i*.55;const p=P(t,t0,.45,bk);if(p>0)mark($('i'+i),'pop');tf($('i'+i),270+i*270,1320,{s:p});fu($('l'+i),270+i*270,1420,t,t0+.1,.4,14);}
+ tf($('s1'),405,1360,{o:P(t,.3,.4)});tf($('s2'),675,1360,{o:P(t,.3,.4)});
+ chip($('c'),90,300,t,2.3);tf($('t'),CX,470);rw($('t'),t,2.45,.15);});
+
+/* P4 — Nokia dominait le monde (10.6–14.8) */
+scene(10.6,14.8,`
+<div id="t1" class="a play" style="font-size:130px">${WD('Nokia dominait')}</div>
+<div id="t2" class="a play" style="font-size:150px">${WD('le *monde.*')}</div>
+<canvas id="map" class="a" width="1040" height="420"></canvas>
+<div id="s" class="a caps" style="font-size:26px">N°1 MONDIAL DU TÉLÉPHONE DEPUIS 1998</div>`,
+(t,$)=>{tf($('t1'),CX,380);rw($('t1'),t,.1,.12);tf($('t2'),CX,550);rw($('t2'),t,.5,.12);
+ const cv=$('map');tf(cv,CX,1010,{o:P(t,0,.5),s:lerp(1.04,1,P(t,0,4))});const g=cv.getContext('2d');g.clearRect(0,0,1040,420);
+ DOTS.forEach((d,i)=>{const x=(d[0]+170)/360*1040,y=(78-d[1])/134*400+10;const h=((i*2654435761)%1000)/1000;const on=P(t,1.2+h*1.8,.3);
+  g.fillStyle=on>0?`rgba(193,127,58,${.35+.65*on})`:'#d9cfc0';g.beginPath();g.arc(x,y,on>0&&h<.45?4.2+on*1.5:4.2,0,7);g.fill();
+  if(on>0&&h<.45&&h>.44)mark(cv,'glow');});
+ fu($('s'),CX,1320,t,2.2);});
+
+/* P5 — 49 % (14.8–19.8) */
+scene(14.8,19.8,`
+<div id="c" class="chip a">2007</div>
+<svg id="g" class="a" width="900" height="480" viewBox="-450 -450 900 480"><path d="M-380 0A380 380 0 0 1 380 0" fill="none" stroke="#e3d9ca" stroke-width="46" stroke-linecap="round"/><path id="gf" d="M-380 0A380 380 0 0 1 380 0" fill="none" stroke="#C17F3A" stroke-width="46" stroke-linecap="round" pathLength="1"/></svg>
+<div id="n" class="a play gold" style="font-size:240px">0 %</div>
+<div id="l" class="a caps" style="font-size:28px;text-align:center;line-height:1.7">DU MARCHÉ MONDIAL<br>DES SMARTPHONES</div>`,
+(t,$)=>{chip($('c'),90,320,t,.05);tf($('g'),CX,1010);draw($('gf'),.49*P(t,.3,1.6,eo));
+ count($('n'),t,.3,1.6,49,v=>Math.round(v)+' %');tf($('n'),CX,1060,{o:P(t,.3,.2)});
+ fu($('l'),CX,1260,t,1.2);},{zoom:.02});
+
+/* P6 — La chute (19.8–26.5) */
+scene(19.8,26.5,`
+<div id="c" class="chip a">LA CHUTE</div>
+<div id="t" class="a play" style="font-size:118px;line-height:1.08;text-align:center">${WD('De leader mondial')}<br>${WD('à *Microsoft.*')}</div>
+<svg id="ch" class="a" width="1000" height="560" viewBox="0 0 1000 560">
+ <path id="area" d="M80 60 C 250 120, 380 260, 520 360 S 800 470, 920 490 L920 500 L80 500Z" fill="rgba(193,127,58,.12)"/>
+ <path d="M80 500H940" stroke="#1A1A1A" stroke-width="3"/>
+ ${[2007,2008,2009,2010,2011,2012,2013].map((y,i)=>`<text x="${80+i*140}" y="545" text-anchor="middle" font-family="Mont" font-weight="600" font-size="24" fill="#7a7066">${y}</text>`).join('')}
+ <path id="ln" d="M80 60 C 250 120, 380 260, 520 360 S 800 470, 920 490" fill="none" stroke="#1A1A1A" stroke-width="7" pathLength="1"/>
+ <circle cx="80" cy="60" r="14" fill="#C17F3A"/><circle id="endp" cx="920" cy="490" r="14" fill="#1A1A1A"/>
+ <text x="110" y="50" font-family="Play" font-weight="800" font-size="64" fill="#C17F3A">49 %</text>
+ <text id="e3" x="905" y="450" text-anchor="end" font-family="Play" font-weight="800" font-size="64" fill="#1A1A1A">≈ 3 %</text>
+</svg>
+<div id="card" class="a" style="width:900px;height:270px;background:#EFE8DC;border:2px solid #e0d6c6;border-radius:18px">
+ <div style="position:absolute;left:44px;top:40px" class="caps" id="cy"><span style="font-size:22px;color:#7a7066">2013 · VENTE À MICROSOFT</span></div>
+ <div id="amt" style="position:absolute;left:44px;top:66px;font-family:Play;font-weight:800;font-size:100px;color:#C17F3A">0</div>
+ <div style="position:absolute;left:48px;top:212px;font-size:22px" class="caps">MILLIARDS €</div>
+ <div id="lg" style="position:absolute;right:44px;top:92px;display:flex;align-items:center;gap:22px">
+  <span style="font-family:Mont;font-weight:700;font-size:44px;letter-spacing:.06em">NOKIA</span><span style="font-family:Mont;font-size:40px;color:#7a7066">→</span>
+  <span style="display:grid;grid-template-columns:24px 24px;gap:3px"><i style="width:24px;height:24px;background:#F25022"></i><i style="width:24px;height:24px;background:#7FBA00"></i><i style="width:24px;height:24px;background:#00A4EF"></i><i style="width:24px;height:24px;background:#FFB900"></i></span>
+  <span style="font-family:Mont;font-weight:600;font-size:40px;color:#555">Microsoft</span></div>
+</div>`,
+(t,$)=>{chip($('c'),90,300,t,.05);tf($('t'),CX,500);rw($('t'),t,.2,.09);
+ tf($('ch'),CX,980,{o:P(t,.3,.4)});draw($('ln'),P(t,.6,2.2,eio));$('area').style.opacity=P(t,2.2,.6);
+ $('endp').style.opacity=t>2.8?1:0;$('e3').style.opacity=P(t,2.8,.4);if(t>2.8)mark($('e3'),'slam');
+ const c=P(t,3.9,.6,eo5);tf($('card'),CX,1440+(1-c)*60,{o:c});if(c>0)mark($('card'),'fade');
+ count($('amt'),t,4.2,1.1,5.4,v=>v.toFixed(1).replace('.',','));});
+
+/* P7 — Aujourd'hui ? (26.5–29.8) */
+scene(26.5,29.8,`
+<div id="t" class="a play" style="font-size:170px">${WD("Aujourd'hui ?")}</div>
+${dcircle('ci',360)}
+${phone('ph',290)}
+<svg id="x" class="a" width="760" height="760" viewBox="0 0 760 760"><path id="xl" d="M130 630L630 130" stroke="#C17F3A" stroke-width="16" stroke-linecap="round" pathLength="1" fill="none"/></svg>
+<div id="s" class="a mont" style="font-size:42px;text-align:center;line-height:1.35">Nokia ne fabrique plus<br><b style="font-weight:700">de smartphones.</b></div>`,
+(t,$)=>{tf($('t'),CX,380);rw($('t'),t,.05,.12);tf($('ci'),CX,1010);dcd($('ci'),P(t,.1,1,eio));
+ const p=P(t,.2,.7,eo5);tf($('ph'),CX,1010+(1-p)*80,{o:p});
+ tf($('x'),CX,1010);draw($('xl'),P(t,1.5,.35,eo));if(t>1.5)mark($('x'),'slam');
+ fu($('s'),CX,1500,t,1.3);});
+
+/* P8 — Pas une guerre (29.8–35.5) */
+scene(29.8,35.5,`
+<div id="bar" class="a" style="width:8px;height:900px;background:var(--gold)"></div>
+<div id="a1" class="a play" style="font-size:118px">${WD('Pas une guerre.')}</div>
+<div id="a2" class="a play" style="font-size:118px">${WD('Pas une crise.')}</div>
+<div id="a3" class="a mont" style="font-size:52px">${WD('Juste…')}</div>
+<div id="a4" class="a it" style="font-size:130px;white-space:nowrap">${WD('le refus')}</div>
+<div id="a5" class="a it" style="font-size:130px;white-space:nowrap">${WD("de s'adapter.")}</div>`,
+(t,$)=>{tf($('bar'),100,1000,{ax:0});$('bar').style.clipPath=`inset(0 0 ${(1-P(t,0,.8,eo5))*100}% 0)`;
+ const L=(el,y,t0,st)=>{tf($(el),150,y,{ax:0});rw($(el),t,t0,st);};
+ L('a1',640,.1,.12);L('a2',800,1.2,.12);L('a3',990,2.3,.1);L('a4',1150,3.3,.12);L('a5',1300,3.6,.12);
+ const f=1-.6*P(t,3.2,.5);$('a1').style.opacity=f;$('a2').style.opacity=f;},{zoom:.02});
+
+/* P9 — Apple (35.5–38.8) */
+scene(35.5,38.8,`
+<div id="t1" class="a mont" style="font-size:46px">${WD('On dit souvent')}</div>
+<div id="t2" class="a play" style="font-size:112px">${WD("qu'Apple les a tués.")}</div>
+<div id="st" class="a" style="height:10px;background:var(--gold);width:940px"></div>
+${phone('ph',300)}`,
+(t,$)=>{tf($('t1'),CX,360);rw($('t1'),t,.05);tf($('t2'),CX,500);rw($('t2'),t,.35,.1);
+ const p=P(t,.1,.7,eo5);tf($('ph'),CX,1100+(1-p)*80,{o:p,r:lerp(-6,0,p)});
+ tf($('st'),CX,505);$('st').style.clipPath=`inset(0 ${(1-P(t,2.6,.35,eo))*100}% 0 0)`;if(t>2.6)mark($('st'),'swipe');});
+
+/* P10 — SAVAIT (38.8–43.8) */
+scene(38.8,43.8,`
+<div id="c" class="chip a">LE VRAI PROBLÈME ?</div>
+<div id="t1" class="a play" style="font-size:150px">${WD('Nokia')}</div>
+<div id="t2" class="a play" style="font-size:250px;font-weight:900"></div>
+<div id="u" class="a" style="height:12px;width:880px;background:var(--gold)"></div>
+<div id="s" class="a mont" style="font-size:44px;text-align:center;line-height:1.35">que les smartphones allaient<br><b style="font-weight:700">tout changer.</b></div>`,
+(t,$)=>{chip($('c'),90,320,t,.05);tf($('t1'),CX,640);rw($('t1'),t,.3);
+ tw($('t2'),'SAVAIT.',t,1.0,9);tf($('t2'),CX,880);
+ tf($('u'),CX,1040);$('u').style.clipPath=`inset(0 ${(1-P(t,1.9,.4,eo5))*100}% 0 0)`;
+ fu($('s'),CX,1230,t,2.2);},{zoom:.04});
+
+/* P11 — Écran tactile 2004 (43.8–48.8) */
+scene(43.8,48.8,`
+<div id="c" class="chip a">AVANT L'IPHONE</div>
+<div id="t" class="a play" style="font-size:118px;text-align:center;line-height:1.08">${WD('Un écran tactile.')}<br>${WD('*Dès* *2004.*')}</div>
+<img id="man" class="a" src="img/man2.png" style="height:640px;filter:drop-shadow(0 20px 20px rgba(60,45,25,.2))">
+<div id="dev" class="a" style="width:470px;height:250px;border-radius:26px;background:linear-gradient(160deg,#8d8d8d,#4a4a4a);padding:22px;box-shadow:0 30px 40px rgba(60,45,25,.25)"><div style="width:100%;height:100%;border-radius:10px;background:linear-gradient(120deg,#2e3b36,#101512 60%)"></div><div style="position:absolute;right:-30px;top:30px;width:10px;height:230px;border-radius:5px;background:#555;transform:rotate(12deg)"></div></div>
+<svg id="tl" class="a" width="1000" height="200" viewBox="0 0 1000 200"><path id="tll" d="M60 80H940" stroke="#1A1A1A" stroke-width="4" pathLength="1"/>
+ <circle id="d1" cx="260" cy="80" r="20" fill="#C17F3A"/><circle id="d2" cx="780" cy="80" r="20" fill="#1A1A1A"/>
+ <text id="x1" x="260" y="150" text-anchor="middle" font-family="Mont" font-weight="700" font-size="30" fill="#C17F3A">2004 · NOKIA</text>
+ <text id="x2" x="780" y="150" text-anchor="middle" font-family="Mont" font-weight="700" font-size="30" fill="#1A1A1A">2007 · IPHONE</text></svg>`,
+(t,$)=>{chip($('c'),90,300,t,.05);tf($('t'),CX,500);rw($('t'),t,.2,.1);
+ const m=P(t,.2,.8,eo5);tf($('man'),250,1050+(1-m)*60,{o:m});
+ const d=P(t,.5,.8,eo5);tf($('dev'),690,1000+(1-d)*80,{o:d,r:lerp(8,-4,d)});if(d>0)mark($('dev'),'fade');
+ tf($('tl'),CX,1440);draw($('tll'),P(t,1.2,.9,eio));
+ ['d1','x1'].forEach(k=>$(k).style.opacity=P(t,1.5,.3));['d2','x2'].forEach(k=>$(k).style.opacity=P(t,2.1,.3));if(t>1.5)mark($('d1'),'pop');if(t>2.1)mark($('d2'),'pop');});
+
+/* P12a — La peur (48.8–50.9) */
+scene(48.8,50.9,`
+<div id="t" class="a play" style="font-size:190px">${WD('La *peur.*')}</div>
+<div id="sh" class="a" style="width:520px;height:60px;border-radius:50%;background:radial-gradient(rgba(60,45,25,.28),transparent 70%)"></div>
+<img id="m" class="a" src="img/man1.png" style="height:980px">`,
+(t,$)=>{slam($('t'),CX,420,t,.05);const p=P(t,0,.7,eo5);tf($('m'),CX,1120+(1-p)*40,{o:p,s:lerp(1.05,1,P(t,0,2.1))});tf($('sh'),CX,1600,{o:p});},{zoom:.05});
+
+/* P12b — La bureaucratie (50.9–52.9) */
+const board=(()=>{let g='';for(let i=0;i<7;i++){const x=150+i*130;g+=`<g class="sp"><circle cx="${x}" cy="${-120-(i%2)*8}" r="36" fill="#1A1A1A"/><path d="M${x-62} 30V-50q0-40 62-40t62 40V30z" fill="#1A1A1A"/></g>`;}
+ g+=`<rect x="60" y="0" width="960" height="34" rx="6" fill="#1A1A1A"/><rect x="110" y="34" width="18" height="190" fill="#1A1A1A"/><rect x="952" y="34" width="18" height="190" fill="#1A1A1A"/>`;
+ for(let i=0;i<6;i++)g+=`<rect class="pap" x="${170+i*140}" y="${-18-(i%3)*10}" width="80" height="${18+(i%3)*10}" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="3"/>`;return g;})();
+scene(50.9,52.9,`
+<div id="t" class="a play" style="font-size:118px">${WD('La *bureaucratie.*')}</div>
+<svg id="b" class="a" width="1080" height="600" viewBox="0 -200 1080 460">${board}</svg>`,
+(t,$)=>{slam($('t'),CX,420,t,.05,{from:1.2});tf($('b'),CX,1180,{o:P(t,0,.4)});
+ [...$('b').querySelectorAll('.sp')].forEach((g,i)=>{const p=P(t,.05+i*.06,.5,eo5);g.setAttribute('transform',`translate(0,${(1-p)*80})`);g.style.opacity=p;});
+ [...$('b').querySelectorAll('.pap')].forEach((r,i)=>{const p=P(t,.6+i*.08,.3,bk);r.setAttribute('transform',`translate(0,${(1-p)*-60})`);r.style.opacity=p;});},{zoom:.05});
+
+/* P12c — Le confort du leader (52.9–55.0) */
+scene(52.9,55.0,`
+<div id="bar" class="a" style="width:8px;height:560px;background:var(--gold)"></div>
+<div id="t1" class="a play" style="font-size:150px">${WD('Le confort')}</div>
+<div id="t2" class="a play" style="font-size:150px">${WD('du *leader.*')}</div>
+<img id="ceo" class="a" src="img/ceo.png" style="height:1250px">`,
+(t,$)=>{tf($('bar'),90,520,{ax:0});$('bar').style.clipPath=`inset(0 0 ${(1-P(t,0,.6,eo5))*100}% 0)`;
+ tf($('t1'),130,420,{ax:0});rw($('t1'),t,.05,.1);tf($('t2'),130,600,{ax:0});rw($('t2'),t,.3,.1);
+ const p=P(t,0,.8,eo5);tf($('ceo'),1080+(1-p)*200,1920,{ax:100,ay:100,o:p});},{zoom:.04});
+
+/* P13 — Des milliers d'entreprises (55.0–59.0) */
+const sky=(()=>{let g='';let x=0,i=0;while(x<1080){const w=90+((i*53)%70),h=380+((i*97)%520);g+=`<g class="tw" data-h="${h}"><rect x="${x}" y="${-h}" width="${w-8}" height="${h}" fill="#1A1A1A"/>`;
+ for(let yy=-h+30;yy<-30;yy+=46)for(let xx=x+14;xx<x+w-30;xx+=28){const k=(xx*7+yy*13+i)%11;if(k<2)g+=`<rect class="win" x="${xx}" y="${yy}" width="14" height="22" fill="#C17F3A" opacity="0"/>`;}
+ g+='</g>';x+=w;i++;}return g;})();
+scene(55.0,59.0,`
+<div id="c" class="chip a">2026</div>
+<div id="t1" class="a mont" style="font-size:46px">${WD("Des milliers d'entreprises font")}</div>
+<div id="t2" class="a play" style="font-size:150px">${WD('la même *erreur.*')}</div>
+<svg id="s" class="a" width="1080" height="920" viewBox="0 -920 1080 920" style="left:0;top:0">${sky}</svg>`,
+(t,$)=>{chip($('c'),90,300,t,.05);tf($('t1'),CX,470);rw($('t1'),t,.15,.07);tf($('t2'),CX,620);rw($('t2'),t,.9,.12);
+ tf($('s'),CX,1640-460);[...$('s').querySelectorAll('.tw')].forEach((g,i)=>{const p=P(t,.1+i*.05,.8,eo5);g.setAttribute('transform',`translate(0,${(1-p)*(+g.dataset.h+20)})`);});
+ [...$('s').querySelectorAll('.win')].forEach((r,i)=>r.setAttribute('opacity',P(t,1.4+(i%17)*.08,.3)));});
+
+/* P14 — Refuser (59.0–64.5) */
+const RF=[['brain',"l'IA."],['bars','la data.'],['cursor','la transformation digitale.']];
+scene(59.0,64.5,`
+${RF.map((r,i)=>`${dcircle('c'+i,78,3)}${icon('i'+i,r[0],.95)}<div id="r${i}" class="a play" style="font-size:${i==2?66:92}px;${i==2?'white-space:normal;width:700px;line-height:1.1':''}">Refuser <span class="it">${r[1]}</span></div>`).join('')}
+<div id="t" class="a caps" style="font-size:30px">CE QUE BEAUCOUP FONT ENCORE</div>`,
+(t,$)=>{fu($('t'),CX,380,t,0);
+ for(let i=0;i<3;i++){const t0=.3+i*1.5;const y=660+i*330;tf($('c'+i),180,y);dcd($('c'+i),P(t,t0,.6,eio));const p=P(t,t0,.4,bk);tf($('i'+i),180,y,{s:p});
+  slam($('r'+i),300,y,t,t0+.15,{ax:0,from:1.25});}},{zoom:.02});
+
+/* P15 — La vision (64.5–70.5) */
+scene(64.5,70.5,`
+<div id="a1" class="a play" style="font-size:78px">${WD('Nokia avait les ressources.')}</div>
+<div id="a2" class="a play" style="font-size:78px">${WD('Nokia avait le talent.')}</div>
+<div id="a3" class="a play" style="font-size:108px">${WD("Nokia n'avait pas")}</div>
+<div id="a4" class="a it" style="font-size:200px">${WD('la vision.')}</div>
+<div id="ln" class="a" style="width:180px;height:6px;background:var(--gold)"></div>`,
+(t,$)=>{tf($('a1'),CX,560);rw($('a1'),t,.1,.1);tf($('a2'),CX,720);rw($('a2'),t,1.9,.1);
+ tf($('a3'),CX,1000);rw($('a3'),t,3.8,.1);slam($('a4'),CX,1200,t,4.5,{from:1.3});
+ const f=1-.65*P(t,3.6,.5);$('a1').style.opacity=f;$('a2').style.opacity=f;
+ tf($('ln'),CX,1360);$('ln').style.clipPath=`inset(0 ${(1-P(t,4.9,.4))*100}% 0 0)`;
+ const [dx,dy]=shk(t,4.55,.35,10);$('a4').style.translate=`${dx}px ${dy}px`;},{zoom:.03});
+
+/* P16 — Face caméra (70.5–80.5) */
+scene(70.5,80.5,`
+<div id="fr" class="a" style="width:820px;height:960px;border-radius:36px;background:#e9e1d4;border:3px dashed #C17F3A;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px">
+ <div class="caps" style="font-size:30px;color:#7a7066">TA VIDÉO FACE CAMÉRA</div><div class="mont" style="font-size:26px;color:#9a8f82">(ajoutée demain)</div></div>
+<div id="n" class="a play" style="font-size:66px">Mohamed Moustakim TAGBA</div>
+<div id="r" class="a caps gold" style="font-size:26px">DATA · IA · DIGITAL</div>
+<div id="b" class="a chip" style="font-size:34px;padding:24px 56px">SUIVRE →</div>
+<div id="q" class="a it" style="font-size:54px;color:var(--ink)">${WD('Ne sois pas le prochain Nokia.')}</div>`,
+(t,$)=>{const p=P(t,0,.7,eo5);tf($('fr'),CX,700+(1-p)*60,{o:p});
+ fu($('n'),CX,1270,t,.4);fu($('r'),CX,1345,t,.7);
+ const b=P(t,6.6,.45,bk);tf($('b'),CX,1445,{s:b});if(b>0)mark($('b'),'pop');
+ tf($('q'),CX,1560);rw($('q'),t,8.0,.1);},{zoom:0});
+
+const DUR=80.5;
+function render(T){CUR=T;
+ for(const sc of S){const on=T>=sc.s&&T<sc.e;sc.d.style.display=on?'block':'none';
+  if(on){const lt=T-sc.s;sc.d.style.transform=`scale(${1+sc.zoom*lt/(sc.e-sc.s)})`;sc.up(lt+0.07,sc.$);}}
+ const f=Math.floor(T*30);document.getElementById('grain').style.transform=`translate(${(f*137)%200-100}px,${(f*271)%200-100}px)`;
+ let sc=S.find(s=>T>=s.s&&T<s.e);const lt=sc?T-sc.s+.07:0;
+ document.getElementById('bl').style.clipPath=`inset(0 ${(1-P(lt,.2,.5,eo5))*100}% 0 0)`;
+ document.getElementById('bl').style.opacity=T>70.5?0:1;
+ document.getElementById('stage').style.opacity=T>DUR-.5?1-(T-(DUR-.5))/.5:1;}
+window.render=render;window.DUR=DUR;window.EV=EV;
+</script>
+<script>render(0);</script>
+</body></html>

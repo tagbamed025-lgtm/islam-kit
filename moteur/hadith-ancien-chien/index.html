@@ -1,0 +1,208 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Corm;font-style:normal;font-weight:600;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:400;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+:root{--sh:drop-shadow(0 30px 34px rgba(45,35,15,.30)) drop-shadow(0 7px 9px rgba(45,35,15,.20));--bg:#F4F1EA;--ink:#141414;--acc:#0F5B46;--mut:#8a857a}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.scene{position:absolute;inset:0;display:none;transform-origin:50% 45%}
+.a{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform}
+.anton{font-family:Anton,Amiri,sans-serif;text-transform:uppercase;line-height:.9;color:var(--ink);white-space:nowrap;letter-spacing:.5px}
+.corm{font-family:Corm,Amiri,serif;font-style:italic;font-weight:500;color:var(--ink);line-height:1.12;text-align:center}
+.inter{font-family:Inter,Amiri,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.32em;color:var(--ink);white-space:nowrap}
+.ar{font-family:Amiri,serif;direction:rtl;color:var(--ink);white-space:nowrap}
+.acc{color:var(--acc)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .02em .12em;margin:-.16em 0 -.12em}
+.wi{display:inline-block}
+.disc{border-radius:50%;background:var(--acc)}
+.rule{height:3px;background:var(--ink)}
+img{display:block}
+img.obj{filter:var(--sh)}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;pointer-events:none;opacity:.9}
+#vig{position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(ellipse 70% 45% at 0% 0%,rgba(40,32,20,.16),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 0%,rgba(40,32,20,.12),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 0% 100%,rgba(40,32,20,.14),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 100%,rgba(40,32,20,.16),transparent 70%)}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#tag{position:absolute;left:60px;top:150px;font-family:Inter;font-weight:600;font-size:22px;letter-spacing:.3em;color:var(--mut)}
+#tag b{color:var(--acc);font-weight:800}
+.ph{position:absolute;left:0;top:0;width:1080px;object-fit:cover;filter:saturate(.8) contrast(1.03);-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%)}
+.chip{font-family:Inter;font-weight:600;text-transform:uppercase;letter-spacing:.28em;background:#141414;color:#F4F1EA;padding:.5em .95em;white-space:nowrap}
+.src{font-family:Inter;font-weight:600;letter-spacing:.24em;color:var(--mut);white-space:nowrap;font-size:22px}
+.card{background:#FBFAF6;box-shadow:0 40px 80px rgba(40,30,10,.18),0 6px 18px rgba(40,30,10,.10)}
+</style></head>
+<body><div id="stage">
+<div id="scenes"></div>
+<div id="vig"></div>
+<div id="grain"></div>
+<div id="flash"></div>
+<div id="tag">HADITHS · <b>01</b></div>
+</div>
+<script>
+const W=1080,H=1920,CX=540;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5), lin=x=>x;
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
+const bk=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo)=>e(cl((t-t0)/d));
+function tf(el,x,y,o={}){const s=o.s??1,r=o.r??0,ax=o.ax??50,ay=o.ay??50;
+ el.style.transformOrigin=`${ax}% ${ay}%`;
+ el.style.transform=`translate(${x}px,${y}px) translate(${-ax}%,${-ay}%) rotate(${r}deg) scale(${s})`;
+ if(o.o!==undefined)el.style.opacity=o.o; if(o.f!==undefined)el.style.filter=o.f+(el.classList.contains('obj')?' var(--sh)':'');}
+const WD=(txt)=>txt.split(' ').map(w=>{let c='';if(w.length>2&&w.startsWith('*')&&w.endsWith('*')){w=w.slice(1,-1);c=' acc'}if(w==='ﷺ')return `<span class="w"><span class="wi" style="font-family:Amiri;font-style:normal">ﷺ</span></span>`;return `<span class="w"><span class="wi${c}">${w}</span></span>`}).join(' ');
+function rw(el,t,t0,st=.06,d=.5){el.querySelectorAll('.wi').forEach((s,i)=>{const p=P(t,t0+i*st,d,eo5);if(p>0)mark(s,'word');s.style.transform=`translateY(${(1-p)*115}%)`;});}
+function slam(el,x,y,t,t0,o={}){if(t>=t0)mark(el,'slam');const p=P(t,t0,.4,ex);tf(el,x,y,{s:lerp(o.from??1.8,1,p)*(o.s??1),r:o.r??0,o:t<t0?0:cl((t-t0)/.07)});
+ const g=t-t0; el.style.textShadow=(g>0&&g<.2)?`${-10*(1-g/.2)}px 0 rgba(15,91,70,.75),${10*(1-g/.2)}px 0 rgba(190,50,40,.45)`:'none';}
+function fadeUp(el,x,y,t,t0,d=.5,dist=40,o={}){const p=P(t,t0,d,eo5);if(p>0)mark(el,'fade');tf(el,x,y+(1-p)*dist,{o:p,s:o.s??1});}
+function shk(t,t0,d,a){if(t<t0||t>t0+d)return[0,0];const k=1-(t-t0)/d;return[Math.sin(t*97)*a*k,Math.cos(t*71)*a*k];}
+function tw(el,txt,t,t0,cps){const n=Math.floor(cl((t-t0)*cps,0,txt.length));const o=twn.get(el)||0;for(let k=o;k<n;k++)EV.push(['type',+CUR.toFixed(3)]);if(n>o)twn.set(el,n);el.textContent=txt.slice(0,n);}
+function draw(path,p){path.style.strokeDasharray='1 1';path.style.strokeDashoffset=1-p;}
+const S=[];let CUR=0;const EV=[];const seen=new WeakSet();const twn=new Map();
+function mark(el,k){if(!seen.has(el)){seen.add(el);EV.push([k,+CUR.toFixed(3)]);}}
+function scene(s,e,html,up,o={}){const d=document.createElement('div');d.className='scene';d.innerHTML=html;document.getElementById('scenes').appendChild(d);
+ const $=id=>d.querySelector('#'+id);S.push({s,e,d,$,up,zoom:o.zoom??.035});}
+
+const pos=(el,x,y,o={})=>tf(el,x,y,o);
+function chipIn(el,x,y,t,t0){const p=P(t,t0,.45,eo5);if(p>0)mark(el,'fade');el.style.clipPath=`inset(0 ${100-p*100}% 0 0)`;tf(el,x,y,{o:t<t0?0:1});}
+function srcIn(el,x,y,t,t0){fadeUp(el,x,y,t,t0,.6,16);}
+
+/* S1 — désert, soif (0 – 3.2) */
+scene(0,3.2,`
+<img id="bg" class="ph" src="img/B1_desert_v.png" style="height:1920px;-webkit-mask-image:linear-gradient(to bottom,#000 48%,rgba(0,0,0,.25) 78%,transparent 92%)">
+<div id="c" class="a chip" style="font-size:26px">SAHIH AL-BUKHARI</div>
+<div id="t1" class="a anton" style="font-size:94px">${WD('UN HOMME DANS LE DÉSERT')}</div>
+<div id="t2" class="a anton" style="font-size:150px">TERRIBLEMENT</div>
+<div id="t3" class="a anton acc" style="font-size:280px">SOIF.</div>`,
+(t,$)=>{tf($('bg'),CX,960,{s:1.08-.04*t/3.2});
+ chipIn($('c'),CX,1180,t,.1);
+ pos($('t1'),CX,1320);rw($('t1'),t,.15,.1);
+ slam($('t2'),CX,1480,t,1.9,{from:1.5});
+ slam($('t3'),CX,1700,t,2.45,{from:1.8});},{zoom:.03});
+
+/* S2 — le puits (3.2 – 6.2) */
+scene(3.2,6.2,`
+<img id="bg" class="ph" src="img/H1_puits.png" style="height:1320px">
+<div id="t1" class="a anton" style="font-size:210px">UN PUITS.</div>
+<div id="t2" class="a corm" style="font-size:84px">${WD('Il descend… et *boit.*')}</div>`,
+(t,$)=>{tf($('bg'),CX,660,{s:1.02+.05*t/3});
+ slam($('t1'),CX,1430,t,.15,{from:1.5});
+ pos($('t2'),CX,1640);rw($('t2'),t,1.5,.25);},{zoom:.02});
+
+/* S3 — le chien (6.2 – 12.0) */
+scene(6.2,12.0,`
+<img id="d" class="a obj" src="img/cut_H3_chien.png" style="width:900px">
+<div id="t1" class="a anton" style="font-size:120px">${WD('IL VOIT UN CHIEN.')}</div>
+<div id="t2" class="a anton acc" style="font-size:210px">HALETANT.</div>
+<div id="t3" class="a corm" style="font-size:70px;width:900px;white-space:normal">${WD('Il lèche la terre humide, tellement il a soif.')}</div>`,
+(t,$)=>{const br=1+.012*Math.sin(t*14);
+ fadeUp($('d'),CX,760,t,.9,.8,60);$('d').style.transform+=` scale(${br})`;
+ pos($('t1'),CX,1330);rw($('t1'),t,1.18,.1);
+ slam($('t2'),CX,1510,t,2.29,{from:1.6});
+ pos($('t3'),CX,1720);rw($('t3'),t,3.07,.08);},{zoom:.03});
+
+/* S4 — l'homme se dit (12.0 – 15.6) */
+scene(12.0,15.6,`
+<img id="bg" class="ph" src="img/H2_homme_puits.png" style="height:1280px">
+<div id="c" class="a chip" style="font-size:24px">L'HOMME SE DIT</div>
+<div id="q" class="a corm" style="font-size:74px;width:900px;white-space:normal"></div>`,
+(t,$)=>{tf($('bg'),CX,640,{s:1.02+.04*t/3.6});
+ chipIn($('c'),CX,1340,t,.15);
+ tf($('q'),CX,1420,{ay:0});tw($('q'),'« Ce chien souffre de la même soif que moi. »',t,1.24,22);},{zoom:.02});
+
+/* S5 — la chaussure (15.6 – 22.3) */
+scene(15.6,22.3,`
+<img id="s" class="a obj" src="img/cut_H4_sandale.png" style="width:860px">
+<img id="d" class="a obj" src="img/cut_H3_chien.png" style="width:560px">
+<div id="t1" class="a anton" style="font-size:112px">${WD('IL REDESCEND.')}</div>
+<div id="t2" class="a anton" style="font-size:150px">SA CHAUSSURE</div>
+<div id="t3" class="a anton acc" style="font-size:190px">PLEINE D'EAU</div>
+<div id="t4" class="a corm" style="font-size:66px">${WD('tenue entre ses dents…')}</div>
+<div id="t5" class="a anton" style="font-size:78px">${WD('ET IL DONNE À BOIRE AU CHIEN.')}</div>`,
+(t,$)=>{const x=P(t,5.2,.5);
+ const ps=P(t,1.45,.7,eo5);if(ps>0)mark($('s'),'fade');
+ tf($('s'),lerp(CX,300,x),lerp(700,900,x)+(1-ps)*80,{o:ps,s:lerp(1,.6,x)});
+ tf($('d'),lerp(1500,740,P(t,5.3,.8,eo5)),880,{o:P(t,5.3,.3)});
+ pos($('t1'),CX,1290);rw($('t1'),t,.18,.1);$('t1').style.opacity=1-P(t,1.4,.2);
+ slam($('t2'),CX,1260+ (x*0),t,1.55,{from:1.4});$('t2').style.opacity=t<1.55?0:1-x;
+ slam($('t3'),CX,1440,t,2.1,{from:1.6});$('t3').style.opacity=t<2.1?0:1-x;
+ pos($('t4'),CX,1600);rw($('t4'),t,3.15,.12);$('t4').style.opacity=1-x;
+ pos($('t5'),CX,1450);rw($('t5'),t,5.38,.1);},{zoom:.03});
+
+/* S6 — Allah l'a remercié (22.3 – 28.2) */
+scene(22.3,28.2,`
+<div id="lg" class="a" style="width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#FFF6DE 0%,#EBD9A4 35%,rgba(235,217,164,0) 70%)"></div>
+<div id="t1" class="a anton" style="font-size:96px">${WD('LE PROPHÈTE ﷺ A DIT :')}</div>
+<div id="t2" class="a anton" style="font-size:150px">ALLAH</div>
+<div id="t3" class="a anton" style="font-size:150px">L'A REMERCIÉ</div>
+<div id="t4" class="a anton acc" style="font-size:170px">${WD('ET LUI A')}</div>
+<div id="t5" class="a anton acc" style="font-size:200px">PARDONNÉ.</div>
+<div id="s" class="a src">SAHIH AL-BUKHARI · 2363</div>`,
+(t,$)=>{tf($('lg'),CX,1000,{o:P(t,2.8,1),s:.9+.08*Math.sin(t)});
+ pos($('t1'),CX,560);rw($('t1'),t,.17,.1);
+ slam($('t2'),CX,860,t,2.86,{from:1.5});
+ slam($('t3'),CX,1010,t,3.3,{from:1.5});
+ pos($('t4'),CX,1220);rw($('t4'),t,4.76,.12);
+ slam($('t5'),CX,1400,t,5.1,{from:1.8});
+ srcIn($('s'),CX,1600,t,5.3);},{zoom:.04});
+
+/* S7 — la question (28.2 – 32.6) */
+scene(28.2,32.6,`
+<div id="t1" class="a corm" style="font-size:78px">${WD('Les compagnons ont demandé :')}</div>
+<div id="t2" class="a anton" style="font-size:130px">${WD('UNE RÉCOMPENSE…')}</div>
+<div id="t3" class="a anton acc" style="font-size:92px">${WD('MÊME POUR LES ANIMAUX ?')}</div>`,
+(t,$)=>{pos($('t1'),CX,760);rw($('t1'),t,.17,.1);
+ pos($('t2'),CX,960);rw($('t2'),t,1.63,.12);
+ pos($('t3'),CX,1120);rw($('t3'),t,3.23,.1);},{zoom:.04});
+
+/* S8 — tout être vivant (32.6 – 37.2) */
+scene(32.6,37.2,`
+<img id="d" class="a obj" src="img/cut_H3_chien.png" style="width:640px">
+<div id="t0" class="a inter" style="font-size:30px">IL A RÉPONDU</div>
+<div id="t1" class="a anton" style="font-size:130px">POUR TOUT</div>
+<div id="t2" class="a anton" style="font-size:130px">ÊTRE VIVANT,</div>
+<div id="t3" class="a anton acc" style="font-size:92px">${WD('IL Y A UNE RÉCOMPENSE.')}</div>
+<img id="lg" class="a" src="img/logo.png" style="width:120px">`,
+(t,$)=>{fadeUp($('d'),CX,1500,t,.2,.9,60);
+ fadeUp($('t0'),CX,460,t,.16,.5,20);
+ slam($('t1'),CX,620,t,1.74,{from:1.4});
+ slam($('t2'),CX,760,t,2.15,{from:1.4});
+ pos($('t3'),CX,940);rw($('t3'),t,2.98,.12);
+ tf($('lg'),CX,1850,{o:P(t,3.5,.6)});},{zoom:.03});
+
+/* S9 — abonne-toi (37.2 – 40.0) */
+scene(37.2,40.0,`
+<div id="disc" class="a disc" style="width:560px;height:560px"></div>
+<img id="lg" class="a" src="img/logo.png" style="width:380px">
+<div id="t1" class="a anton" style="font-size:170px">ABONNE-TOI</div>
+<div id="t2" class="a inter" style="font-size:30px">UN HADITH, UNE HISTOIRE</div>
+<div id="btn" class="a inter" style="font-size:34px;font-weight:800;color:#F4F1EA;background:var(--acc);padding:28px 60px;border-radius:80px;letter-spacing:.2em">S'ABONNER</div>`,
+(t,$)=>{tf($('disc'),CX,780,{s:P(t,0,.6,bk)});
+ tf($('lg'),CX,780,{s:P(t,.15,.6,bk)});
+ slam($('t1'),CX,1240,t,.3,{from:1.4});fadeUp($('t2'),CX,1350,t,.6,.5,20);
+ const b=P(t,.9,.5,bk);tf($('btn'),CX,1500,{s:b*(1+(t>1.7&&t<1.9?.06:0))});},{zoom:.02});
+
+const DUR=40.0;
+function render(T){CUR=T;
+ for(const sc of S){const on=T>=sc.s&&T<sc.e;sc.d.style.display=on?'block':'none';
+  if(on){const lt=T-sc.s;sc.d.style.transform=`scale(${1+sc.zoom*lt/(sc.e-sc.s)})`;sc.up(lt+0.07,sc.$);}}
+ const f=Math.floor(T*30);const gx=(f*137)%200, gy=(f*271)%200;document.getElementById('grain').style.transform=`translate(${gx-100}px,${gy-100}px)`;
+ let fl=0; if(T>25.1&&T<25.5) fl=.8*(1-(T-25.1)/.4);
+ document.getElementById('flash').style.opacity=fl;
+ document.getElementById('stage').style.opacity=T>DUR-.5?1-(T-(DUR-.5))/.5:1;
+ document.getElementById('tag').style.opacity=T<37.2?1:0;
+}
+window.render=render;window.EV=EV;window.DUR=DUR;
+render(0);
+</script></body></html>

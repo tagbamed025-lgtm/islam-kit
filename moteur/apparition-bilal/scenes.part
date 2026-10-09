@@ -1,0 +1,182 @@
+/* helpers */
+const pos=(el,x,y,o={})=>tf(el,x,y,o);
+function chipIn(el,x,y,t,t0){const p=P(t,t0,.45,eo5);if(p>0)mark(el,'fade');el.style.clipPath=`inset(0 ${100-p*100}% 0 0)`;tf(el,x,y,{o:t<t0?0:1});}
+function srcIn(el,x,y,t,t0){fadeUp(el,x,y,t,t0,.6,16);}
+function drop(el,x,y,t,t0,from=-700){const p=P(t,t0,.28,x=>x*x);if(t>=t0+.26)mark(el,'slam');tf(el,x,lerp(from,y,p),{o:t<t0?0:1});}
+
+/* S1 — sable brûlant (0 – 2.6) */
+scene(0,2.6,`
+<img id="bg" class="ph" src="img/B1_desert_v.png" style="height:1920px;-webkit-mask-image:linear-gradient(to bottom,#000 48%,rgba(0,0,0,.25) 78%,transparent 92%)">
+<div id="c" class="a chip" style="font-size:26px">LA MECQUE · VIIᵉ SIÈCLE</div>
+<div id="t1" class="a anton" style="font-size:150px">${WD('LE SABLE')}</div>
+<div id="t2" class="a anton acc" style="font-size:250px">BRÛLANT</div>`,
+(t,$)=>{tf($('bg'),CX,960,{s:1.08-.04*t/2.6});
+ chipIn($('c'),CX,1230,t,.1);
+ pos($('t1'),CX,1400);rw($('t1'),t,.2);
+ slam($('t2'),CX,1600,t,1.15,{from:1.6});},{zoom:.03});
+
+/* S2 — la pierre (2.6 – 5.2) */
+scene(2.6,5.2,`
+<img id="r" class="a obj" src="img/cut_B2_rocher_v.png" style="width:780px">
+<div id="t1" class="a anton" style="font-size:190px">UNE PIERRE</div>
+<div id="t2" class="a anton acc" style="font-size:190px">ÉNORME</div>
+<div id="t3" class="a corm" style="font-size:78px">${WD('sur la poitrine.')}</div>`,
+(t,$)=>{const [sx,sy]=shk(t,.38,.5,26);
+ drop($('r'),CX+sx,760+sy,t,.1);
+ slam($('t1'),CX+sx*.5,1330+sy*.5,t,.14,{from:1.5});
+ slam($('t2'),CX+sx*.5,1500+sy*.5,t,.75,{from:1.5});
+ pos($('t3'),CX,1680);rw($('t3'),t,1.52);},{zoom:.04});
+
+/* S3 — le maître (5.2 – 11.1) */
+scene(5.2,11.1,`
+<img id="m" class="a obj" src="img/cut_B5_maitre_dos.png" style="height:1320px">
+<div id="c" class="a chip" style="font-size:24px">SON MAÎTRE</div>
+<div id="n" class="a anton" style="font-size:92px;line-height:.95;text-align:left">${WD('UMAYYA')}<br>${WD('IBN KHALAF')}</div>
+<div id="q1" class="a corm" style="font-size:56px;width:430px;white-space:normal;text-align:left"></div>
+<div id="q2" class="a corm acc" style="font-size:56px;width:430px;white-space:normal;text-align:left"></div>
+<div id="s" class="a src">SÎRA D'IBN HISHÂM</div>`,
+(t,$)=>{fadeUp($('m'),790,1090,t,.05,.9,60);
+ chipIn($('c'),250,440,t,.22);
+ tf($('n'),250,570,{});rw($('n'),t,.45,.12);
+ tf($('q1'),260,720,{ay:0});tw($('q1'),'« Tu resteras ainsi jusqu’à ta mort…',t,1.62,22);
+ tf($('q2'),260,1010,{ay:0});tw($('q2'),'…ou jusqu’à ce que tu renies Muhammad. »',t,3.84,24);
+ srcIn($('s'),250,1420,t,4.6);},{zoom:.03});
+
+/* S4 — un seul mot (11.1 – 12.9) */
+scene(11.1,12.9,`
+<div id="t1" class="a anton" style="font-size:120px">${WD("IL N'A RÉPONDU")}</div>
+<div id="t2" class="a anton" style="font-size:240px">QU'UN SEUL</div>
+<div id="t3" class="a anton acc" style="font-size:300px">MOT.</div>`,
+(t,$)=>{pos($('t1'),CX,760);rw($('t1'),t,.23,.1);
+ slam($('t2'),CX,980,t,.85,{from:1.5});
+ slam($('t3'),CX,1250,t,1.25,{from:1.9});},{zoom:.05});
+
+/* S5 — Bilal (12.9 – 17.8) */
+scene(12.9,17.8,`
+<img id="bg" class="ph" src="img/B3_main_sable.png" style="height:1250px">
+<div id="c" class="a chip" style="font-size:24px">UN ESCLAVE D'ABYSSINIE</div>
+<div id="t0" class="a inter" style="font-size:30px">IL S'APPELAIT</div>
+<div id="t1" class="a anton" style="font-size:270px">BILAL</div>
+<div id="t2" class="a anton acc" style="font-size:118px">${WD('IBN RABAH')}</div>
+<div id="ar" class="a ar" style="font-size:78px;color:var(--mut)">بلال بن رباح</div>`,
+(t,$)=>{tf($('bg'),CX,625,{s:1.02+.05*t/4.9});
+ fadeUp($('t0'),CX,1170,t,.09,.5,20);
+ slam($('t1'),CX,1360,t,1.46,{from:1.7});
+ pos($('t2'),CX,1545);rw($('t2'),t,1.85,.12);
+ fadeUp($('ar'),CX,1680,t,2.3,.7,20);
+ chipIn($('c'),CX,1810,t,2.96);},{zoom:.02});
+
+/* S6 — soleil, chaleur, soif (17.8 – 23.9) */
+scene(17.8,23.9,`
+<div id="sun" class="a" style="width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#FFF6DE 0%,#EBD9A4 35%,rgba(235,217,164,0) 70%)"></div>
+<img id="cm" class="a obj" src="img/cut_B6_cotte_mailles.png" style="width:800px">
+<div id="c" class="a chip" style="font-size:22px">ARMURE DE FER · EN PLEIN SOLEIL</div>
+<div id="t1" class="a anton" style="font-size:112px">${WD('LE SOLEIL DE MIDI,')}</div>
+<div id="t2" class="a anton" style="font-size:112px">${WD('LA CHALEUR,')}</div>
+<div id="t3" class="a anton acc" style="font-size:112px">${WD('LA SOIF…')}</div>
+<div id="t4" class="a corm" style="font-size:66px">${WD('Et toujours la même réponse :')}</div>`,
+(t,$)=>{tf($('sun'),CX,560,{s:.9+.15*Math.sin(t*1.3),o:P(t,0,1)});
+ fadeUp($('cm'),CX,700,t,.05,.8,60);
+ chipIn($('c'),CX,250,t,.5);
+ pos($('t1'),CX,1270);rw($('t1'),t,.18,.1);
+ pos($('t2'),CX,1400);rw($('t2'),t,1.88,.1);
+ pos($('t3'),CX,1530);rw($('t3'),t,3.14,.1);
+ pos($('t4'),CX,1700);rw($('t4'),t,4.22,.07);},{zoom:.03});
+
+/* S7 — AHAD (23.9 – 27.9) */
+scene(23.9,27.9,`
+<div id="ar" class="a ar acc" style="font-size:330px;font-weight:700">أَحَدٌ</div>
+<div id="a1" class="a anton" style="font-size:200px">AHAD.</div>
+<div id="a2" class="a anton" style="font-size:200px">AHAD.</div>
+<div id="t1" class="a anton" style="font-size:110px">${WD('UN SEUL.')}</div>
+<div id="t2" class="a anton acc" style="font-size:130px">${WD('UN SEUL DIEU.')}</div>
+<div id="s" class="a src">SUNAN IBN MÂJAH · 150</div>`,
+(t,$)=>{const pulse=t>1.05&&t<1.4?1+.08*(1-(t-1.05)/.35):1;
+ tf($('ar'),CX,560,{s:P(t,.07,.5,bk)*pulse,o:P(t,.07,.15)});
+ slam($('a1'),CX-10,900,t,.09,{from:1.6});
+ slam($('a2'),CX-10,1080,t,1.07,{from:1.6});
+ pos($('t1'),CX,1300);rw($('t1'),t,2.03,.12);
+ pos($('t2'),CX,1440);rw($('t2'),t,3.04,.12);
+ srcIn($('s'),CX,1640,t,3.2);},{zoom:.04});
+
+/* S8 — Abou Bakr (27.9 – 30.8) */
+scene(27.9,30.8,`
+<img id="bg" class="ph" src="img/B7_dirhams.png" style="height:1150px">
+<img id="br" class="a obj" src="img/cut_B8_chaines_brisees.png" style="width:900px">
+<div id="t1" class="a anton" style="font-size:190px">ABOU BAKR</div>
+<div id="t2" class="a anton" style="font-size:104px">${WD("L'A RACHETÉ…")}</div>
+<div id="t3" class="a anton acc" style="font-size:130px">${WD("ET L'A LIBÉRÉ.")}</div>
+<div id="s" class="a src">SAHIH AL-BUKHARI · 3754</div>`,
+(t,$)=>{const x=P(t,1.9,.35);
+ tf($('bg'),CX,575,{s:1.02+.04*t/2.9,o:1-x});
+ const [sx,sy]=shk(t,1.94,.35,18);
+ tf($('br'),CX+sx,640+sy,{o:x,s:lerp(1.15,1,P(t,1.94,.35,eo5))});if(t>=1.94)mark($('br'),'slam');
+ slam($('t1'),CX,1270,t,.16,{from:1.5});
+ pos($('t2'),CX,1420);rw($('t2'),t,.62,.1);
+ pos($('t3'),CX,1570);rw($('t3'),t,1.94,.1);
+ srcIn($('s'),CX,1720,t,2.1);},{zoom:.03});
+
+/* S9 — Médine (30.8 – 36.3) */
+scene(30.8,36.3,`
+<img id="bg" class="ph" src="img/B9_mosquee.png" style="height:1320px">
+<div id="t1" class="a anton" style="font-size:100px">${WD('DES ANNÉES PLUS TARD,')}</div>
+<div id="c" class="a chip" style="font-size:26px">MÉDINE</div>
+<div id="t2" class="a corm" style="font-size:80px">${WD("c'est *sa* *voix*")}</div>`,
+(t,$)=>{tf($('bg'),CX,660,{s:1.02+.05*t/5.5});
+ pos($('t1'),CX,1400);rw($('t1'),t,.12,.1);
+ chipIn($('c'),CX,1550,t,2.33);
+ pos($('t2'),CX,1700);rw($('t2'),t,4.13,.12);},{zoom:.02});
+
+/* S10 — l'appel (36.3 – 40.6) */
+scene(36.3,40.6,`
+<img id="bg" class="ph" src="img/B10_appel_priere.png" style="height:1360px">
+<div id="t1" class="a anton" style="font-size:104px">${WD('QUE LE PROPHÈTE ﷺ')}</div>
+<div id="t2" class="a anton acc" style="font-size:150px">${WD('A CHOISIE')}</div>
+<div id="t3" class="a inter" style="font-size:28px">POUR APPELER À LA PRIÈRE</div>
+<div id="s" class="a src">SUNAN ABÎ DÂWUD · 499</div>`,
+(t,$)=>{tf($('bg'),CX,680,{s:1.02+.05*t/4.3});
+ pos($('t1'),CX,1430);rw($('t1'),t,.18,.12);
+ slam($('t2'),CX,1590,t,2.74,{from:1.5});
+ fadeUp($('t3'),CX,1720,t,3.1,.5,20);
+ srcIn($('s'),CX,1800,t,3.4);},{zoom:.02});
+
+/* S11 — premier muezzin (40.6 – 43.5) */
+scene(40.6,43.5,`
+<img id="lg" class="a" src="img/logo.png" style="width:300px;opacity:.9">
+<div id="t1" class="a anton" style="font-size:112px">${WD("L'ESCLAVE TORTURÉ")}</div>
+<div id="t2" class="a corm" style="font-size:74px">${WD('était devenu')}</div>
+<div id="t3" class="a anton" style="font-size:130px">LE PREMIER</div>
+<div id="t4" class="a anton acc" style="font-size:270px">MUEZZIN</div>
+<div id="t5" class="a anton" style="font-size:118px">${WD("DE L'ISLAM")}</div>`,
+(t,$)=>{tf($('lg'),CX,420,{o:P(t,.1,.8)*.9,s:lerp(.9,1,P(t,.1,1.5))});
+ pos($('t1'),CX,720);rw($('t1'),t,.14,.1);
+ pos($('t2'),CX,860);rw($('t2'),t,.95,.1);
+ slam($('t3'),CX,1030,t,1.45,{from:1.4});
+ slam($('t4'),CX,1250,t,1.85,{from:1.8});
+ pos($('t5'),CX,1450);rw($('t5'),t,2.3,.1);},{zoom:.04});
+
+/* S12 — abonne-toi (43.5 – 46.5) */
+scene(43.5,46.5,`
+<div id="disc" class="a disc" style="width:560px;height:560px"></div>
+<img id="lg" class="a" src="img/logo.png" style="width:380px">
+<div id="t1" class="a anton" style="font-size:170px">ABONNE-TOI</div>
+<div id="t2" class="a inter" style="font-size:30px">UNE HISTOIRE CHAQUE VENDREDI</div>
+<div id="btn" class="a inter" style="font-size:34px;font-weight:800;color:#F4F1EA;background:var(--acc);padding:28px 60px;border-radius:80px;letter-spacing:.2em">S'ABONNER</div>`,
+(t,$)=>{tf($('disc'),CX,780,{s:P(t,0,.6,bk)});
+ tf($('lg'),CX,780,{s:P(t,.15,.6,bk)});
+ slam($('t1'),CX,1240,t,.3,{from:1.4});fadeUp($('t2'),CX,1350,t,.6,.5,20);
+ const b=P(t,.9,.5,bk);tf($('btn'),CX,1500,{s:b*(1+(t>1.7&&t<1.9?.06:0))});},{zoom:.02});
+
+const DUR=46.5;
+function render(T){CUR=T;
+ for(const sc of S){const on=T>=sc.s&&T<sc.e;sc.d.style.display=on?'block':'none';
+  if(on){const lt=T-sc.s;sc.d.style.transform=`scale(${1+sc.zoom*lt/(sc.e-sc.s)})`;sc.up(lt+0.07,sc.$);}}
+ const f=Math.floor(T*30);const gx=(f*137)%200, gy=(f*271)%200;document.getElementById('grain').style.transform=`translate(${gx-100}px,${gy-100}px)`;
+ let fl=0; if(T>23.95&&T<24.35) fl=.85*(1-(T-23.95)/.4);
+ document.getElementById('flash').style.opacity=fl;
+ document.getElementById('stage').style.opacity=T>DUR-.5?1-(T-(DUR-.5))/.5:1;
+ document.getElementById('tag').style.opacity=T<43.5?1:0;
+}
+window.render=render;window.EV=EV;window.DUR=DUR;
+render(0);
+</script></body></html>

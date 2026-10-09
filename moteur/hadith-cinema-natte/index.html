@@ -1,0 +1,239 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-500-italic.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Amiri;font-weight:400;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+:root{--cream:#FBF6EA;--gold:#EDCB85;--acc:#0F5B46;--ink:#141414}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0c0a07}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0c0a07}
+.L{position:absolute;inset:0;overflow:hidden;display:none}
+.ph{position:absolute;left:0;top:0;transform-origin:0 0;width:1620px;height:2880px}
+.ov{position:absolute;inset:0;pointer-events:none}
+canvas{position:absolute;inset:0}
+.blk{position:absolute;left:60px;right:60px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ln{white-space:nowrap;line-height:1;transform-origin:50% 50%}
+.anton .ln{margin:.035em 0}
+.corm .ln{margin:.01em 0}
+.anton{font-family:Anton,Amiri,sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--cream)}
+.corm{font-family:Corm,Amiri,serif;font-style:italic;font-weight:500;color:var(--cream);line-height:1.1}
+.inter{font-family:Inter,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:var(--cream)}
+.sh{text-shadow:0 3px 3px rgba(0,0,0,.35),0 8px 30px rgba(0,0,0,.55)}
+.w{display:inline-block;will-change:transform,opacity,filter;white-space:pre}
+.k{color:var(--gold)}
+.arw{font-family:Amiri,serif;font-weight:700;font-style:normal;text-transform:none}
+.chip{font-family:Inter;font-weight:800;letter-spacing:.26em;font-size:24px;color:var(--cream);background:rgba(15,91,70,.92);padding:14px 26px;white-space:nowrap;position:absolute}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;opacity:.55;mix-blend-mode:overlay;pointer-events:none}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 85% 70% at 50% 48%,transparent 55%,rgba(0,0,0,.55) 100%)}
+#tag{position:absolute;left:60px;top:140px;font-family:Inter;font-weight:600;font-size:22px;letter-spacing:.3em;color:#FBF6EA;background:rgba(15,91,70,.95);padding:12px 20px 12px 24px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#tag b{color:var(--gold);font-weight:800}
+.ln.band{background:#0F5B46;padding:.1em .32em .04em;margin-top:.14em;transform:rotate(-2deg);box-shadow:0 14px 34px rgba(0,0,0,.45);text-shadow:none}
+.ln.band .w{color:var(--gold)}
+#fade{position:absolute;inset:0;background:#000;pointer-events:none}
+.ar{font-family:Amiri,serif;direction:rtl;white-space:nowrap}
+.disc{border-radius:50%;background:var(--acc)}
+</style></head>
+<body><div id="stage">
+
+<!-- A/B/C/D : la chambre (même photo, caméra différente) -->
+<div class="L" id="LA"><img class="ph" id="iA" src="img/H5_natte_hd.jpg"><div class="ov" style="background:linear-gradient(to bottom,rgba(0,0,0,0) 45%,rgba(8,6,3,.78) 88%)"></div></div>
+<div class="L" id="LB"><img class="ph" id="iB" src="img/H5_natte_hd.jpg"><div class="ov" id="sweep"></div><div class="ov" style="background:rgba(10,7,3,.38)"></div></div>
+<div class="L" id="LC"><img class="ph" id="iC" src="img/H5_natte_hd.jpg" style="filter:blur(5px) brightness(.62) saturate(.9)"></div>
+<div class="L" id="LD"><img class="ph" id="iD" src="img/H5_natte_hd.jpg"><div class="ov" id="bloomD"></div><div class="ov" style="background:linear-gradient(to bottom,rgba(0,0,0,.1) 30%,rgba(8,6,3,.8) 92%)"></div></div>
+<!-- E : l'arbre à midi -->
+<div class="L" id="LE"><img class="ph" id="iE" src="img/H6_arbre_midi_hd.jpg"><div class="ov" id="sunE"></div><div class="ov" style="background:linear-gradient(to bottom,rgba(0,0,0,0) 42%,rgba(20,12,4,.82) 90%)"></div></div>
+<!-- F/G : coucher de soleil, traces -->
+<div class="L" id="LF"><img class="ph" id="iF" src="img/H7_arbre_traces_hd.jpg"><div class="ov" id="sunF"></div><div class="ov" id="topF" style="background:linear-gradient(to bottom,rgba(10,6,4,.7) 0%,rgba(10,6,4,0) 48%)"></div><div class="ov" id="darkG" style="background:radial-gradient(ellipse 90% 60% at 50% 48%,rgba(18,104,80,.93) 0%,rgba(9,58,44,.96) 70%,rgba(6,40,30,.98) 100%)"></div></div>
+<!-- H : abonne-toi -->
+<div class="L" id="LH" style="background:#F4F1EA"></div>
+
+<canvas id="dust" width="1080" height="1920"></canvas>
+<div id="caps"></div>
+<div id="vig"></div>
+<div id="grain"></div>
+<div id="tag">HADITHS · <b>02</b></div>
+<div id="fade"></div>
+</div>
+<script>
+const OFF=0.35;                 // la voix démarre à 0.35 s dans la vidéo
+const DUR=32.4;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo5=x=>1-Math.pow(1-x,5), eo3=x=>1-Math.pow(1-x,3), eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
+const bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo3)=>e(cl((t-t0)/d));
+const $=id=>document.getElementById(id);
+const EV=[];const seen=new Set();let CUR=0;
+function mark(key,k,t){if(!seen.has(key)){seen.add(key);EV.push([k,+((t??CUR)).toFixed(3),key]);}}
+
+/* ---------- caméra : point focal (px de l'image HD) -> centre de l'écran ---------- */
+function cam(img,fx,fy,s,rot=0,sx=540,sy=960){
+  const k=0.6667*s; let X=sx-fx*k, Y=sy-fy*k;
+  X=Math.min(0,Math.max(1080-1620*k,X)); Y=Math.min(0,Math.max(1920-2880*k,Y));
+  img.style.transform=`translate(${X}px,${Y}px) scale(${k}) rotate(${rot}deg)`;
+  return (px,py)=>[X+px*k,Y+py*k];
+}
+
+/* ---------- couches (scènes) avec fondus enchaînés ---------- */
+const LAYERS={A:[0,4.85,0,.45],B:[4.55,9.6,.45,.4],C:[9.4,15.0,.4,.4],D:[14.85,18.0,.35,.4],E:[17.8,22.9,.4,.7],F:[22.75,29.75,.55,.5],H:[29.6,32.4,.35,0]};
+function layerOp(id,T){const [s,e,fi,fo]=LAYERS[id];const a=T-OFF;
+  if(a<s-0.001||a>e+fo)return 0;
+  const i=fi?cl((a-s)/fi):1, o=fo?cl((e+fo-a)/fo):1; return Math.min(i,o);}
+
+/* ---------- sous-titres calés sur la voix (temps réels, reconnaissance vocale) ---------- */
+// [texte, début (s dans la voix), classe]   k = mot clé doré, ar = glyphe arabe
+const BLOCKS=[
+ {L:'A',y:1270,cls:'anton sh',lines:[
+   {sz:122,w:[['LE',0.00],['PROPHÈTE',0.20],['ﷺ',0.95,'ar k']]},
+   {sz:80,w:[['DORMAIT',2.34],['SUR',2.68],['UNE',2.84],['SIMPLE',3.02]]},
+   {sz:124,band:1,w:[['NATTE',3.32,'k'],['DE',3.82],['ROSEAU.',4.00,'k']]}]},
+ {L:'B',y:640,cls:'anton sh',lines:[
+   {sz:86,w:[['UN',4.82],['JOUR,',4.92],['IL',5.74],['SE',5.84],['LÈVE…',6.02]]},
+   {sz:86,w:[['ET',6.24],['LA',6.86],['NATTE',7.04],['A',7.58],['LAISSÉ',7.84]]},
+   {sz:160,band:1,w:[['DES',8.06],['MARQUES',8.20,'k']]},
+   {sz:96,w:[['SUR',8.46],['SON',8.64],['CÔTÉ.',8.80]]}]},
+ {L:'C',y:560,cls:'inter',lines:[
+   {sz:28,w:[['SES',9.63],['COMPAGNONS',9.76],['LUI',10.16],['DISENT',10.32]]}]},
+ {L:'C',y:720,cls:'corm sh',lines:[
+   {sz:92,w:[['«',11.30],['Ô',11.30],['Messager',11.40],["d'Allah,",11.74,'k']]},
+   {sz:92,w:[['laisse-nous',12.68],['te',13.02],['préparer',13.16]]},
+   {sz:92,w:[['une',13.54],['couche',13.66]]},
+   {sz:92,w:[['plus',13.88],['douce.',14.08],['»',14.08]]}]},
+ {L:'D',y:1060,cls:'inter sh',lines:[
+   {sz:30,w:[['IL',15.04],['RÉPOND',15.12]]}]},
+ {L:'D',y:1140,cls:'anton sh',lines:[
+   {sz:104,w:[['«',16.32],["QU'EST-CE",16.32],['QUE',16.50],["J'AI",16.56]]},
+   {sz:104,w:[['À',16.64],['FAIRE',16.68],['DE',16.80],['CE',16.96]]},
+   {sz:180,band:1,w:[['MONDE ?',17.14,'k slam'],['»',17.14,'k']]}]},
+ {L:'E',y:1280,cls:'corm sh',lines:[
+   {sz:84,w:[['«',18.04],['Je',18.04],['ne',18.14],['suis',18.24],['dans',18.40],['ce',18.54],['monde',18.72]]},
+   {sz:84,w:[['que',18.98],['comme',19.43],['un',19.72],['voyageur,',19.86,'k']]},
+   {sz:84,w:[['qui',21.00],["s'arrête",21.10],['à',21.44],["l'ombre",21.58]]},
+   {sz:84,w:[["d'un",21.78],['arbre,',22.00,'k']]}]},
+ {L:'F',y:330,cls:'anton sh',lines:[
+   {sz:150,w:[['PUIS',22.96],['REPART,',23.08,'k']]},
+   {sz:112,w:[['ET',23.58],['LE',24.27],['LAISSE',24.44]]},
+   {sz:132,band:1,w:[['DERRIÈRE',24.60],['LUI.',24.88,'k'],['»',24.88,'k']]}],hideAt:25.75},
+];
+const caps=$('caps');
+BLOCKS.forEach((b,bi)=>{const d=document.createElement('div');d.className='blk '+b.cls;d.style.top=b.y+'px';b.el=d;b.words=[];
+  b.lines.forEach((l,li)=>{const ln=document.createElement('div');ln.className='ln'+(l.band?' band':'');ln.style.fontSize=l.sz+'px';
+    if(b.cls.startsWith('corm'))ln.style.marginBottom='.02em';
+    l.w.forEach(([tx,t0,c],wi)=>{const s=document.createElement('span');s.className='w '+(c||'');
+      if(c&&c.includes('ar')){s.classList.add('arw');}
+      s.textContent=tx;ln.appendChild(s);if(wi<l.w.length-1)ln.appendChild(document.createTextNode(' '));
+      b.words.push({el:s,t0,c:c||'',key:`${bi}-${li}-${wi}`,ln:li});});
+    d.appendChild(ln);l.el=ln;});
+  caps.appendChild(d);});
+function fitLines(){BLOCKS.forEach(b=>b.lines.forEach(l=>{let fs=l.sz;l.el.style.fontSize=fs+'px';
+  while(l.el.scrollWidth>950&&fs>30){fs-=2;l.el.style.fontSize=fs+'px';}}));}
+
+function renderCaps(T){const a=T-OFF;
+  BLOCKS.forEach(b=>{const [ls,le,lfi]=LAYERS[b.L];const op=Math.min(lfi?cl((a-ls)/lfi):1,cl((le-a)/.22),b.hideAt?cl((b.hideAt+.45-a)/.45):1)*(a<ls?0:1);
+    b.el.style.opacity=op;b.el.style.display=op>0?'flex':'none';if(op<=0)return;
+    b.lines.forEach(l=>{if(!l.band)return;const t0=l.w[0][1];const p=eo5(cl((a-(t0-0.14))/0.3));l.el.style.clipPath=`inset(-20% ${100-p*100}% -20% 0)`;l.el.style.opacity=p>0?1:0;});
+    b.words.forEach(w=>{const lead=0.06, d=w.c.includes('slam')?0.42:0.32;
+      const p=cl((a-(w.t0-lead))/d); const e=eo5(p);
+      if(p>0)mark(w.key,w.c.includes('slam')?'slam':(w.c.includes('k')?'key':'word'),w.t0+OFF);
+      if(w.c.includes('slam')){const s=lerp(1.9,1,ex(p));
+        w.el.style.transform=`scale(${s})`;w.el.style.opacity=cl(p/.12);
+        const g=a-w.t0; w.el.style.filter=g>0&&g<.25?`drop-shadow(0 0 ${30*(1-g/.25)}px rgba(237,203,133,.9))`:'none';
+      }else{
+        w.el.style.opacity=e;
+        w.el.style.transform=`translateY(${(1-e)*0.38}em) scale(${w.c.includes('k')?lerp(1.12,1,e):1})`;
+        w.el.style.filter=p<1?`blur(${(1-e)*10}px)`:'none';}
+    });});}
+
+/* ---------- poussière dans la lumière ---------- */
+const cv=$('dust'),cx=cv.getContext('2d');
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+const MOTES=[...Array(110)].map((_,i)=>({x:rnd(i)*1080,y:rnd(i+500)*1920,r:1+rnd(i+900)*3.2,sp:6+rnd(i+77)*16,ph:rnd(i+33)*6.28,big:rnd(i+5)>.93}));
+function renderDust(T,op){cx.clearRect(0,0,1080,1920);if(op<=0)return;
+  MOTES.forEach(m=>{const x=(m.x+T*m.sp*.6+Math.sin(T*.5+m.ph)*22)%1100-10, y=(m.y-T*m.sp+1960)%1960-20;
+    // plus lumineux dans le rayon (diagonale haut-droite -> bas-gauche)
+    const beam=Math.exp(-Math.pow(((x-540)+(y-960)*0.62)/300,2));
+    const al=op*(0.12+0.55*beam)*(0.6+0.4*Math.sin(T*1.7+m.ph));
+    const r=m.big?m.r*3.5:m.r;
+    const g=cx.createRadialGradient(x,y,0,x,y,r*2.2);g.addColorStop(0,`rgba(255,236,190,${al})`);g.addColorStop(1,'rgba(255,236,190,0)');
+    cx.fillStyle=g;cx.beginPath();cx.arc(x,y,r*2.2,0,6.283);cx.fill();});}
+
+/* ---------- carte finale : arabe + source ---------- */
+const G=document.createElement('div');G.id='G';G.style.cssText='position:absolute;inset:0;display:none';
+G.innerHTML=`
+ <div id="gAr1" class="ar" style="position:absolute;left:0;right:0;top:640px;text-align:center;font-family:Amiri;font-weight:700;font-size:70px;color:var(--gold);text-shadow:0 6px 30px rgba(0,0,0,.6)">مَا أَنَا فِي الدُّنْيَا إِلاَّ كَرَاكِبٍ</div>
+ <div id="gAr2" class="ar" style="position:absolute;left:0;right:0;top:760px;text-align:center;font-family:Amiri;font-weight:700;font-size:70px;color:var(--gold);text-shadow:0 6px 30px rgba(0,0,0,.6)">اسْتَظَلَّ تَحْتَ شَجَرَةٍ ثُمَّ رَاحَ وَتَرَكَهَا</div>
+ <div id="gRule" style="position:absolute;left:390px;width:300px;top:935px;height:2px;background:rgba(237,203,133,.7);transform-origin:50% 50%"></div>
+ <div id="gFr" class="corm sh" style="position:absolute;left:90px;right:90px;top:985px;text-align:center;font-size:54px;line-height:1.18">« Je ne suis dans ce monde que comme un voyageur qui s'arrête à l'ombre d'un arbre, puis repart et le laisse. »</div>
+ <div id="gSrc" class="inter" style="position:absolute;left:0;right:0;top:1290px;text-align:center;font-size:24px;letter-spacing:.28em;color:rgba(251,246,234,.85)">JÂMI' AT-TIRMIDHÎ · 2377 · <span style="color:var(--gold)">HASAN</span></div>
+ <img id="gLogo" src="img/logo.png" style="position:absolute;left:480px;top:1420px;width:120px">
+ <div id="gChip" class="chip" style="left:50%;top:520px;transform:translateX(-50%);background:rgba(251,246,234,.12);border:1px solid rgba(237,203,133,.5);font-size:22px">HADITH · HASAN</div>`;
+$('stage').insertBefore(G,$('caps'));
+
+/* ---------- abonne-toi ---------- */
+$('LH').innerHTML=`
+ <div id="hDisc" class="disc" style="position:absolute;left:260px;top:500px;width:560px;height:560px"></div>
+ <img id="hLogo" src="img/logo.png" style="position:absolute;left:350px;top:590px;width:380px">
+ <div id="hT" class="anton" style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-size:170px;color:var(--ink);line-height:1">ABONNE-TOI</div>
+ <div id="hS" class="inter" style="position:absolute;left:0;right:0;top:1340px;text-align:center;font-size:30px;color:var(--ink)">UN HADITH, UNE HISTOIRE</div>
+ <div id="hB" class="inter" style="position:absolute;left:340px;top:1440px;width:400px;text-align:center;font-size:34px;font-weight:800;color:#F4F1EA;background:var(--acc);padding:28px 0;border-radius:80px;letter-spacing:.2em">S'ABONNER</div>
+ <div class="chip" style="left:50%;top:200px;transform:translateX(-50%);background:#141414;font-size:22px">SABIL NOUR</div>`;
+
+/* ---------- rendu d'une image ---------- */
+function render(T){CUR=T;const a=T-OFF;
+  for(const id in LAYERS){const op=layerOp(id,T);const el=$('L'+id);el.style.display=op>0?'block':'none';el.style.opacity=op;}
+  // A : la chambre, poussée lente vers la natte
+  {const p=cl((a+0.35)/5.3,0,1);cam($('iA'),lerp(820,960,eio(p)),lerp(1480,1760,eio(p)),lerp(1.02,1.2,eio(p)));}
+  // B : gros plan sur la natte + reflet de lumière qui balaie
+  {const p=cl((a-4.55)/5.45);cam($('iB'),lerp(1060,960,p),lerp(2150,2230,p),lerp(2.05,2.3,p),lerp(-2.2,-.6,p));
+   const sx=lerp(-600,1500,cl((a-7.9)/1.6));
+   $('sweep').style.background=`linear-gradient(105deg,transparent ${sx-260}px,rgba(255,225,160,.28) ${sx}px,transparent ${sx+260}px)`;}
+  // C : la chambre floutée, glisse latérale
+  {const p=cl((a-9.4)/5.9);cam($('iC'),lerp(700,980,p),lerp(1500,1450,p),1.3);}
+  // D : la fenêtre, la lumière monte ; éclat sur « ce monde »
+  {const p=cl((a-14.85)/3.5);const map=cam($('iD'),lerp(1330,1400,p),lerp(900,820,p),lerp(1.45,1.62,eio(p)));
+   const [wx,wy]=map(1412,723);const hit=a>17.14?Math.exp(-(a-17.14)*3.2):0;
+   $('bloomD').style.background=`radial-gradient(circle at ${wx}px ${wy}px,rgba(255,240,205,${.25+.35*p+.45*hit}) 0%,rgba(255,220,160,${.12+.2*hit}) 28%,rgba(255,220,160,0) 60%)`;}
+  // E : l'arbre à midi, on recule pour le révéler
+  {const p=cl((a-17.8)/5.6);const map=cam($('iE'),lerp(760,800,p),lerp(1250,1180,p),lerp(1.42,1.08,eio(p)));
+   const [sx,sy]=map(1102,275);const pu=.55+.12*Math.sin(a*2.3);
+   $('sunE').style.background=`radial-gradient(circle at ${sx}px ${sy}px,rgba(255,255,240,${pu}) 0%,rgba(255,250,225,${pu*.35}) 16%,rgba(255,250,225,0) 42%)`;}
+  // F/G : coucher de soleil, la caméra suit les traces vers l'horizon
+  {const p=cl((a-22.75)/7.5);const q=eio(p);const map=cam($('iF'),lerp(1050,1320,q),lerp(2380,1500,q),lerp(1.45,1.18,q));
+   const [sx,sy]=map(1437,1326);const pu=.5+.1*Math.sin(a*1.8);
+   $('sunF').style.background=`radial-gradient(circle at ${sx}px ${sy}px,rgba(255,215,150,${pu}) 0%,rgba(255,170,90,${pu*.35}) 18%,rgba(255,170,90,0) 45%)`;
+   const g=cl((a-25.7)/.8);$('darkG').style.opacity=g;$('topF').style.opacity=1-g;$('iF').style.filter=`blur(${g*3}px)`;}
+  // carte finale G (après la voix)
+  {const on=a>25.9&&a<30.3;G.style.display=on?'block':'none';
+   if(on){const o=Math.min(1,cl((30.25-a)/.5));G.style.opacity=o;
+     const w1=P(a,26.05,1.0,eio),w2=P(a,26.55,1.0,eio);
+     if(w1>0)mark('gAr','arabic',26.05+OFF);
+     $('gAr1').style.clipPath=`inset(0 0 0 ${100-w1*100}%)`;$('gAr2').style.clipPath=`inset(0 0 0 ${100-w2*100}%)`;
+     $('gAr1').style.opacity=w1>0?1:0;$('gAr2').style.opacity=w2>0?1:0;
+     $('gRule').style.transform=`scaleX(${P(a,27.3,.6)})`;
+     const f=P(a,27.5,.7,eo5);if(f>0)mark('gFr','fade',27.5+OFF);$('gFr').style.opacity=f;$('gFr').style.transform=`translateY(${(1-f)*24}px)`;
+     const s=P(a,28.1,.6,eo5);if(s>0)mark('gSrc','fade2',28.1+OFF);$('gSrc').style.opacity=s;$('gSrc').style.transform=`translateY(${(1-s)*16}px)`;
+     $('gLogo').style.opacity=P(a,28.4,.6);$('gChip').style.opacity=P(a,26.0,.5);}}
+  // H : abonne-toi
+  {const h=a-29.6;
+   $('hDisc').style.transform=`scale(${P(h,.05,.6,bk)})`;$('hLogo').style.transform=`scale(${P(h,.2,.6,bk)})`;
+   const tp=P(h,.35,.4,ex);if(h>.35)mark('hT','slamH',29.95+OFF);$('hT').style.transform=`scale(${lerp(1.5,1,tp)})`;$('hT').style.opacity=h>.35?1:0;
+   $('hS').style.opacity=P(h,.7,.5);const b=P(h,1.0,.5,bk);if(h>1.0)mark('hB','pop',30.6+OFF);
+   $('hB').style.transform=`scale(${b*(1+(h>1.8&&h<2.0?.06:0))})`;}
+  // poussière (seulement dans la chambre)
+  renderDust(T,Math.max(layerOp('A',T),layerOp('B',T)*.7,layerOp('C',T)*.8,layerOp('D',T)));
+  renderCaps(T);
+  // tag, grain, fondu d'entrée/sortie
+  $('tag').style.opacity=a<29.5?1:0;
+  const f=Math.floor(T*30);$('grain').style.transform=`translate(${(f*137)%200-100}px,${(f*271)%200-100}px)`;
+  $('fade').style.opacity=Math.max(1-cl(T/.25),cl((T-(DUR-.45))/.45));
+}
+window.render=render;window.EV=EV;window.DUR=DUR;
+document.fonts.ready.then(()=>{fitLines();render(0);});
+</script></body></html>

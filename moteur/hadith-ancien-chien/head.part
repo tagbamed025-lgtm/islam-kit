@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Corm;font-style:normal;font-weight:600;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:400;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+:root{--sh:drop-shadow(0 30px 34px rgba(45,35,15,.30)) drop-shadow(0 7px 9px rgba(45,35,15,.20));--bg:#F4F1EA;--ink:#141414;--acc:#0F5B46;--mut:#8a857a}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.scene{position:absolute;inset:0;display:none;transform-origin:50% 45%}
+.a{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform}
+.anton{font-family:Anton,Amiri,sans-serif;text-transform:uppercase;line-height:.9;color:var(--ink);white-space:nowrap;letter-spacing:.5px}
+.corm{font-family:Corm,Amiri,serif;font-style:italic;font-weight:500;color:var(--ink);line-height:1.12;text-align:center}
+.inter{font-family:Inter,Amiri,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.32em;color:var(--ink);white-space:nowrap}
+.ar{font-family:Amiri,serif;direction:rtl;color:var(--ink);white-space:nowrap}
+.acc{color:var(--acc)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .02em .12em;margin:-.16em 0 -.12em}
+.wi{display:inline-block}
+.disc{border-radius:50%;background:var(--acc)}
+.rule{height:3px;background:var(--ink)}
+img{display:block}
+img.obj{filter:var(--sh)}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;pointer-events:none;opacity:.9}
+#vig{position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(ellipse 70% 45% at 0% 0%,rgba(40,32,20,.16),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 0%,rgba(40,32,20,.12),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 0% 100%,rgba(40,32,20,.14),transparent 70%),
+ radial-gradient(ellipse 70% 45% at 100% 100%,rgba(40,32,20,.16),transparent 70%)}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#tag{position:absolute;left:60px;top:150px;font-family:Inter;font-weight:600;font-size:22px;letter-spacing:.3em;color:var(--mut)}
+#tag b{color:var(--acc);font-weight:800}
+.ph{position:absolute;left:0;top:0;width:1080px;object-fit:cover;filter:saturate(.8) contrast(1.03);-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%)}
+.chip{font-family:Inter;font-weight:600;text-transform:uppercase;letter-spacing:.28em;background:#141414;color:#F4F1EA;padding:.5em .95em;white-space:nowrap}
+.src{font-family:Inter;font-weight:600;letter-spacing:.24em;color:var(--mut);white-space:nowrap;font-size:22px}
+.card{background:#FBFAF6;box-shadow:0 40px 80px rgba(40,30,10,.18),0 6px 18px rgba(40,30,10,.10)}
+</style></head>
+<body><div id="stage">
+<div id="scenes"></div>
+<div id="vig"></div>
+<div id="grain"></div>
+<div id="flash"></div>
+<div id="tag">HADITHS · <b>01</b></div>
+</div>
+<script>
+const W=1080,H=1920,CX=540;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5), lin=x=>x;
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);
+const bk=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,t0,d,e=eo)=>e(cl((t-t0)/d));
+function tf(el,x,y,o={}){const s=o.s??1,r=o.r??0,ax=o.ax??50,ay=o.ay??50;
+ el.style.transformOrigin=`${ax}% ${ay}%`;
+ el.style.transform=`translate(${x}px,${y}px) translate(${-ax}%,${-ay}%) rotate(${r}deg) scale(${s})`;
+ if(o.o!==undefined)el.style.opacity=o.o; if(o.f!==undefined)el.style.filter=o.f+(el.classList.contains('obj')?' var(--sh)':'');}
+const WD=(txt)=>txt.split(' ').map(w=>{let c='';if(w.length>2&&w.startsWith('*')&&w.endsWith('*')){w=w.slice(1,-1);c=' acc'}if(w==='ﷺ')return `<span class="w"><span class="wi" style="font-family:Amiri;font-style:normal">ﷺ</span></span>`;return `<span class="w"><span class="wi${c}">${w}</span></span>`}).join(' ');
+function rw(el,t,t0,st=.06,d=.5){el.querySelectorAll('.wi').forEach((s,i)=>{const p=P(t,t0+i*st,d,eo5);if(p>0)mark(s,'word');s.style.transform=`translateY(${(1-p)*115}%)`;});}
+function slam(el,x,y,t,t0,o={}){if(t>=t0)mark(el,'slam');const p=P(t,t0,.4,ex);tf(el,x,y,{s:lerp(o.from??1.8,1,p)*(o.s??1),r:o.r??0,o:t<t0?0:cl((t-t0)/.07)});
+ const g=t-t0; el.style.textShadow=(g>0&&g<.2)?`${-10*(1-g/.2)}px 0 rgba(15,91,70,.75),${10*(1-g/.2)}px 0 rgba(190,50,40,.45)`:'none';}
+function fadeUp(el,x,y,t,t0,d=.5,dist=40,o={}){const p=P(t,t0,d,eo5);if(p>0)mark(el,'fade');tf(el,x,y+(1-p)*dist,{o:p,s:o.s??1});}
+function shk(t,t0,d,a){if(t<t0||t>t0+d)return[0,0];const k=1-(t-t0)/d;return[Math.sin(t*97)*a*k,Math.cos(t*71)*a*k];}
+function tw(el,txt,t,t0,cps){const n=Math.floor(cl((t-t0)*cps,0,txt.length));const o=twn.get(el)||0;for(let k=o;k<n;k++)EV.push(['type',+CUR.toFixed(3)]);if(n>o)twn.set(el,n);el.textContent=txt.slice(0,n);}
+function draw(path,p){path.style.strokeDasharray='1 1';path.style.strokeDashoffset=1-p;}
+const S=[];let CUR=0;const EV=[];const seen=new WeakSet();const twn=new Map();
+function mark(el,k){if(!seen.has(el)){seen.add(el);EV.push([k,+CUR.toFixed(3)]);}}
+function scene(s,e,html,up,o={}){const d=document.createElement('div');d.className='scene';d.innerHTML=html;document.getElementById('scenes').appendChild(d);
+ const $=id=>d.querySelector('#'+id);S.push({s,e,d,$,up,zoom:o.zoom??.035});}
+

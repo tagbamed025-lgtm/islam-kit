@@ -1,0 +1,110 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:AmiriQ;src:url(node_modules/@fontsource/amiri-quran/files/amiri-quran-arabic-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-500-italic.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+:root{--cream:#FBF6EA;--gold:#EDCB85;--gold2:#F6E4B8;--acc:#0F5B46;--ink:#141414}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#07261d}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+ background:radial-gradient(ellipse 80% 55% at 50% 44%,#157a5d 0%,#0f5b46 38%,#0a3f31 72%,#062a21 100%)}
+#glow{position:absolute;left:140px;top:420px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(246,228,184,.22) 0%,rgba(246,228,184,.06) 40%,rgba(246,228,184,0) 70%)}
+svg#arch{position:absolute;left:0;top:0}
+canvas{position:absolute;inset:0}
+#grain{position:absolute;inset:-200px;background:url(img/grain.png);background-size:600px 600px;opacity:.35;mix-blend-mode:overlay;pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse 85% 70% at 50% 48%,transparent 55%,rgba(0,0,0,.45) 100%)}
+.chip{position:absolute;left:50%;transform:translateX(-50%);font-family:Inter;font-weight:800;letter-spacing:.26em;font-size:22px;color:var(--cream);padding:13px 24px;white-space:nowrap;border:1px solid rgba(237,203,133,.55);background:rgba(4,30,23,.35)}
+.ar{position:absolute;left:150px;right:150px;text-align:center;direction:rtl;font-family:AmiriQ,serif;color:var(--gold2);line-height:1.95;text-shadow:0 0 30px rgba(246,228,184,.25),0 4px 14px rgba(0,0,0,.35)}
+.fr{position:absolute;left:150px;right:150px;text-align:center;font-family:Corm,serif;font-style:italic;font-weight:500;color:var(--cream);line-height:1.2;text-shadow:0 3px 12px rgba(0,0,0,.35)}
+.cred{position:absolute;left:0;right:0;text-align:center;font-family:Inter;font-weight:600;font-size:19px;letter-spacing:.22em;color:rgba(251,246,234,.62);text-transform:uppercase}
+#intro{position:absolute;inset:0}
+#fade{position:absolute;inset:0;background:#000;pointer-events:none}
+#out{position:absolute;inset:0;background:#F4F1EA;display:none}
+.anton{font-family:Anton;text-transform:uppercase;line-height:1}
+.inter{font-family:Inter;font-weight:600;text-transform:uppercase;letter-spacing:.3em}
+</style></head>
+<body><div id="stage">
+<div id="glow"></div>
+<canvas id="dust" width="1080" height="1920"></canvas>
+<svg id="arch" width="1080" height="1920">
+ <path id="archP" d="M150 1600 L150 640 A390 390 0 0 1 930 640 L930 1600 Z" fill="none" stroke="rgba(237,203,133,.55)" stroke-width="2"/>
+ <path id="archP2" d="M170 1580 L170 646 A370 370 0 0 1 910 646 L910 1580 Z" fill="none" stroke="rgba(237,203,133,.22)" stroke-width="1"/>
+</svg>
+<div id="chip" class="chip" style="top:150px">CORAN · AL-KAHF · 18:46</div>
+<div id="intro">
+ <div class="ar" style="top:700px;font-size:120px;line-height:1.5;color:var(--gold)" id="iSur">سُورَةُ الكَهْف</div>
+ <div class="fr" style="top:930px;font-size:58px" id="iFr">Sourate La Caverne · verset 46</div>
+</div>
+<div id="chunks"></div>
+<div class="cred" style="top:1655px" id="cr1">Récitation · Abou Bakr Ash-Shâtirî</div>
+<div class="cred" style="top:1695px" id="cr2">Traduction · Muhammad Hamidullah</div>
+<img id="logo" src="img/logo.png" style="position:absolute;left:500px;top:1760px;width:80px;opacity:.9">
+<div id="grain"></div><div id="vig"></div>
+<div id="out">
+ <div style="position:absolute;left:260px;top:500px;width:560px;height:560px;border-radius:50%;background:var(--acc)" id="oD"></div>
+ <img id="oL" src="img/logo.png" style="position:absolute;left:350px;top:590px;width:380px">
+ <div id="oT" class="anton" style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-size:170px;color:var(--ink)">ABONNE-TOI</div>
+ <div id="oS" class="inter" style="position:absolute;left:0;right:0;top:1340px;text-align:center;font-size:30px;color:var(--ink)">UN VERSET, UNE LUMIÈRE</div>
+</div>
+<div id="fade"></div>
+</div>
+<script>
+const OFF=-1.35;           // temps vidéo = temps source + OFF
+const DUR=24.2, OUT=21.4, TITLE=18.55;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5), bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id);
+// [début dans l'audio source, arabe (Uthmani, quran.com), traduction Hamidullah (quran.com)]
+const C=[
+ [1.30,'ٱلْمَالُ وَٱلْبَنُونَ زِينَةُ ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ','Les biens et les enfants sont l\u2019ornement de la vie de ce monde.'],
+ [5.9,'وَٱلْبَـٰقِيَـٰتُ ٱلصَّـٰلِحَـٰتُ','Cependant, les bonnes \u0153uvres qui perdurent'],
+ [8.55,'خَيْرٌ عِندَ رَبِّكَ ثَوَابًا','ont auprès de ton Seigneur une meilleure récompense'],
+ [16.8,'وَخَيْرٌ أَمَلًا ﴿٤٦﴾','et [suscitent] une belle espérance.'],
+];
+const box=$('chunks');
+C.forEach((c,i)=>{const a=document.createElement('div');a.className='ar';a.textContent=c[1];a.style.fontSize='98px';
+ const f=document.createElement('div');f.className='fr';f.textContent='« '+c[2]+' »';f.style.fontSize='56px';
+ if(i===C.length-1){f.style.color='var(--gold)';}
+ box.appendChild(a);box.appendChild(f);c.a=a;c.f=f;c.t=c[0]+OFF;c.e=(i<C.length-1?C[i+1][0]+OFF:TITLE);});
+function layout(){C.forEach(c=>{let fs=98;c.a.style.fontSize=fs+'px';while(c.a.offsetHeight>470&&fs>50){fs-=2;c.a.style.fontSize=fs+'px';}
+  let ff=58;c.f.style.fontSize=ff+'px';while(c.f.offsetHeight>260&&ff>36){ff-=2;c.f.style.fontSize=ff+'px';}
+  const ha=c.a.offsetHeight,hf=c.f.offsetHeight,gap=46,tot=ha+gap+hf;const top=1060-tot/2;
+  c.a.style.top=top+'px';c.f.style.top=(top+ha+gap)+'px';});}
+// poussière dorée très discrète
+const cv=$('dust'),cx=cv.getContext('2d');
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+const M=[...Array(60)].map((_,i)=>({x:rnd(i)*1080,y:rnd(i+300)*1920,r:1+rnd(i+700)*2.4,sp:5+rnd(i+71)*10,ph:rnd(i+9)*6.28}));
+function dust(T,op){cx.clearRect(0,0,1080,1920);M.forEach(m=>{const x=(m.x+Math.sin(T*.4+m.ph)*18+1080)%1080,y=(m.y-T*m.sp+1920*4)%1920;
+ const al=op*(.18+.22*Math.sin(T*1.3+m.ph));const g=cx.createRadialGradient(x,y,0,x,y,m.r*2.4);g.addColorStop(0,`rgba(246,228,184,${Math.max(0,al)})`);g.addColorStop(1,'rgba(246,228,184,0)');cx.fillStyle=g;cx.beginPath();cx.arc(x,y,m.r*2.4,0,6.3);cx.fill();});}
+function render(T){
+  const inO=cl((T-OUT)/.5);
+  // intro : titre de la sourate
+  const io=Math.min(eo(cl((T-TITLE-.25)/.6)),1);$('intro').style.opacity=T<TITLE?0:io;
+  $('iSur').style.transform=`translateY(${(1-eo(cl((T-TITLE-.25)/.8)))*20}px) scale(${1+.03*eo(cl((T-TITLE)/2.5))})`;$('iFr').style.opacity=eo(cl((T-TITLE-.7)/.6));
+  $('glow').style.transform=`scale(${1+.04*Math.sin(T*.6)})`;$('glow').style.opacity=.8+.2*Math.sin(T*.9);
+  // arc qui se dessine
+  const pa=eo(cl((T-0)/1.4));['archP','archP2'].forEach(id=>{const p=$(id);const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-pa);});
+  $('chip').style.opacity=eo(cl((T-.2)/.5));
+  $('cr1').style.opacity=$('cr2').style.opacity=eo(cl((T-1.0)/.8))*(1-inO);
+  C.forEach(c=>{const pin=eo5(cl((T-(c.t-.15))/(c.t<0.2?.35:.55))), pout=cl((T-(c.e-.2))/.35);
+   const pf=eo5(cl((T-(c.t+.2))/.6));
+   const vis=pin>0&&pout<1;c.a.style.display=c.f.style.display=vis?'block':'none';if(!vis)return;
+   const o=1-eo(pout);
+   c.a.style.opacity=pin*o;c.a.style.transform=`translateY(${(1-pin)*28-eo(pout)*14}px)`;c.a.style.filter=`blur(${(1-pin)*8+pout*6}px)`;
+   c.f.style.opacity=pf*o;c.f.style.transform=`translateY(${(1-pf)*20-eo(pout)*10}px)`;});
+  dust(T,1-inO);
+  // écran abonne-toi (silencieux, après la récitation)
+  $('out').style.display=inO>0?'block':'none';$('out').style.opacity=inO;
+  const h=T-OUT;$('oD').style.transform=`scale(${bk(cl((h-.1)/.6))})`;$('oL').style.transform=`scale(${bk(cl((h-.25)/.6))})`;
+  $('oT').style.opacity=eo(cl((h-.5)/.4));$('oS').style.opacity=eo(cl((h-.8)/.5));
+  const f=Math.floor(T*30);$('grain').style.transform=`translate(${(f*137)%200-100}px,${(f*271)%200-100}px)`;
+  $('fade').style.opacity=Math.max(1-cl(T/.15),cl((T-(DUR-.4))/.4));
+}
+window.render=render;window.DUR=DUR;
+document.fonts.ready.then(()=>{layout();render(0);});
+</script></body></html>

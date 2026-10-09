@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Corm;font-style:italic;font-weight:500;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2)}
+@font-face{font-family:Amiri;font-weight:400;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;background:#F4F1EA;overflow:hidden;position:relative}
+.grain{position:absolute;inset:0;background:url(grain.png);background-size:600px;opacity:.9}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 42%,rgba(0,0,0,0) 55%,rgba(40,32,20,.18) 100%)}
+.glow{position:absolute;left:50%;top:40%;width:1100px;height:1100px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,246,222,.9) 0%,rgba(235,217,164,.35) 40%,rgba(244,241,234,0) 70%)}
+.arch{position:absolute;left:90px;right:90px;top:90px;bottom:170px;border:3px solid rgba(15,91,70,.55);border-radius:470px 470px 18px 18px}
+.arch2{position:absolute;left:106px;right:106px;top:106px;bottom:186px;border:1px solid rgba(15,91,70,.3);border-radius:455px 455px 10px 10px}
+.wrap{position:absolute;left:150px;right:150px;top:215px;bottom:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:34px}
+.type{font-family:Inter;font-weight:800;letter-spacing:.34em;font-size:24px;color:#F4F1EA;background:#0F5B46;padding:12px 26px 12px 32px}
+.intro{font-family:Corm;font-style:italic;font-size:40px;color:#8a857a;margin-top:-6px}
+.ar{font-family:Amiri;font-weight:700;direction:rtl;color:#0F5B46;font-size:74px;line-height:1.75}
+.sep{width:160px;height:3px;background:#C9A95C;position:relative}
+.sep:after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;background:#C9A95C;transform:translate(-50%,-50%) rotate(45deg)}
+.fr{font-family:Corm;font-style:italic;font-weight:500;font-size:54px;line-height:1.22;color:#141414}
+.src{font-family:Inter;font-weight:600;letter-spacing:.24em;font-size:22px;color:#8a857a}
+.foot{position:absolute;left:0;right:0;bottom:62px;display:flex;align-items:center;justify-content:center;gap:18px}
+.foot img{height:62px}
+.foot span{font-family:Inter;font-weight:800;letter-spacing:.34em;font-size:24px;color:#141414}
+.small .ar{font-size:54px;line-height:1.8}.small .fr{font-size:44px}.small{gap:24px;left:185px;right:185px;top:250px}.small .src{font-size:19px;letter-spacing:.18em}.small .ar{font-size:50px}
+</style></head><body>
+<div class="glow"></div><div class="arch"></div><div class="arch2"></div>
+<div class="wrap" id="w"><div class="type" id="type"></div><div class="intro" id="intro"></div><div class="ar" id="ar"></div><div class="sep"></div><div class="fr" id="fr"></div><div class="src" id="src"></div></div>
+<div class="foot"><img src="logo.png"><span>SABIL NOUR</span></div>
+<div class="grain"></div><div class="vig"></div>
+<script>
+window.fill=d=>{for(const k of ['type','intro','ar','fr','src'])document.getElementById(k).textContent=d[k];document.getElementById('w').className='wrap'+(d.small?' small':'');}
+</script></body></html>

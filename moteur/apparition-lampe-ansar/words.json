@@ -1,0 +1,1188 @@
+{
+ "text": " Un soir, à Medine, un homme affamé vient trouver le prophète, pès salut sur lui. Chez le prophète, il n'y a que de l'eau. Il demande alors qui veut accueillir cet homme pour la nuit. Un homme des hans sales se lève et l'emmène chez lui. Mais sa femme lui murmure, « Nous n'avons que le repas des enfants ». Alors, il prenne une décision. Elle occupe les enfants jusqu'à ce qu'ils s'endorment. Elle sert le repas, fait semblant d'arranger la lampe et l'éteint. Dans le noir, le couple fait semblant de manger. Invité mange à sa fin. Eux passent la nuit, le ventre vide. Le lendemain matin, le prophète paie sa lue sur lui, leur dit. Cette nuit, Allah a ri, où s'était merveillé de ce que vous avez fait, et Allah révèle à leur sujet. Il les préfère ta eux-mêmes, même s' y a peignurie chez eux. Donnez, même ce dont on a soi-même besoin.",
+ "chunks": [
+  {
+   "text": " Un",
+   "timestamp": [
+    0,
+    0.22
+   ]
+  },
+  {
+   "text": " soir,",
+   "timestamp": [
+    0.22,
+    0.52
+   ]
+  },
+  {
+   "text": " à",
+   "timestamp": [
+    0.52,
+    0.62
+   ]
+  },
+  {
+   "text": " Medine,",
+   "timestamp": [
+    0.62,
+    1.44
+   ]
+  },
+  {
+   "text": " un",
+   "timestamp": [
+    1.44,
+    1.58
+   ]
+  },
+  {
+   "text": " homme",
+   "timestamp": [
+    1.58,
+    1.74
+   ]
+  },
+  {
+   "text": " affamé",
+   "timestamp": [
+    1.74,
+    2.1
+   ]
+  },
+  {
+   "text": " vient",
+   "timestamp": [
+    2.1,
+    2.26
+   ]
+  },
+  {
+   "text": " trouver",
+   "timestamp": [
+    2.26,
+    2.52
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    2.52,
+    2.68
+   ]
+  },
+  {
+   "text": " prophète,",
+   "timestamp": [
+    2.68,
+    3.32
+   ]
+  },
+  {
+   "text": " pès",
+   "timestamp": [
+    3.32,
+    3.54
+   ]
+  },
+  {
+   "text": " salut",
+   "timestamp": [
+    3.54,
+    3.74
+   ]
+  },
+  {
+   "text": " sur",
+   "timestamp": [
+    3.74,
+    3.94
+   ]
+  },
+  {
+   "text": " lui.",
+   "timestamp": [
+    3.94,
+    4.5
+   ]
+  },
+  {
+   "text": " Chez",
+   "timestamp": [
+    4.52,
+    4.64
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    4.64,
+    4.74
+   ]
+  },
+  {
+   "text": " prophète,",
+   "timestamp": [
+    4.74,
+    5.62
+   ]
+  },
+  {
+   "text": " il",
+   "timestamp": [
+    5.62,
+    5.74
+   ]
+  },
+  {
+   "text": " n",
+   "timestamp": [
+    5.74,
+    5.8
+   ]
+  },
+  {
+   "text": "'y",
+   "timestamp": [
+    5.8,
+    5.86
+   ]
+  },
+  {
+   "text": " a",
+   "timestamp": [
+    5.86,
+    5.86
+   ]
+  },
+  {
+   "text": " que",
+   "timestamp": [
+    5.86,
+    6.02
+   ]
+  },
+  {
+   "text": " de",
+   "timestamp": [
+    6.02,
+    6.14
+   ]
+  },
+  {
+   "text": " l",
+   "timestamp": [
+    6.14,
+    6.24
+   ]
+  },
+  {
+   "text": "'eau.",
+   "timestamp": [
+    6.24,
+    6.66
+   ]
+  },
+  {
+   "text": " Il",
+   "timestamp": [
+    6.74,
+    6.84
+   ]
+  },
+  {
+   "text": " demande",
+   "timestamp": [
+    6.84,
+    7.08
+   ]
+  },
+  {
+   "text": " alors",
+   "timestamp": [
+    7.08,
+    7.26
+   ]
+  },
+  {
+   "text": " qui",
+   "timestamp": [
+    7.26,
+    7.7
+   ]
+  },
+  {
+   "text": " veut",
+   "timestamp": [
+    7.7,
+    7.88
+   ]
+  },
+  {
+   "text": " accueillir",
+   "timestamp": [
+    7.88,
+    8.26
+   ]
+  },
+  {
+   "text": " cet",
+   "timestamp": [
+    8.26,
+    8.4
+   ]
+  },
+  {
+   "text": " homme",
+   "timestamp": [
+    8.4,
+    8.62
+   ]
+  },
+  {
+   "text": " pour",
+   "timestamp": [
+    8.62,
+    8.78
+   ]
+  },
+  {
+   "text": " la",
+   "timestamp": [
+    8.78,
+    8.9
+   ]
+  },
+  {
+   "text": " nuit.",
+   "timestamp": [
+    8.9,
+    9.46
+   ]
+  },
+  {
+   "text": " Un",
+   "timestamp": [
+    9.5,
+    9.62
+   ]
+  },
+  {
+   "text": " homme",
+   "timestamp": [
+    9.62,
+    9.76
+   ]
+  },
+  {
+   "text": " des",
+   "timestamp": [
+    9.76,
+    9.88
+   ]
+  },
+  {
+   "text": " hans",
+   "timestamp": [
+    9.88,
+    10.04
+   ]
+  },
+  {
+   "text": " sales",
+   "timestamp": [
+    10.04,
+    10.34
+   ]
+  },
+  {
+   "text": " se",
+   "timestamp": [
+    10.34,
+    10.62
+   ]
+  },
+  {
+   "text": " lève",
+   "timestamp": [
+    10.62,
+    10.88
+   ]
+  },
+  {
+   "text": " et",
+   "timestamp": [
+    10.88,
+    11.44
+   ]
+  },
+  {
+   "text": " l",
+   "timestamp": [
+    11.44,
+    11.52
+   ]
+  },
+  {
+   "text": "'emmène",
+   "timestamp": [
+    11.52,
+    11.68
+   ]
+  },
+  {
+   "text": " chez",
+   "timestamp": [
+    11.68,
+    11.86
+   ]
+  },
+  {
+   "text": " lui.",
+   "timestamp": [
+    11.86,
+    12.36
+   ]
+  },
+  {
+   "text": " Mais",
+   "timestamp": [
+    12.48,
+    12.6
+   ]
+  },
+  {
+   "text": " sa",
+   "timestamp": [
+    12.6,
+    12.72
+   ]
+  },
+  {
+   "text": " femme",
+   "timestamp": [
+    12.72,
+    12.92
+   ]
+  },
+  {
+   "text": " lui",
+   "timestamp": [
+    12.92,
+    13.06
+   ]
+  },
+  {
+   "text": " murmure,",
+   "timestamp": [
+    13.06,
+    13.64
+   ]
+  },
+  {
+   "text": " «",
+   "timestamp": [
+    13.64,
+    14.02
+   ]
+  },
+  {
+   "text": " Nous",
+   "timestamp": [
+    14.02,
+    14.08
+   ]
+  },
+  {
+   "text": " n",
+   "timestamp": [
+    14.08,
+    14.18
+   ]
+  },
+  {
+   "text": "'avons",
+   "timestamp": [
+    14.18,
+    14.3
+   ]
+  },
+  {
+   "text": " que",
+   "timestamp": [
+    14.3,
+    14.48
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    14.48,
+    14.58
+   ]
+  },
+  {
+   "text": " repas",
+   "timestamp": [
+    14.58,
+    14.8
+   ]
+  },
+  {
+   "text": " des",
+   "timestamp": [
+    14.8,
+    14.94
+   ]
+  },
+  {
+   "text": " enfants",
+   "timestamp": [
+    14.94,
+    15.24
+   ]
+  },
+  {
+   "text": " ».",
+   "timestamp": [
+    15.24,
+    15.6
+   ]
+  },
+  {
+   "text": " Alors,",
+   "timestamp": [
+    15.7,
+    15.98
+   ]
+  },
+  {
+   "text": " il",
+   "timestamp": [
+    15.98,
+    16.06
+   ]
+  },
+  {
+   "text": " prenne",
+   "timestamp": [
+    16.06,
+    16.34
+   ]
+  },
+  {
+   "text": " une",
+   "timestamp": [
+    16.34,
+    16.44
+   ]
+  },
+  {
+   "text": " décision.",
+   "timestamp": [
+    16.44,
+    17.26
+   ]
+  },
+  {
+   "text": " Elle",
+   "timestamp": [
+    17.34,
+    17.44
+   ]
+  },
+  {
+   "text": " occupe",
+   "timestamp": [
+    17.44,
+    17.74
+   ]
+  },
+  {
+   "text": " les",
+   "timestamp": [
+    17.74,
+    17.88
+   ]
+  },
+  {
+   "text": " enfants",
+   "timestamp": [
+    17.88,
+    18.16
+   ]
+  },
+  {
+   "text": " jusqu",
+   "timestamp": [
+    18.16,
+    18.6
+   ]
+  },
+  {
+   "text": "'à",
+   "timestamp": [
+    18.6,
+    18.78
+   ]
+  },
+  {
+   "text": " ce",
+   "timestamp": [
+    18.78,
+    18.86
+   ]
+  },
+  {
+   "text": " qu",
+   "timestamp": [
+    18.86,
+    18.9
+   ]
+  },
+  {
+   "text": "'ils",
+   "timestamp": [
+    18.9,
+    18.96
+   ]
+  },
+  {
+   "text": " s",
+   "timestamp": [
+    18.96,
+    19.14
+   ]
+  },
+  {
+   "text": "'endorment.",
+   "timestamp": [
+    19.14,
+    19.88
+   ]
+  },
+  {
+   "text": " Elle",
+   "timestamp": [
+    19.88,
+    20.04
+   ]
+  },
+  {
+   "text": " sert",
+   "timestamp": [
+    20.04,
+    20.26
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    20.26,
+    20.42
+   ]
+  },
+  {
+   "text": " repas,",
+   "timestamp": [
+    20.42,
+    21.24
+   ]
+  },
+  {
+   "text": " fait",
+   "timestamp": [
+    21.24,
+    21.38
+   ]
+  },
+  {
+   "text": " semblant",
+   "timestamp": [
+    21.38,
+    21.7
+   ]
+  },
+  {
+   "text": " d",
+   "timestamp": [
+    21.7,
+    21.82
+   ]
+  },
+  {
+   "text": "'arranger",
+   "timestamp": [
+    21.82,
+    22.02
+   ]
+  },
+  {
+   "text": " la",
+   "timestamp": [
+    22.02,
+    22.2
+   ]
+  },
+  {
+   "text": " lampe",
+   "timestamp": [
+    22.2,
+    22.5
+   ]
+  },
+  {
+   "text": " et",
+   "timestamp": [
+    22.5,
+    23.02
+   ]
+  },
+  {
+   "text": " l",
+   "timestamp": [
+    23.02,
+    23.1
+   ]
+  },
+  {
+   "text": "'éteint.",
+   "timestamp": [
+    23.1,
+    23.68
+   ]
+  },
+  {
+   "text": " Dans",
+   "timestamp": [
+    23.72,
+    23.86
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    23.86,
+    23.98
+   ]
+  },
+  {
+   "text": " noir,",
+   "timestamp": [
+    23.98,
+    24.72
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    24.72,
+    24.94
+   ]
+  },
+  {
+   "text": " couple",
+   "timestamp": [
+    24.94,
+    25.12
+   ]
+  },
+  {
+   "text": " fait",
+   "timestamp": [
+    25.14,
+    25.38
+   ]
+  },
+  {
+   "text": " semblant",
+   "timestamp": [
+    25.38,
+    25.66
+   ]
+  },
+  {
+   "text": " de",
+   "timestamp": [
+    25.66,
+    25.82
+   ]
+  },
+  {
+   "text": " manger.",
+   "timestamp": [
+    25.82,
+    26.54
+   ]
+  },
+  {
+   "text": " Invité",
+   "timestamp": [
+    26.6,
+    26.92
+   ]
+  },
+  {
+   "text": " mange",
+   "timestamp": [
+    26.92,
+    27.14
+   ]
+  },
+  {
+   "text": " à",
+   "timestamp": [
+    27.14,
+    27.3
+   ]
+  },
+  {
+   "text": " sa",
+   "timestamp": [
+    27.3,
+    27.42
+   ]
+  },
+  {
+   "text": " fin.",
+   "timestamp": [
+    27.42,
+    28.06
+   ]
+  },
+  {
+   "text": " Eux",
+   "timestamp": [
+    28.1,
+    28.22
+   ]
+  },
+  {
+   "text": " passent",
+   "timestamp": [
+    28.22,
+    28.44
+   ]
+  },
+  {
+   "text": " la",
+   "timestamp": [
+    28.44,
+    28.56
+   ]
+  },
+  {
+   "text": " nuit,",
+   "timestamp": [
+    28.56,
+    29.26
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    29.26,
+    29.34
+   ]
+  },
+  {
+   "text": " ventre",
+   "timestamp": [
+    29.34,
+    29.6
+   ]
+  },
+  {
+   "text": " vide.",
+   "timestamp": [
+    29.6,
+    30.32
+   ]
+  },
+  {
+   "text": " Le",
+   "timestamp": [
+    30.32,
+    30.44
+   ]
+  },
+  {
+   "text": " lendemain",
+   "timestamp": [
+    30.44,
+    30.72
+   ]
+  },
+  {
+   "text": " matin,",
+   "timestamp": [
+    30.72,
+    31.54
+   ]
+  },
+  {
+   "text": " le",
+   "timestamp": [
+    31.54,
+    31.74
+   ]
+  },
+  {
+   "text": " prophète",
+   "timestamp": [
+    31.74,
+    32.2
+   ]
+  },
+  {
+   "text": " paie",
+   "timestamp": [
+    32.2,
+    32.58
+   ]
+  },
+  {
+   "text": " sa",
+   "timestamp": [
+    32.58,
+    32.8
+   ]
+  },
+  {
+   "text": " lue",
+   "timestamp": [
+    32.8,
+    32.9
+   ]
+  },
+  {
+   "text": " sur",
+   "timestamp": [
+    32.9,
+    33.08
+   ]
+  },
+  {
+   "text": " lui,",
+   "timestamp": [
+    33.08,
+    33.62
+   ]
+  },
+  {
+   "text": " leur",
+   "timestamp": [
+    33.62,
+    33.82
+   ]
+  },
+  {
+   "text": " dit.",
+   "timestamp": [
+    33.82,
+    34.3
+   ]
+  },
+  {
+   "text": " Cette",
+   "timestamp": [
+    34.5,
+    34.66
+   ]
+  },
+  {
+   "text": " nuit,",
+   "timestamp": [
+    34.66,
+    35.42
+   ]
+  },
+  {
+   "text": " Allah",
+   "timestamp": [
+    35.42,
+    35.62
+   ]
+  },
+  {
+   "text": " a",
+   "timestamp": [
+    35.62,
+    35.9
+   ]
+  },
+  {
+   "text": " ri,",
+   "timestamp": [
+    35.9,
+    36.46
+   ]
+  },
+  {
+   "text": " où",
+   "timestamp": [
+    36.46,
+    36.6
+   ]
+  },
+  {
+   "text": " s",
+   "timestamp": [
+    36.6,
+    36.68
+   ]
+  },
+  {
+   "text": "'était",
+   "timestamp": [
+    36.68,
+    36.8
+   ]
+  },
+  {
+   "text": " merveillé",
+   "timestamp": [
+    36.8,
+    37.34
+   ]
+  },
+  {
+   "text": " de",
+   "timestamp": [
+    37.34,
+    37.86
+   ]
+  },
+  {
+   "text": " ce",
+   "timestamp": [
+    37.86,
+    37.98
+   ]
+  },
+  {
+   "text": " que",
+   "timestamp": [
+    37.98,
+    38.1
+   ]
+  },
+  {
+   "text": " vous",
+   "timestamp": [
+    38.1,
+    38.2
+   ]
+  },
+  {
+   "text": " avez",
+   "timestamp": [
+    38.2,
+    38.4
+   ]
+  },
+  {
+   "text": " fait,",
+   "timestamp": [
+    38.4,
+    39.1
+   ]
+  },
+  {
+   "text": " et",
+   "timestamp": [
+    39.1,
+    39.2
+   ]
+  },
+  {
+   "text": " Allah",
+   "timestamp": [
+    39.2,
+    39.36
+   ]
+  },
+  {
+   "text": " révèle",
+   "timestamp": [
+    39.36,
+    39.76
+   ]
+  },
+  {
+   "text": " à",
+   "timestamp": [
+    39.76,
+    39.86
+   ]
+  },
+  {
+   "text": " leur",
+   "timestamp": [
+    39.86,
+    39.96
+   ]
+  },
+  {
+   "text": " sujet.",
+   "timestamp": [
+    39.96,
+    40.76
+   ]
+  },
+  {
+   "text": " Il",
+   "timestamp": [
+    40.76,
+    40.88
+   ]
+  },
+  {
+   "text": " les",
+   "timestamp": [
+    40.88,
+    40.98
+   ]
+  },
+  {
+   "text": " préfère",
+   "timestamp": [
+    40.98,
+    41.36
+   ]
+  },
+  {
+   "text": " ta",
+   "timestamp": [
+    41.36,
+    41.52
+   ]
+  },
+  {
+   "text": " eux",
+   "timestamp": [
+    41.52,
+    41.66
+   ]
+  },
+  {
+   "text": "-mêmes,",
+   "timestamp": [
+    41.66,
+    42.32
+   ]
+  },
+  {
+   "text": " même",
+   "timestamp": [
+    42.32,
+    42.52
+   ]
+  },
+  {
+   "text": " s'",
+   "timestamp": [
+    42.52,
+    42.74
+   ]
+  },
+  {
+   "text": " y",
+   "timestamp": [
+    39.33,
+    39.43
+   ]
+  },
+  {
+   "text": " a",
+   "timestamp": [
+    39.43,
+    39.49
+   ]
+  },
+  {
+   "text": " peignurie",
+   "timestamp": [
+    39.49,
+    39.79
+   ]
+  },
+  {
+   "text": " chez",
+   "timestamp": [
+    39.79,
+    40.01
+   ]
+  },
+  {
+   "text": " eux.",
+   "timestamp": [
+    40.01,
+    40.61
+   ]
+  },
+  {
+   "text": " Donnez,",
+   "timestamp": [
+    40.61,
+    41.47
+   ]
+  },
+  {
+   "text": " même",
+   "timestamp": [
+    41.47,
+    41.69
+   ]
+  },
+  {
+   "text": " ce",
+   "timestamp": [
+    41.77,
+    41.89
+   ]
+  },
+  {
+   "text": " dont",
+   "timestamp": [
+    41.89,
+    42.01
+   ]
+  },
+  {
+   "text": " on",
+   "timestamp": [
+    42.01,
+    42.17
+   ]
+  },
+  {
+   "text": " a",
+   "timestamp": [
+    42.17,
+    42.29
+   ]
+  },
+  {
+   "text": " soi",
+   "timestamp": [
+    42.29,
+    42.41
+   ]
+  },
+  {
+   "text": "-même",
+   "timestamp": [
+    42.41,
+    42.59
+   ]
+  },
+  {
+   "text": " besoin.",
+   "timestamp": [
+    42.59,
+    43.69
+   ]
+  }
+ ]
+}
