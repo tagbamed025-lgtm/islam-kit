@@ -100,7 +100,7 @@ Total : 2 vidéos du vendredi, 2 reels compagnons, 2 reels hadith, 2 récitation
 
 **Heures de publication (hypothèse de départ, heure de Dakar, à tester 2 semaines)** : photos 7h30 ; reels 18h30 ; récitation samedi 20h ; vidéo du vendredi 9h. (France = +2 h.)
 
-**Format Rappel — règles** : un seul message ; appuyé sur un hadith authentique ou un verset avec source affichée ; aucun jugement sur des personnes ou des catégories ; aucun avis personnel, fiqh, fatwa ; pas de récit sans source ; ouverture par une phrase d'accroche. Premier Rappel validé par Mo (09/10/2026) : « Tout le monde commet des péchés… » (voir `scripts/fr/RAPPEL-01-peches.md`).
+**Format Rappel — règles** : un seul message ; appuyé sur un hadith authentique ou un verset avec source affichée ; aucun jugement sur des personnes ou des catégories ; aucun avis personnel, fiqh, fatwa ; pas de récit sans source ; ouverture par une phrase d'accroche. Premier Rappel validé par Mo (09/10/2026) : « Tout le monde commet des péchés… » (voir `scripts/fr/RAP-01-peches.md`).
 
 ## 6. Code couleur des scripts (validé le 09/10/2026)
 Dans les scripts remis par Claude :
