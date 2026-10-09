@@ -24,7 +24,8 @@ Dis : « Ô Celui qui retourne les cœurs, raffermis mon cœur dans Ta religion.
 ## Voix off générée (09/10/2026)
 - Voix : Sébastien – Narrator, Eleven v3, 1 prise, 24,6 s, 385 crédits.
 - Flow ElevenLabs : https://elevenlabs.io/app/flows/PKVsSyzVK8fgZYHEGBPr (generation_id 7pPkCINzCFC7SmRR1YeB)
-- Fichier à déposer par Mo : `voix/fr/RAP-01-peches.mp3` (téléchargement depuis le flow, bloqué côté Claude).
+- Fichier : `voix/fr/RAP-01-peches.mp3` — déposé par Mo le 09/10/2026 (le téléchargement direct est bloqué côté Claude).
+- Mo : la voix est un peu rapide → pauses ajoutées au montage (règle du §3 de la bible), jamais dans la génération.
 
 ## Vérification des sources (09/10/2026)
 - Tirmidhi 2140 (Anas) : confirmé sur sunnah.com — « Ô Celui qui retourne les cœurs, raffermis mon cœur dans Ta religion » ET « les cœurs sont entre deux doigts d'Allah, Il les change comme Il veut » ; jugé hasan par at-Tirmidhi. Cette source couvre les deux phrases.

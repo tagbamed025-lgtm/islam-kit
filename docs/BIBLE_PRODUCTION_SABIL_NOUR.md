@@ -40,6 +40,21 @@ Toujours identique : polices **Anton** (titres), **Cormorant Garamond italique**
 - **Test du 09/10/2026 (RAP-01)** : génération OK via le connecteur (24,6 s). **Le téléchargement du fichier audio est bloqué depuis l'espace de travail de Claude** (le serveur de stockage ElevenLabs est refusé par le réseau). Conséquence : Claude génère la voix et note son identifiant, mais le fichier MP3 doit être **téléchargé par Mo depuis le lien du flow ElevenLabs** (un clic) puis déposé dans `voix/fr/<ID>.mp3` sur GitHub. Le montage lit ensuite le MP3 depuis le dépôt.
 - **À tester** : balises d'expression v3 ; voix anglaise ; autre route pour récupérer l'audio sans passage par Mo.
 
+### Rythme et pauses (règle de Mo, 09/10/2026)
+- La voix générée par ElevenLabs paraît un peu rapide. Les pauses ne se règlent **pas dans la génération** (pas de `<break>`, le texte envoyé garde toute sa ponctuation) : elles s'ajoutent **au montage**, par Claude.
+- **Ne plus raccourcir les silences naturels de la voix** pour les nouveaux contenus (l'ancien resserrage à 0,45 s max est abandonné). On ne fait qu'**allonger** quand le silence est plus court que le minimum ci-dessous.
+- Pauses minimales de départ (à ajuster à l'écoute avec Mo) :
+  | Moment | Pause minimale |
+  |---|---|
+  | virgule / respiration | 0,35 s |
+  | fin de phrase | 0,7 s |
+  | juste avant une citation (hadith, verset) | 1,0 s |
+  | juste avant la dernière phrase / l'invocation finale | 1,2 s |
+  | silence tenu après la dernière parole | 1,2 s |
+- Une pause doit tomber dans une scène qui continue d'afficher son contenu (jamais d'écran vide), et le texte à l'écran suit la voix décalée (temps « pause-aware », voir §10).
+- Si, malgré les pauses, Mo trouve encore la voix trop rapide : option à proposer, ralentir la voix de 4–5 % (`atempo`, sans changer la hauteur). Non appliqué par défaut.
+- Fichier de test : `RAP-01-peches` (24,7 s ; silences naturels de 0,25 s à 1,2 s ; Mo a déposé le MP3 le 09/10/2026).
+
 ## 4. Sons (validé)
 - Fond vocal sans instrument (fredonnement), baissé sous la voix, coupé sous le Coran.
 - Pas de son sur chaque mot (« pas propre ») : son discret seulement sur les mots clés ; riser + impact sur la phrase clé ; boom grave en fin de phrase ; whoosh doux aux transitions ; ambiance (vent).
@@ -159,7 +174,7 @@ Exemples : `VID-03-musab`, `COMP-02-lampe-ansar`, `HAD-02-natte`, `REC-02-kahf-1
 Image : `COMP-02-lampe-ansar_S06_bols_01.png`. Voix : `COMP-02-lampe-ansar.mp3`.
 
 ## 10. Production technique
-Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → resserrage des silences (`tighten.py`, plafond 0,45 s) → transcription horodatée (Whisper-small ONNX, 16 kHz mono, morceaux de 30 s) → calage de chaque mot sur le temps réel → animation HTML déterministe rendue avec Chromium/Playwright (2 segments en parallèle) → sons calés (`sfx.py`, `pad.py`) → mixage −14 LUFS (`mix.sh`) → encodage ffmpeg (x264, CRF 21, AAC 192k) → MP4 nommé avec le titre → miniatures.
+Script sourcé → texte voix off → (Claude) voix ElevenLabs v3 → calcul des pauses (`tighten.py` : **anciens contenus** plafond 0,45 s ; **nouveaux contenus** : pas de raccourcissement, pauses minimales du §3) → transcription horodatée (Whisper-small ONNX, 16 kHz mono, morceaux de 30 s) → calage de chaque mot sur le temps réel → animation HTML déterministe rendue avec Chromium/Playwright (2 segments en parallèle) → sons calés (`sfx.py`, `pad.py`) → mixage −14 LUFS (`mix.sh`) → encodage ffmpeg (x264, CRF 21, AAC 192k) → MP4 nommé avec le titre → miniatures.
 - Temps « pause-aware » `N(t)=OFF+t+Σpauses` partagé entre `index.html`, `build_audio.py` et `sfx.py` ; une pause doit tomber dans une scène qui continue d'afficher son contenu (sinon image vide).
 - Détourage : rembg `isnet-general-use` → `cut_*.png`.
 - Toujours partir du texte réellement dit par la voix.
