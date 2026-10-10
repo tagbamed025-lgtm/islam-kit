@@ -369,7 +369,7 @@
    "id": "VID-04-jafar",
    "type": "VID",
    "titre": "Il a fait pleurer un roi… avec un seul discours | Ja'far ibn Abi Talib",
-   "statut": "voix générée (230s, 2776.72 crédits) — en attente du dépôt MP3 par Mo",
+   "statut": "voix générée (230s, 2776.72 crédits) — en attente du dépôt MP3 par Mo ; voix EN (Rafaga) générée, en attente du dépôt MP3",
    "date": "2026-10-09",
    "duree_s": 230,
    "format": "16:9",
@@ -381,13 +381,15 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/",
-   "script_en": "scripts/en/VID-04-jafar.md"
+   "script_en": "scripts/en/VID-04-jafar.md",
+   "voix_en": "voix/en/VID-04-jafar.mp3 (en attente du dépôt par Mo)",
+   "duree_en_s": 163.68
   },
   {
    "id": "VID-05-umar",
    "type": "VID",
    "titre": "Le Prophète a prié pour que cet homme devienne musulman… et Allah a répondu | Umar ibn al-Khattab",
-   "statut": "voix générée (138.4s, 1880.81 crédits) — en attente du dépôt MP3 par Mo",
+   "statut": "voix générée (138.4s, 1880.81 crédits) — en attente du dépôt MP3 par Mo ; voix EN (Rafaga) générée, en attente du dépôt MP3",
    "date": "2026-10-09",
    "duree_s": 138.4,
    "format": "16:9",
@@ -399,13 +401,15 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/",
-   "script_en": "scripts/en/VID-05-umar.md"
+   "script_en": "scripts/en/VID-05-umar.md",
+   "voix_en": "voix/en/VID-05-umar.mp3 (en attente du dépôt par Mo)",
+   "duree_en_s": 99.52
   },
   {
    "id": "VID-06-salman",
    "type": "VID",
    "titre": "Il a cherché la vérité pendant 40 ans… à travers 4 pays | Salman al-Farisi",
-   "statut": "voix générée (183.6s, 2356.76 crédits) — en attente du dépôt MP3 par Mo",
+   "statut": "voix générée (183.6s, 2356.76 crédits) — en attente du dépôt MP3 par Mo ; voix EN (Rafaga) générée, en attente du dépôt MP3",
    "date": "2026-10-09",
    "duree_s": 183.6,
    "format": "16:9",
@@ -417,13 +421,15 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/",
-   "script_en": "scripts/en/VID-06-salman.md"
+   "script_en": "scripts/en/VID-06-salman.md",
+   "voix_en": "voix/en/VID-06-salman.mp3 (en attente du dépôt par Mo)",
+   "duree_en_s": 167.36
   },
   {
    "id": "VID-07-khabbab",
    "type": "VID",
    "titre": "Il est venu se plaindre… le Prophète lui a répondu par une promesse | Khabbab ibn al-Aratt",
-   "statut": "voix générée (101.36s, 1728.83 crédits) — en attente du dépôt MP3 par Mo",
+   "statut": "voix générée (101.36s, 1728.83 crédits) — en attente du dépôt MP3 par Mo ; voix EN (Rafaga) générée, en attente du dépôt MP3",
    "date": "2026-10-09",
    "duree_s": 101.36,
    "format": "16:9",
@@ -435,13 +441,15 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/",
-   "script_en": "scripts/en/VID-07-khabbab.md"
+   "script_en": "scripts/en/VID-07-khabbab.md",
+   "voix_en": "voix/en/VID-07-khabbab.mp3 (en attente du dépôt par Mo)",
+   "duree_en_s": 94.56
   },
   {
    "id": "VID-08-sad",
    "type": "VID",
    "titre": "Sa mère a refusé de manger pendant 3 jours… pour le faire revenir en arrière | Sa'd ibn Abi Waqqas",
-   "statut": "voix générée (125.04s, 1560.84 crédits) — en attente du dépôt MP3 par Mo",
+   "statut": "voix générée (125.04s, 1560.84 crédits) — en attente du dépôt MP3 par Mo ; voix EN (Rafaga) générée, en attente du dépôt MP3",
    "date": "2026-10-09",
    "duree_s": 125.04,
    "format": "16:9",
@@ -453,7 +461,9 @@
    "miniatures": null,
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/",
-   "script_en": "scripts/en/VID-08-sad.md"
+   "script_en": "scripts/en/VID-08-sad.md",
+   "voix_en": "voix/en/VID-08-sad.mp3 (en attente du dépôt par Mo)",
+   "duree_en_s": 97.76
   }
  ]
 }
