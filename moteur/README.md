@@ -5,7 +5,7 @@ Chaque dossier est une COPIE de travail d'un contenu livré (HTML d'animation + 
 | Format | Dossier modèle (le plus récent / validé) | Notes |
 |---|---|---|
 | Reel compagnon (apparition) | `apparition-lampe-ansar/` | **Référence actuelle** (lumière, coupe au noir, flash). Précédents : `apparition-anas/`, `apparition-bilal/`, `apparition-khalid/` |
-| Reel hadith (cinéma) | `hadith-cinema-natte/` | V3 validée. `hadith-ancien-chien/` = ancien style, à ne pas copier |
+| Reel hadith (cinéma) — moteur commun | `hadith-cinema-commun/` | **À utiliser désormais** (10/10/2026) : un `cfg.py` + `script.txt` par reel, voir son README. HAD-03 à HAD-10 faits avec. Modèle d’origine : `hadith-cinema-natte/` (V3 validée). `hadith-ancien-chien/` = ancien style, à ne pas copier |
 | Vidéo du vendredi (16:9) — moteur commun | `video-longue-commun/` | **À utiliser désormais** : un dossier par vidéo avec `cfg.py` (chapitres, titre, mots clés, bandeaux, plans, miniature) + `script.txt` ; voir l'en-tête de chaque script. VID-05 à VID-08 faits avec. |
 | Vidéo du vendredi (16:9) | `video-longue-jafar/` | **Référence actuelle (10/10/2026)** : même moteur que Mus'ab + pauses bible §3 automatiques (`timeline.py`), plans « motion design » objet détouré sur crème (type `CUT`, à quelques endroits seulement), insertion d'une vraie récitation (type `REC`, `rec_prep.py`, aucun son sous le Coran), rendu en 2 moitiés + fenêtres (`part.sh`, `assemble.sh`). Précédent : `video-longue-musab/` |
 | Extrait vertical d'une vidéo longue | `extrait-vertical-musab/` | Mis de côté (décision du 30/09/2026) |
