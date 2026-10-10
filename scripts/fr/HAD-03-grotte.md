@@ -1,0 +1,24 @@
+# HAD-03-grotte — Trois hommes dans la grotte
+Statut : proposition — en attente de validation de Mo.
+**Source :** Sahîh Muslim 2743 (a) ('Abdullah ibn 'Umar), vérifiée sur sunnah.com/muslim:2743. Parallèle : Sahîh al-Bukhârî 2215/2272.
+**Titre suggéré :** Trois hommes bloqués dans une grotte… un seul remède à leur situation
+**Description :** Trois hommes se retrouvent enfermés dans une grotte par un rocher tombé du flanc de la montagne. Un seul moyen d'en sortir : invoquer Allah par la meilleure action de leur vie, faite pour Lui seul. Source : Sahîh Muslim 2743. #islam #hadith #sabilnour #shorts
+**Miniature :** rocher énorme bloquant l'entrée d'une grotte sombre, « ILS ÉTAIENT PIÉGÉS… » / bandeau « UN SEUL REMÈDE. ». Étiquette « HADITHS · 03 ».
+
+## Voix off
+Trois hommes marchaient quand la pluie les surprend. Ils se réfugient dans une grotte, au flanc d'une montagne. Un énorme rocher se détache… et bloque l'entrée. Plus aucune sortie. Alors l'un d'eux propose : « Invoquons Allah par la meilleure action que nous ayons faite pour Lui, rien que pour Lui. » Le premier raconte : « Mes parents étaient âgés. Chaque soir, je leur donnais à boire avant mes propres enfants. Un soir, je suis rentré tard, ils dormaient déjà. J'ai attendu, le bol à la main, jusqu'à l'aube, pour ne pas les réveiller ni servir quelqu'un avant eux. Ô Allah, si j'ai fait cela pour Toi, délivre-nous. » Le rocher bouge… un peu. Un autre raconte : « J'avais engagé un ouvrier. Quand il est parti sans réclamer son dû, j'ai fait fructifier son salaire pendant des années, puis je lui ai tout rendu. Ô Allah, si j'ai fait cela pour Toi, délivre-nous. » Le rocher glisse encore. Trois actes faits en secret, pour Allah seul… ont suffi à rouvrir la sortie.
+
+## Montage (rendu cinéma)
+Ouverture sur la pluie et la grotte sombre ; chute du rocher (impact + boom grave) ; obscurité totale un instant ; bol de lait tenu dans le noir jusqu'à un filet de lumière à l'aube ; pièces/monnaie qui s'accumulent (ouvrier) ; rocher qui glisse à chaque invocation (riser + whoosh) ; final : rayon de lumière qui traverse l'ouverture, sortie à l'air libre. Sous-titres courts mot à mot, mots clés dorés, carte finale arabe + source, Abonne-toi.
+
+## Images (prompts anglais)
+H3_01 heavy rain beginning to fall on a rocky mountainside, cinematic, no people
+H3_02 dark narrow cave entrance in a mountain at dusk
+H3_03 massive boulder rolling down and sealing a cave mouth, dust, dramatic lighting
+H3_04 pitch-black cave interior, single sliver of light
+H3_05 hands holding a wooden bowl of milk in near darkness, warm lamplight
+H3_06 thin beam of dawn light entering a cave crack
+H3_07 old sheep herd grazing at dusk, silhouette, desert hills
+H3_08 pile of ancient coins and a small herd of cattle multiplying, symbolic, warm light
+H3_09 boulder slowly shifting, widening gap, light pouring through
+H3_10 full sunlight flooding into a cave, figures walking out in silhouette toward open sky

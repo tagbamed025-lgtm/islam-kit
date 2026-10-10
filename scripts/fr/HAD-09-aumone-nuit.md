@@ -1,0 +1,20 @@
+# HAD-09-aumone-nuit — Trois nuits d'aumône
+Statut : proposition — en attente de validation de Mo.
+**Source :** Sahîh al-Bukhârî 1421, Abû Hurayra, vérifiée sur sunnah.com/bukhari:1421.
+**Titre suggéré :** Il a donné l'aumône trois nuits de suite… sans jamais savoir à qui
+**Description :** Un homme veut donner l'aumône chaque nuit. Sans le savoir, elle finit entre des mains qu'il n'attendait pas. Il ne sait pas encore la sagesse derrière chacun de ces dons. Source : Sahîh al-Bukhârî 1421. #islam #hadith #sabilnour #shorts
+**Miniature :** pièce/aumône posée dans une main tendue dans l'obscurité, « IL A DONNÉ TROIS NUITS DE SUITE… » / bandeau « SANS SAVOIR À QUI. ». Étiquette « HADITHS · 09 ».
+
+## Voix off
+Un homme dit : « Ce soir, je vais donner l'aumône. » Il sort dans la nuit et dépose son aumône dans une main… sans savoir à qui. Le lendemain matin, les gens parlent : « Cette nuit, l'aumône est tombée entre les mains d'un voleur. » L'homme dit : « Ô Allah, à Toi la louange ! » Et il recommence la nuit suivante. Mais sa main se pose, sans le savoir, sur celle d'une femme de mauvaise réputation. Le lendemain, les gens en parlent encore. L'homme dit : « Ô Allah, à Toi la louange, même pour elle ! » Et il recommence une troisième fois. Cette fois, son aumône tombe entre les mains d'un homme riche. Le lendemain, les gens s'étonnent : donner à un riche ? L'homme répète : « Ô Allah, à Toi la louange, pour le voleur, pour elle, et pour le riche. » Alors on vient lui dire : « Ton aumône au voleur le détournera peut-être du vol. Celle donnée à cette femme l'éloignera peut-être du péché. Et celle donnée au riche… lui rappellera peut-être de dépenser, lui aussi, ce qu'Allah lui a donné. »
+
+## Montage (rendu cinéma)
+Nuit, silhouette qui sort de chez elle avec une aumône serrée dans la main ; main tendue dans l'obscurité, l'aumône déposée sans qu'on voie qui la reçoit (jamais de visage) ; aube, rumeurs des gens (texte à l'écran, pas de visages) ; l'homme qui lève les yeux, serein, répète son geste la nuit suivante, variation de décor ; troisième nuit, même geste ; final lumineux : les trois mains superposées en fondu, puis lumière qui enveloppe la scène. Sons : pas nocturnes, murmures discrets pour les rumeurs, note calme et confiante qui revient à chaque « Ô Allah, à Toi la louange », résolution douce à la fin. Sous-titres courts, mots clés dorés, carte finale arabe + source, Abonne-toi.
+
+## Images (prompts anglais)
+H9_01 silhouette leaving a home at night carrying something small and precious, moonlight
+H9_02 a hand giving something into another outstretched hand in darkness, faces not visible
+H9_03 dawn breaking over a quiet village, people murmuring in the distance, no clear faces
+H9_04 the same giving silhouette scene repeated with a slightly different night setting
+H9_05 a third night scene, calm and resolute figure walking out again
+H9_06 three hands overlaid softly in warm golden light, symbolic, no faces

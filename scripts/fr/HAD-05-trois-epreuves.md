@@ -1,0 +1,25 @@
+# HAD-05-trois-epreuves — Le lépreux, le chauve et l'aveugle
+Statut : proposition — en attente de validation de Mo.
+**Source :** Sahîh al-Bukhârî 3464, Abû Hurayra, vérifiée sur sunnah.com/bukhari:3464.
+**Titre suggéré :** Allah a testé ces trois hommes… un seul a réussi
+**Description :** Un lépreux, un chauve et un aveugle sont guéris et enrichis par Allah. Un ange revient leur demander de l'aide, déguisé en voyageur pauvre. Deux oublient. Un seul se souvient. Source : Sahîh al-Bukhârî 3464. #islam #hadith #sabilnour #shorts
+**Miniature :** troupeau de chameaux au crépuscule + main tendue, « ILS ONT ÉTÉ GUÉRIS ET ENRICHIS… » / bandeau « PUIS TESTÉS. ». Étiquette « HADITHS · 05 ».
+
+## Voix off
+Trois hommes, chez les Fils d'Israël : un lépreux, un chauve, un aveugle. Allah veut les éprouver. Il leur envoie un ange. L'ange demande au lépreux : « Que désires-tu le plus ? » — « Une belle peau, et que les gens cessent de me fuir. » L'ange le touche : guéri. Il demande au chauve la même chose… guéri à son tour, de beaux cheveux lui poussent. À l'aveugle, l'ange redonne la vue. Puis il leur demande : « Quel bien aimeriez-vous avoir ? » Chacun reçoit un troupeau, chamelles pour l'un, vaches pour l'autre, brebis pour le dernier, et prospère. Des années passent. L'ange revient, déguisé en pauvre voyageur. Il va trouver l'ancien lépreux : « Je suis un pauvre homme, en voyage, je n'ai plus rien… par Celui qui t'a rendu ta peau, aide-moi. » L'homme répond : « J'ai trop de charges, je ne peux rien donner. » L'ange lui dit : « Je te reconnais bien. N'étais-tu pas lépreux, méprisé des gens, avant qu'Allah ne te guérisse ? » Il va voir le chauve… même refus, même réponse. Il va enfin voir l'aveugle. Le même appel… Et l'homme répond : « J'étais aveugle, Allah m'a rendu la vue. Prends ce que tu veux, laisse ce que tu veux, par Allah, je ne te refuserai rien aujourd'hui, pour Sa cause. » L'ange lui dit : « Garde ton bien. Vous avez tous les trois été éprouvés. Allah est satisfait de toi… et en colère contre tes deux compagnons. »
+
+## Montage (rendu cinéma)
+Trois portraits de dos (jamais de visage, silhouettes), chacun marqué par son épreuve (peau abîmée en ombre, tête couverte, bâton d'aveugle) ; lumière qui les touche, guérison symbolisée par un fondu/éclat ; troupeaux qui apparaissent (chamelles, vaches, brebis) ; passage du temps (soleil qui tourne, saisons) ; voyageur pauvre qui frappe à trois portes successives ; deux portes qui se referment, une qui s'ouvre en grand ; final sur la main tendue de l'aveugle. Sous-titres courts, mots clés dorés, carte finale arabe + source, Abonne-toi.
+
+## Images (prompts anglais)
+H5_01 silhouette of a man from behind with weathered skin texture, desert tent, dim light
+H5_02 silhouette of a bald man from behind, desert tent
+H5_03 silhouette of a blind man from behind with a wooden walking stick
+H5_04 soft golden light touching a silhouette, healing glow, symbolic, no face
+H5_05 small herd of camels at dusk, golden light
+H5_06 small herd of cattle grazing, golden hour
+H5_07 small herd of sheep on a hillside, warm light
+H5_08 sun arcing across the sky in a timelapse-style composite, passage of time, symbolic
+H5_09 poor traveler silhouette knocking on a tent door at dusk, dust, worn clothes
+H5_10 a door closing in shadow, rejection, cold light
+H5_11 a hand reaching out generously from a tent doorway, warm golden light

@@ -1,0 +1,20 @@
+# HAD-06-voleur-dattes — Le voleur qui revenait chaque nuit
+Statut : proposition — en attente de validation de Mo.
+**Source :** Sahîh al-Bukhârî 2311 (et 5010), Abû Hurayra, vérifiée sur sunnah.com/bukhari:2311.
+**Titre suggéré :** Il attrapait un voleur chaque nuit… jusqu'à ce que le Prophète lui révèle qui c'était
+**Description :** Le Prophète ﷺ charge Abû Hurayra de garder les dattes de l'aumône du Ramadan. Trois nuits de suite, quelqu'un vient voler. La troisième fois, le voleur lui enseigne une invocation avant de disparaître… et le Prophète ﷺ révèle qui il était vraiment. Source : Sahîh al-Bukhârî 2311. #islam #hadith #sabilnour #shorts
+**Miniature :** tas de dattes dans la pénombre + une main furtive, « IL VOLAIT CHAQUE NUIT… » / bandeau « CE N'ÉTAIT PAS UN HOMME. ». Étiquette « HADITHS · 06 ».
+
+## Voix off
+Le Prophète, paix et salut sur lui, confie à Abû Hurayra la garde des dattes de l'aumône du Ramadan. Une nuit, une silhouette s'approche et commence à puiser dans le tas. Abû Hurayra l'attrape : « Je te jure que je t'emmène devant le Messager d'Allah ! » L'autre le supplie : « Laisse-moi, je suis pauvre, j'ai des enfants, j'en ai grand besoin. » Il le laisse partir. Le lendemain, le Prophète lui demande : « Qu'a fait ton prisonnier cette nuit ? » Abû Hurayra raconte. Le Prophète lui dit : « Il t'a menti, il reviendra. » Et en effet, la nuit suivante, l'homme revient… puis une troisième fois. Cette fois, Abû Hurayra le tient fermement : « Cette fois, je t'emmène, c'est la dernière fois que tu dis vouloir revenir et que tu reviens. » L'homme le supplie encore, puis ajoute : « Laisse-moi partir, et je t'apprends des mots qui te seront utiles. » Abû Hurayra accepte. L'homme lui dit : « Quand tu te couches, récite le verset du Trône, Ayat al-Kursî, du début à la fin. Tu auras alors un gardien de la part d'Allah, et aucun diable ne t'approchera jusqu'au matin. » Le lendemain, le Prophète lui demande de nouveau ce qu'a fait son prisonnier. Abû Hurayra répète les paroles de l'homme. Le Prophète lui dit alors : « Il t'a dit la vérité, alors qu'il est lui-même un grand menteur. Sais-tu à qui tu parlais depuis trois nuits, ô Abû Hurayra ? » — « Non. » — « C'était le diable. »
+
+## Montage (rendu cinéma)
+Nuit, tas de dattes gardé à la lueur d'une lampe ; main furtive qui puise dans le tas (×1) ; silhouette attrapée, dialogue tendu (sous-titres) ; scène répétée deux fois, légère variation de cadrage pour marquer la répétition ; troisième nuit, prise plus ferme ; gros plan sur une bouche qui murmure l'invocation ; disparition brutale de la silhouette (effet de fumée/ombre) ; carte finale avec le mot « Ayat al-Kursî » en doré + arabe du verset + source. Sons : pas furtifs, tension (riser léger à chaque capture), révélation finale avec cinematic_hit sur « C'était le diable ». Sous-titres courts, mots clés dorés, Abonne-toi.
+
+## Images (prompts anglais)
+H6_01 pile of dates in a dim storeroom lit by a single oil lamp, night
+H6_02 a shadowy hand reaching toward a pile of dates, dramatic low light
+H6_03 two silhouettes face to face at night, one gripping the other's wrist, tense
+H6_04 close-up of lips whispering in shadow, dim candlelight, no clear face
+H6_05 a dark figure dissolving into smoke and shadow, mysterious, cinematic
+H6_06 dawn light entering a simple room, calm after tension, warm

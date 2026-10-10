@@ -1,0 +1,24 @@
+# HAD-10-jurayj — Accusé à tort, un bébé a parlé
+Statut : proposition — en attente de validation de Mo.
+**Source :** Sahîh al-Bukhârî 2482 (parallèle 3436), Abû Hurayra, vérifiée sur sunnah.com/bukhari:2482.
+**Titre suggéré :** Accusé à tort… un bébé a parlé pour le disculper
+**Description :** Jurayj, un homme pieux retiré dans son ermitage, est accusé à tort d'une faute grave. La foule détruit son lieu de prière. Il se tourne vers Allah… et un nouveau-né parle pour dire la vérité. Source : Sahîh al-Bukhârî 2482. #islam #hadith #sabilnour #shorts
+**Miniature :** ermitage isolé sur une colline + silhouette d'un berceau, « IL A ÉTÉ ACCUSÉ À TORT… » / bandeau « UN BÉBÉ A PARLÉ. ». Étiquette « HADITHS · 10 ».
+
+## Voix off
+Chez les Fils d'Israël, vivait un homme nommé Jurayj. Il s'était retiré dans un ermitage pour se consacrer entièrement à l'adoration d'Allah. Un jour, pendant qu'il priait, sa mère vint l'appeler. Il hésita : continuer sa prière, ou lui répondre ? Elle revint une seconde fois, l'appela encore, et comme il ne répondait toujours pas, elle dit : « Ô Allah, ne le fais pas mourir avant qu'il n'ait vu le visage de femmes de mauvaise vie. » Plus tard, une femme se présenta à lui pour le séduire. Il refusa. Alors elle alla trouver un berger, et porta un enfant. Elle prétendit que cet enfant était celui de Jurayj. Les gens, furieux, vinrent détruire son ermitage et le traînèrent dehors en l'insultant. Lui ne dit rien. Il fit ses ablutions, pria… puis s'approcha du nouveau-né. Il lui demanda : « Petit, qui est ton père ? » Et le bébé répondit : « Le berger. » Les gens, stupéfaits, voulurent reconstruire son ermitage en or. Jurayj refusa : « Non. Rebâtissez-le simplement, comme avant, en terre. »
+
+## Montage (rendu cinéma)
+Ermitage isolé sur une colline, lumière douce ; homme en prière (silhouette, dos) ; mère qui appelle au pied de la colline, hésitation visible dans le corps de l'homme ; foule qui monte vers l'ermitage, colère, destruction du lieu (pierres qui tombent, poussière) ; homme traîné dehors, digne, silencieux ; ablution à l'eau claire, prière calme au milieu du chaos ; gros plan sur un berceau/nouveau-né (jamais de visage d'enfant réel, symbolique) ; silence suspendu avant la réponse ; foule stupéfaite qui recule ; ermitage reconstruit, simple, en terre, lumière dorée finale. Sons : cloche/appel lointain pour la mère, tension montante pendant la destruction (riser + impact), silence total avant la réponse du bébé, résolution lumineuse à la fin. Sous-titres courts, mots clés dorés, carte finale arabe + source, Abonne-toi.
+
+## Images (prompts anglais)
+H10_01 small stone hermitage on a hill, soft dawn light, peaceful and isolated
+H10_02 silhouette of a man praying inside a simple stone hermitage, from behind
+H10_03 a mother figure calling from the foot of a hill, distant silhouette
+H10_04 an angry crowd silhouette climbing a hill toward a small hermitage, dust
+H10_05 stones falling from a hermitage being torn down, dramatic dust and motion
+H10_06 a man being pulled outside calmly, dignified, surrounded by shadowy figures, no faces
+H10_07 hands performing ablution with clear water, calm, close-up
+H10_08 a simple woven cradle in soft warm light, symbolic, no visible infant face
+H10_09 a crowd stepping back in stunned silence, soft light breaking through dust
+H10_10 a small mud hermitage rebuilt simply on a hill, golden sunset light
