@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2)}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+@font-face{font-family:Inter;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#000}
+.c{position:relative;overflow:hidden;background:#0b0906}
+img.bg{position:absolute;object-fit:cover}
+.t{position:absolute;font-family:Anton;text-transform:uppercase;line-height:.95;color:#FBF8F0;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+.band{position:absolute;background:#0F5B46;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.band .t{position:relative;color:#EDCB85;text-shadow:none}
+.tag{position:absolute;font-family:Inter;font-weight:800;letter-spacing:.2em;color:#FBF6EA;background:#0F5B46;padding:.4em .8em;white-space:nowrap}
+.grain{position:absolute;inset:0;background:url(img/grain.png);background-size:600px;opacity:.3;mix-blend-mode:overlay}
+</style></head><body><div class="c" id="c"></div><script>
+const F=new URLSearchParams(location.search).get('f')||'v';const c=document.getElementById('c');
+if(F==='h'){c.style.width='1280px';c.style.height='720px';c.innerHTML=`
+<img class="bg" src="hd/J3.jpg" style="width:1000px;height:720px;left:420px;top:0;object-position:78% 50%;filter:contrast(1.1) brightness(.92)">
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,#0b0906 0%,#0b0906 36%,rgba(11,9,6,.6) 50%,rgba(11,9,6,0) 68%,rgba(11,9,6,0) 88%,rgba(11,9,6,.5) 100%),linear-gradient(to bottom,rgba(11,9,6,.35) 0%,rgba(11,9,6,0) 20%,rgba(11,9,6,0) 80%,rgba(11,9,6,.45) 100%)"></div>
+<div class="tag" style="font-size:20px;left:56px;top:56px">JA'FAR IBN ABI TALIB</div>
+<div class="t" style="font-size:150px;left:56px;top:170px">UN ROI…</div>
+<div class="band" style="left:-20px;width:640px;top:400px;padding:18px 0 8px 76px;transform:rotate(-3deg)"><div class="t" style="font-size:96px">A PLEURÉ.</div></div>
+<img src="img/logo.png" style="position:absolute;left:56px;bottom:34px;width:70px">
+<div class="grain"></div>`}
+else{c.style.width='1080px';c.style.height='1920px';c.innerHTML=`
+<img class="bg" src="hd/J3.jpg" style="width:1080px;height:1450px;left:0;top:0;object-position:95% 50%;filter:contrast(1.1) brightness(.92)">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,9,6,.7) 0%,rgba(11,9,6,0) 18%,rgba(11,9,6,0) 50%,#0b0906 72%)"></div>
+<div class="tag" style="font-size:30px;left:50%;top:90px;transform:translateX(-50%)">JA'FAR IBN ABI TALIB</div>
+<div class="t" style="font-size:170px;left:0;right:0;text-align:center;top:1250px">UN ROI…</div>
+<div class="band" style="left:-40px;right:-40px;top:1480px;padding:28px 0 14px;transform:rotate(-3deg)"><div class="t" style="font-size:170px;text-align:center">A PLEURÉ.</div></div>
+<img src="img/logo.png" style="position:absolute;right:40px;top:40px;width:100px">
+<div class="grain"></div>`}
+</script></body></html>

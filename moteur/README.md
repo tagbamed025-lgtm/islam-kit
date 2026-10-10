@@ -6,7 +6,7 @@ Chaque dossier est une COPIE de travail d'un contenu livré (HTML d'animation + 
 |---|---|---|
 | Reel compagnon (apparition) | `apparition-lampe-ansar/` | **Référence actuelle** (lumière, coupe au noir, flash). Précédents : `apparition-anas/`, `apparition-bilal/`, `apparition-khalid/` |
 | Reel hadith (cinéma) | `hadith-cinema-natte/` | V3 validée. `hadith-ancien-chien/` = ancien style, à ne pas copier |
-| Vidéo du vendredi (16:9) | `video-longue-musab/` | `build_html.py`, `engine.html`, `timeline.py`, rendu par parties (`part.sh`, `render_range.py`) |
+| Vidéo du vendredi (16:9) | `video-longue-jafar/` | **Référence actuelle (10/10/2026)** : même moteur que Mus'ab + pauses bible §3 automatiques (`timeline.py`), plans « motion design » objet détouré sur crème (type `CUT`, à quelques endroits seulement), insertion d'une vraie récitation (type `REC`, `rec_prep.py`, aucun son sous le Coran), rendu en 2 moitiés + fenêtres (`part.sh`, `assemble.sh`). Précédent : `video-longue-musab/` |
 | Extrait vertical d'une vidéo longue | `extrait-vertical-musab/` | Mis de côté (décision du 30/09/2026) |
 | Récitation | `recitation-kahf/` (structure actuelle) · `recitation-hadid/` | Aucun son sous le Coran |
 | Rappel (typographique) | `rappel-peches/` | Pauses bible §3, aucune image, citations sur émeraude + arche |
