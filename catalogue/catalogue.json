@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-10-09",
+ "mis_a_jour": "2026-10-10",
  "contenus": [
   {
    "id": "VID-01-khalid",
@@ -369,7 +369,7 @@
    "id": "VID-04-jafar",
    "type": "VID",
    "titre": "Il a fait pleurer un roi… avec un seul discours | Ja'far ibn Abi Talib",
-   "statut": "script à valider",
+   "statut": "script à valider — récitateur confirmé (Alafasy) pour la scène Maryam",
    "date": "2026-10-09",
    "duree_s": null,
    "format": "16:9",
@@ -380,13 +380,14 @@
    "images": null,
    "miniatures": null,
    "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "script_en": "scripts/en/VID-04-jafar.md"
   },
   {
    "id": "VID-05-umar",
    "type": "VID",
    "titre": "Le Prophète a prié pour que cet homme devienne musulman… et Allah a répondu | Umar ibn al-Khattab",
-   "statut": "script à valider — point à valider par Mo (récit populaire écarté, faible ; reconstruit sur Tirmidhî 3681 + Bukhârî 3684)",
+   "statut": "script à valider — Option A confirmée par Mo (hadiths authentiques uniquement, pas de récit de la sœur)",
    "date": "2026-10-09",
    "duree_s": null,
    "format": "16:9",
@@ -397,7 +398,8 @@
    "images": null,
    "miniatures": null,
    "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "script_en": "scripts/en/VID-05-umar.md"
   },
   {
    "id": "VID-06-salman",
@@ -414,7 +416,8 @@
    "images": null,
    "miniatures": null,
    "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "script_en": "scripts/en/VID-06-salman.md"
   },
   {
    "id": "VID-07-khabbab",
@@ -431,7 +434,8 @@
    "images": null,
    "miniatures": null,
    "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "script_en": "scripts/en/VID-07-khabbab.md"
   },
   {
    "id": "VID-08-sad",
@@ -448,7 +452,8 @@
    "images": null,
    "miniatures": null,
    "reference_mp4": null,
-   "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "script_en": "scripts/en/VID-08-sad.md"
   }
  ]
 }
