@@ -12,13 +12,13 @@ Trois hommes marchaient quand la pluie les surprend. Ils se réfugient dans une 
 Ouverture sur la pluie et la grotte sombre ; chute du rocher (impact + boom grave) ; obscurité totale un instant ; bol de lait tenu dans le noir jusqu'à un filet de lumière à l'aube ; pièces/monnaie qui s'accumulent (ouvrier) ; rocher qui glisse à chaque invocation (riser + whoosh) ; final : rayon de lumière qui traverse l'ouverture, sortie à l'air libre. Sous-titres courts mot à mot, mots clés dorés, carte finale arabe + source, Abonne-toi.
 
 ## Images (prompts anglais)
-H3_01 heavy rain beginning to fall on a rocky mountainside, cinematic, no people
-H3_02 dark narrow cave entrance in a mountain at dusk
-H3_03 massive boulder rolling down and sealing a cave mouth, dust, dramatic lighting
-H3_04 pitch-black cave interior, single sliver of light
-H3_05 hands holding a wooden bowl of milk in near darkness, warm lamplight
-H3_06 thin beam of dawn light entering a cave crack
-H3_07 old sheep herd grazing at dusk, silhouette, desert hills
-H3_08 pile of ancient coins and a small herd of cattle multiplying, symbolic, warm light
-H3_09 boulder slowly shifting, widening gap, light pouring through
-H3_10 full sunlight flooding into a cave, figures walking out in silhouette toward open sky
+H3_01 heavy rain beginning to fall on a rocky mountainside, cinematic, no people, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_02 dark narrow cave entrance in a mountain at dusk, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_03 massive boulder rolling down and sealing a cave mouth, dust, dramatic lighting, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_04 pitch-black cave interior, single sliver of light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_05 hands holding a wooden bowl of milk in near darkness, warm lamplight, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_06 thin beam of dawn light entering a cave crack, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_07 old sheep herd grazing at dusk, silhouette, desert hills, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_08 pile of ancient coins and a small herd of cattle multiplying, symbolic, warm light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_09 boulder slowly shifting, widening gap, light pouring through, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H3_10 full sunlight flooding into a cave, figures walking out in silhouette toward open sky, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain

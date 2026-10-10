@@ -12,14 +12,14 @@ Trois hommes, chez les Fils d'Israël : un lépreux, un chauve, un aveugle. Alla
 Trois portraits de dos (jamais de visage, silhouettes), chacun marqué par son épreuve (peau abîmée en ombre, tête couverte, bâton d'aveugle) ; lumière qui les touche, guérison symbolisée par un fondu/éclat ; troupeaux qui apparaissent (chamelles, vaches, brebis) ; passage du temps (soleil qui tourne, saisons) ; voyageur pauvre qui frappe à trois portes successives ; deux portes qui se referment, une qui s'ouvre en grand ; final sur la main tendue de l'aveugle. Sous-titres courts, mots clés dorés, carte finale arabe + source, Abonne-toi.
 
 ## Images (prompts anglais)
-H5_01 silhouette of a man from behind with weathered skin texture, desert tent, dim light
-H5_02 silhouette of a bald man from behind, desert tent
-H5_03 silhouette of a blind man from behind with a wooden walking stick
-H5_04 soft golden light touching a silhouette, healing glow, symbolic, no face
-H5_05 small herd of camels at dusk, golden light
-H5_06 small herd of cattle grazing, golden hour
-H5_07 small herd of sheep on a hillside, warm light
-H5_08 sun arcing across the sky in a timelapse-style composite, passage of time, symbolic
-H5_09 poor traveler silhouette knocking on a tent door at dusk, dust, worn clothes
-H5_10 a door closing in shadow, rejection, cold light
-H5_11 a hand reaching out generously from a tent doorway, warm golden light
+H5_01 silhouette of a man from behind with weathered skin texture, desert tent, dim light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_02 silhouette of a bald man from behind, desert tent, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_03 silhouette of a blind man from behind with a wooden walking stick, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_04 soft golden light touching a silhouette, healing glow, symbolic, no face, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_05 small herd of camels at dusk, golden light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_06 small herd of cattle grazing, golden hour, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_07 small herd of sheep on a hillside, warm light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_08 sun arcing across the sky in a timelapse-style composite, passage of time, symbolic, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_09 poor traveler silhouette knocking on a tent door at dusk, dust, worn clothes, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_10 a door closing in shadow, rejection, cold light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H5_11 a hand reaching out generously from a tent doorway, warm golden light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain

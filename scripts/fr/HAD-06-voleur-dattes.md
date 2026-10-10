@@ -12,9 +12,9 @@ Le Prophète, paix et salut sur lui, confie à Abû Hurayra la garde des dattes 
 Nuit, tas de dattes gardé à la lueur d'une lampe ; main furtive qui puise dans le tas (×1) ; silhouette attrapée, dialogue tendu (sous-titres) ; scène répétée deux fois, légère variation de cadrage pour marquer la répétition ; troisième nuit, prise plus ferme ; gros plan sur une bouche qui murmure l'invocation ; disparition brutale de la silhouette (effet de fumée/ombre) ; carte finale avec le mot « Ayat al-Kursî » en doré + arabe du verset + source. Sons : pas furtifs, tension (riser léger à chaque capture), révélation finale avec cinematic_hit sur « C'était le diable ». Sous-titres courts, mots clés dorés, Abonne-toi.
 
 ## Images (prompts anglais)
-H6_01 pile of dates in a dim storeroom lit by a single oil lamp, night
-H6_02 a shadowy hand reaching toward a pile of dates, dramatic low light
-H6_03 two silhouettes face to face at night, one gripping the other's wrist, tense
-H6_04 close-up of lips whispering in shadow, dim candlelight, no clear face
-H6_05 a dark figure dissolving into smoke and shadow, mysterious, cinematic
-H6_06 dawn light entering a simple room, calm after tension, warm
+H6_01 pile of dates in a dim storeroom lit by a single oil lamp, night, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H6_02 a shadowy hand reaching toward a pile of dates, dramatic low light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H6_03 two silhouettes face to face at night, one gripping the other's wrist, tense, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H6_04 close-up of lips whispering in shadow, dim candlelight, no clear face, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H6_05 a dark figure dissolving into smoke and shadow, mysterious, cinematic, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H6_06 dawn light entering a simple room, calm after tension, warm, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain

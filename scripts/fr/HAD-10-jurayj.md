@@ -12,13 +12,13 @@ Chez les Fils d'Israël, vivait un homme nommé Jurayj. Il s'était retiré dans
 Ermitage isolé sur une colline, lumière douce ; homme en prière (silhouette, dos) ; mère qui appelle au pied de la colline, hésitation visible dans le corps de l'homme ; foule qui monte vers l'ermitage, colère, destruction du lieu (pierres qui tombent, poussière) ; homme traîné dehors, digne, silencieux ; ablution à l'eau claire, prière calme au milieu du chaos ; gros plan sur un berceau/nouveau-né (jamais de visage d'enfant réel, symbolique) ; silence suspendu avant la réponse ; foule stupéfaite qui recule ; ermitage reconstruit, simple, en terre, lumière dorée finale. Sons : cloche/appel lointain pour la mère, tension montante pendant la destruction (riser + impact), silence total avant la réponse du bébé, résolution lumineuse à la fin. Sous-titres courts, mots clés dorés, carte finale arabe + source, Abonne-toi.
 
 ## Images (prompts anglais)
-H10_01 small stone hermitage on a hill, soft dawn light, peaceful and isolated
-H10_02 silhouette of a man praying inside a simple stone hermitage, from behind
-H10_03 a mother figure calling from the foot of a hill, distant silhouette
-H10_04 an angry crowd silhouette climbing a hill toward a small hermitage, dust
-H10_05 stones falling from a hermitage being torn down, dramatic dust and motion
-H10_06 a man being pulled outside calmly, dignified, surrounded by shadowy figures, no faces
-H10_07 hands performing ablution with clear water, calm, close-up
-H10_08 a simple woven cradle in soft warm light, symbolic, no visible infant face
-H10_09 a crowd stepping back in stunned silence, soft light breaking through dust
-H10_10 a small mud hermitage rebuilt simply on a hill, golden sunset light
+H10_01 small stone hermitage on a hill, soft dawn light, peaceful and isolated, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_02 silhouette of a man praying inside a simple stone hermitage, from behind, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_03 a mother figure calling from the foot of a hill, distant silhouette, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_04 an angry crowd silhouette climbing a hill toward a small hermitage, dust, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_05 stones falling from a hermitage being torn down, dramatic dust and motion, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_06 a man being pulled outside calmly, dignified, surrounded by shadowy figures, no faces, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_07 hands performing ablution with clear water, calm, close-up, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_08 a simple woven cradle in soft warm light, symbolic, no visible infant face, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_09 a crowd stepping back in stunned silence, soft light breaking through dust, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
+H10_10 a small mud hermitage rebuilt simply on a hill, golden sunset light, cinematic photo, warm desert and candlelight tones, emerald and gold accents, no visible faces, no depiction of people's faces, respectful and non-figurative imagery, shallow depth of field, film grain
