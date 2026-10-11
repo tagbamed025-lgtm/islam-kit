@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-10-10",
+ "mis_a_jour": "2026-10-11",
  "contenus": [
   {
    "id": "VID-01-khalid",
@@ -606,6 +606,26 @@
    "miniatures": "images/par_contenu/HAD-10-jurayj/miniatures/HAD-10-jurayj_1080x1920.png",
    "reference_mp4": null,
    "mp4_final": "Google Drive : Sabil Nour/Rendus/"
+  },
+  {
+   "id": "REC-11-takathur-102-6-8",
+   "type": "REC",
+   "titre": "Tout ce que tu as reçu… on t'en demandera | Sourate At-Takâthur 102:6-8",
+   "statut": "livré (11/10/2026) — relecture avant publication",
+   "date": "2026-10-11",
+   "duree_s": 23.2,
+   "format": "9:16",
+   "style": "récitation",
+   "sources": "Coran 102:6-8 (trad. Hamidullah, quran.com/fr) ; récitateur Wadee' Al-Yamani",
+   "script": "scripts/fr/REC-11-takathur-102-6-8.md",
+   "voix": null,
+   "audio_recitation": "audio/recitations/REC-11-takathur-102-6-8.mp3",
+   "images": null,
+   "miniatures": "images/par_contenu/REC-11-takathur-102-6-8/miniatures/",
+   "reference_mp4": "references/videos/REC-02-kahf-18-46.mp4",
+   "mp4_final": "Google Drive : Sabil Nour/Rendus/",
+   "moteur": "moteur/recitation-takathur/",
+   "mp4_nom": "Tout ce que tu as reçu… on t’en demandera – Sourate At-Takâthur 102-6-8.mp4"
   }
  ]
 }
