@@ -35,10 +35,10 @@ canvas{position:absolute;inset:0}
  <path id="archP" d="M150 1600 L150 640 A390 390 0 0 1 930 640 L930 1600 Z" fill="none" stroke="rgba(237,203,133,.55)" stroke-width="2"/>
  <path id="archP2" d="M170 1580 L170 646 A370 370 0 0 1 910 646 L910 1580 Z" fill="none" stroke="rgba(237,203,133,.22)" stroke-width="1"/>
 </svg>
-<div id="chip" class="chip" style="top:150px">CORAN · AT-TAKÂTHUR · 102:6-8</div>
+<div id="chip" class="chip" style="top:150px">CORAN · SOURATE AT-TAKÂTHUR · 102</div>
 <div id="intro">
  <div class="ar" style="top:700px;font-size:120px;line-height:1.5;color:var(--gold)" id="iSur">سُورَةُ التَّكَاثُر</div>
- <div class="fr" style="top:930px;font-size:58px" id="iFr">Sourate At-Takâthur · versets 6-8</div>
+ <div class="fr" style="top:930px;font-size:58px" id="iFr">Sourate At-Takâthur · 8 versets</div>
 </div>
 <div id="chunks"></div>
 <div class="cred" style="top:1655px" id="cr1">Récitation · Wadee’ Al-Yamani</div>
@@ -54,16 +54,20 @@ canvas{position:absolute;inset:0}
 <div id="fade"></div>
 </div>
 <script>
-const OFF=-1.85;           // temps vidéo = temps source + OFF
-const DUR=23.2, OUT=20.4, TITLE=17.9;
+const OFF=-2.75;           // temps vidéo = temps source + OFF
+const DUR=43.2, OUT=40.4, TITLE=37.9;
 const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
 const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5), bk=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
 const $=id=>document.getElementById(id);
 // [début dans l'audio source, arabe (Uthmani, quran.com), traduction Hamidullah (quran.com)]
 const C=[
- [2.00,'لَتَرَوُنَّ ٱلْجَحِيمَ ﴿٦﴾','Vous verrez, certes, la Fournaise.'],
- [6.40,'ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ ﴿٧﴾','Puis, vous la verrez certes, avec l\u2019\u0153il de certitude.'],
- [12.45,'ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ ﴿٨﴾','Puis, assurément, vous serez interrogés, ce jour-là, sur les délices.'],
+ [2.85,'أَلْهَىٰكُمُ ٱلتَّكَاثُرُ ﴿١﴾ حَتَّىٰ زُرْتُمُ ٱلْمَقَابِرَ ﴿٢﴾','La course aux richesses vous distrait, jusqu\u2019à ce que vous visitiez les tombes.'],
+ [8.30,'كَلَّا سَوْفَ تَعْلَمُونَ ﴿٣﴾','Mais non ! Vous saurez bientôt !'],
+ [11.75,'ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ ﴿٤﴾','(Encore une fois) ! Vous saurez bientôt !'],
+ [17.35,'كَلَّا لَوْ تَعْلَمُونَ عِلْمَ ٱلْيَقِينِ ﴿٥﴾','Sûrement ! Si vous saviez de science certaine.'],
+ [22.90,'لَتَرَوُنَّ ٱلْجَحِيمَ ﴿٦﴾','Vous verrez, certes, la Fournaise.'],
+ [27.35,'ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ ﴿٧﴾','Puis, vous la verrez certes, avec l\u2019\u0153il de certitude.'],
+ [33.40,'ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ ﴿٨﴾','Puis, assurément, vous serez interrogés, ce jour-là, sur les délices.'],
 ];
 const box=$('chunks');
 C.forEach((c,i)=>{const a=document.createElement('div');a.className='ar';a.textContent=c[1];a.style.fontSize='98px';

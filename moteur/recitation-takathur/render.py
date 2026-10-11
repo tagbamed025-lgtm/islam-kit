@@ -1,6 +1,6 @@
 import sys, asyncio, subprocess, math
 from playwright.async_api import async_playwright
-FPS=30; DUR=23.2; N=math.ceil(DUR*FPS)
+FPS=30; DUR=43.2; N=math.ceil(DUR*FPS)
 part,parts=int(sys.argv[1]),int(sys.argv[2])
 a=N*part//parts; b=N*(part+1)//parts
 async def main():
