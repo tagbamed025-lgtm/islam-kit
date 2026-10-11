@@ -4,6 +4,7 @@ Chaque dossier est une COPIE de travail d'un contenu livré (HTML d'animation + 
 
 | Format | Dossier modèle (le plus récent / validé) | Notes |
 |---|---|---|
+| Reel compagnon (apparition) — moteur commun | `apparition-commun/` | **À utiliser désormais** (11/10/2026) : un `cfg.py` (scènes) + `script.txt` par reel, même rendu que la lampe. COMP-03 à COMP-06 faits avec. |
 | Reel compagnon (apparition) | `apparition-lampe-ansar/` | **Référence actuelle** (lumière, coupe au noir, flash). Précédents : `apparition-anas/`, `apparition-bilal/`, `apparition-khalid/` |
 | Reel hadith (cinéma) — moteur commun | `hadith-cinema-commun/` | **À utiliser désormais** (10/10/2026) : un `cfg.py` + `script.txt` par reel, voir son README. HAD-03 à HAD-10 faits avec. Modèle d’origine : `hadith-cinema-natte/` (V3 validée). `hadith-ancien-chien/` = ancien style, à ne pas copier |
 | Vidéo du vendredi (16:9) — moteur commun | `video-longue-commun/` | **À utiliser désormais** : un dossier par vidéo avec `cfg.py` (chapitres, titre, mots clés, bandeaux, plans, miniature) + `script.txt` ; voir l'en-tête de chaque script. VID-05 à VID-08 faits avec. |
