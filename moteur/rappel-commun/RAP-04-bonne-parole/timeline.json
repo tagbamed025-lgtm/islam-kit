@@ -1,0 +1,322 @@
+{
+ "ID": "RAP-04-bonne-parole",
+ "TAG": "04",
+ "DUR": 24.73,
+ "END1": 19.33,
+ "END2": 21.93,
+ "VOICE_END": 19.33,
+ "S": [
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ<br>فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+   "src": "Sahîh al-Bukhârî 6018",
+   "lines": [
+    {
+     "small": true,
+     "w": [
+      [
+       "Le",
+       0.42,
+       false
+      ],
+      [
+       "Prophète",
+       0.54,
+       false
+      ],
+      [
+       "ﷺ",
+       1.37,
+       false
+      ],
+      [
+       "a",
+       2.75,
+       false
+      ],
+      [
+       "dit :",
+       2.85,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "« Que",
+       4.03,
+       false
+      ],
+      [
+       "celui",
+       5.07,
+       false
+      ],
+      [
+       "qui",
+       5.25,
+       false
+      ],
+      [
+       "croit",
+       5.49,
+       false
+      ],
+      [
+       "en",
+       5.75,
+       false
+      ],
+      [
+       "Allah",
+       5.87,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       6.09,
+       false
+      ],
+      [
+       "au",
+       6.47,
+       false
+      ],
+      [
+       "Jour",
+       6.55,
+       false
+      ],
+      [
+       "dernier",
+       6.69,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "dise",
+       7.41,
+       true
+      ],
+      [
+       "du",
+       7.71,
+       false
+      ],
+      [
+       "bien,",
+       7.83,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "ou",
+       8.4,
+       false
+      ],
+      [
+       "qu'il",
+       9.14,
+       false
+      ],
+      [
+       "se",
+       9.28,
+       true
+      ],
+      [
+       "taise. »",
+       9.48,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 0.2,
+   "last": 9.48,
+   "t1": 10.93
+  },
+  {
+   "kind": "c",
+   "obj": "S02_sablier",
+   "anim": "drop",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "UNE",
+       11.08,
+       false
+      ],
+      [
+       "SEULE",
+       11.22,
+       false
+      ],
+      [
+       "PHRASE.",
+       11.36,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "UN",
+       13.03,
+       false
+      ],
+      [
+       "SEUL",
+       13.15,
+       false
+      ],
+      [
+       "RÉFLEXE",
+       13.33,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "À",
+       13.73,
+       false
+      ],
+      [
+       "PRENDRE",
+       13.83,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "AVANT",
+       14.07,
+       false
+      ],
+      [
+       "DE",
+       14.27,
+       false
+      ],
+      [
+       "PARLER :",
+       14.43,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 10.93,
+   "last": 14.43,
+   "t1": 15.48
+  },
+  {
+   "kind": "c",
+   "obj": "S03_plume",
+   "anim": "float",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "EST-CE",
+       15.63,
+       false
+      ],
+      [
+       "QUE",
+       15.79,
+       false
+      ],
+      [
+       "CE",
+       15.89,
+       false
+      ],
+      [
+       "QUE",
+       15.97,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "JE",
+       16.11,
+       false
+      ],
+      [
+       "M'APPRÊTE",
+       16.23,
+       false
+      ],
+      [
+       "À",
+       16.57,
+       false
+      ],
+      [
+       "DIRE",
+       16.71,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "EST",
+       17.03,
+       false
+      ],
+      [
+       "UN",
+       17.47,
+       false
+      ],
+      [
+       "BIEN ?",
+       17.59,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 15.48,
+   "last": 17.59,
+   "t1": 19.33
+  }
+ ],
+ "SOURCES": "Sahîh al-Bukhârî 6018<br><span style='font-size:42px;opacity:.8'>rapporté par Abû Hurayra</span>"
+}

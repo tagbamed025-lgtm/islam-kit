@@ -1,0 +1,320 @@
+{
+ "ID": "RAP-03-pardon",
+ "TAG": "03",
+ "DUR": 28.03,
+ "END1": 22.63,
+ "END2": 25.23,
+ "VOICE_END": 22.63,
+ "S": [
+  {
+   "kind": "c",
+   "obj": "S01_livre-lumiere",
+   "anim": "drop",
+   "glow": "AIME",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "DANS",
+       0.51,
+       false
+      ],
+      [
+       "LE",
+       0.6,
+       false
+      ],
+      [
+       "CORAN,",
+       0.72,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "ALLAH",
+       1.68,
+       false
+      ],
+      [
+       "DÉCRIT",
+       1.82,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "CEUX",
+       2.18,
+       false
+      ],
+      [
+       "QU'IL",
+       2.34,
+       false
+      ],
+      [
+       "AIME :",
+       2.5,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 0.2,
+   "last": 2.5,
+   "t1": 3.87
+  },
+  {
+   "kind": "q",
+   "chip": "CORAN · 3:134",
+   "quran": true,
+   "ar": "ٱلَّذِينَ يُنفِقُونَ فِى ٱلسَّرَّآءِ<br>وَٱلضَّرَّآءِ",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "« …qui",
+       4.02,
+       false
+      ],
+      [
+       "dépensent",
+       4.16,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "dans",
+       5.15,
+       false
+      ],
+      [
+       "l'aisance",
+       5.55,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       5.95,
+       false
+      ],
+      [
+       "dans",
+       6.13,
+       false
+      ],
+      [
+       "l'adversité,",
+       6.25,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 3.87,
+   "last": 6.25,
+   "t1": 7.8
+  },
+  {
+   "kind": "q",
+   "chip": "CORAN · 3:134",
+   "quran": true,
+   "ar": "وَٱلْكَـٰظِمِينَ ٱلْغَيْظَ<br>وَٱلْعَافِينَ عَنِ ٱلنَّاسِ",
+   "src": "Coran · Âl ʿImrân 3:134<br>trad. Hamidullah",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "qui",
+       7.95,
+       false
+      ],
+      [
+       "dominent",
+       8.09,
+       true
+      ],
+      [
+       "leur",
+       8.39,
+       false
+      ],
+      [
+       "rage",
+       8.51,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       9.34,
+       false
+      ],
+      [
+       "pardonnent",
+       10.0,
+       true
+      ],
+      [
+       "à",
+       10.4,
+       false
+      ],
+      [
+       "autrui",
+       10.4,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "– car",
+       11.84,
+       false
+      ],
+      [
+       "Allah",
+       11.84,
+       false
+      ],
+      [
+       "aime",
+       12.12,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "les",
+       12.66,
+       false
+      ],
+      [
+       "bienfaisants – »",
+       12.8,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 7.8,
+   "last": 12.8,
+   "t1": 14.74
+  },
+  {
+   "kind": "c",
+   "obj": "S03_main-ouverte",
+   "anim": "open",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "DOMINER",
+       14.89,
+       true
+      ],
+      [
+       "SA",
+       15.38,
+       false
+      ],
+      [
+       "COLÈRE.",
+       15.48,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "PARDONNER.",
+       16.67,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "DEUX",
+       18.41,
+       false
+      ],
+      [
+       "CHOIX,",
+       18.63,
+       false
+      ],
+      [
+       "CHAQUE",
+       19.16,
+       false
+      ],
+      [
+       "JOUR,",
+       19.56,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "À",
+       20.31,
+       false
+      ],
+      [
+       "NOTRE",
+       20.77,
+       false
+      ],
+      [
+       "PORTÉE.",
+       20.93,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 14.74,
+   "last": 20.93,
+   "t1": 22.63
+  }
+ ],
+ "SOURCES": "Coran, Âl ʿImrân 3:134<br><span style='font-size:42px;opacity:.8'>traduction Hamidullah</span>"
+}

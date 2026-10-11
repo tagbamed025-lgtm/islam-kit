@@ -1,0 +1,308 @@
+{
+ "ID": "RAP-05-repentir",
+ "TAG": "05",
+ "DUR": 22.57,
+ "END1": 17.17,
+ "END2": 19.770000000000003,
+ "VOICE_END": 17.17,
+ "S": [
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "لَلَّهُ أَشَدُّ فَرَحًا بِتَوْبَةِ عَبْدِهِ",
+   "lines": [
+    {
+     "small": true,
+     "w": [
+      [
+       "Le",
+       0.41,
+       false
+      ],
+      [
+       "Prophète",
+       0.56,
+       false
+      ],
+      [
+       "ﷺ",
+       1.037,
+       false
+      ],
+      [
+       "a",
+       2.44,
+       false
+      ],
+      [
+       "dit :",
+       2.6,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "« Allah",
+       3.94,
+       false
+      ],
+      [
+       "est",
+       4.08,
+       false
+      ],
+      [
+       "plus",
+       4.32,
+       false
+      ],
+      [
+       "heureux",
+       4.5,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "du",
+       4.82,
+       false
+      ],
+      [
+       "repentir",
+       4.94,
+       true
+      ],
+      [
+       "de",
+       5.46,
+       false
+      ],
+      [
+       "Son",
+       5.6,
+       false
+      ],
+      [
+       "serviteur",
+       5.76,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 0.2,
+   "last": 5.76,
+   "t1": 6.89
+  },
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "مِنْ أَحَدِكُمْ كَانَ عَلَى رَاحِلَتِهِ<br>بِأَرْضِ فَلَاةٍ",
+   "src": "Sahîh Muslim 2747",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "que",
+       7.04,
+       false
+      ],
+      [
+       "l'un",
+       7.1,
+       false
+      ],
+      [
+       "de",
+       7.26,
+       false
+      ],
+      [
+       "vous",
+       7.4,
+       false
+      ],
+      [
+       "ne",
+       7.56,
+       false
+      ],
+      [
+       "l'est",
+       7.7,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "de",
+       7.8,
+       false
+      ],
+      [
+       "retrouver",
+       7.94,
+       true
+      ],
+      [
+       "sa",
+       8.32,
+       false
+      ],
+      [
+       "monture",
+       8.58,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "perdue",
+       8.94,
+       false
+      ],
+      [
+       "dans",
+       9.24,
+       false
+      ],
+      [
+       "le",
+       9.5,
+       false
+      ],
+      [
+       "désert,",
+       9.62,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "après",
+       10.67,
+       false
+      ],
+      [
+       "l'avoir",
+       10.86,
+       false
+      ],
+      [
+       "cherchée",
+       11.28,
+       false
+      ],
+      [
+       "en",
+       11.58,
+       false
+      ],
+      [
+       "vain. »",
+       11.76,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 6.89,
+   "last": 11.76,
+   "t1": 13.03
+  },
+  {
+   "kind": "c",
+   "obj": "S02_porte-lumiere",
+   "anim": "door",
+   "glow": "PORTE",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "QUEL",
+       13.18,
+       false
+      ],
+      [
+       "QUE",
+       13.3,
+       false
+      ],
+      [
+       "SOIT",
+       13.44,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "TON",
+       13.62,
+       false
+      ],
+      [
+       "PASSÉ,",
+       13.8,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "LA",
+       14.8,
+       false
+      ],
+      [
+       "PORTE",
+       14.94,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "RESTE",
+       15.08,
+       false
+      ],
+      [
+       "OUVERTE.",
+       15.38,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 13.03,
+   "last": 15.38,
+   "t1": 17.17
+  }
+ ],
+ "SOURCES": "Sahîh Muslim 2747<br><span style='font-size:42px;opacity:.8'>rapporté par Anas ibn Mâlik</span>"
+}

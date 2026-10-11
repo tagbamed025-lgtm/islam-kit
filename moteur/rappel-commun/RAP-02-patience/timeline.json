@@ -1,0 +1,423 @@
+{
+ "ID": "RAP-02-patience",
+ "TAG": "02",
+ "DUR": 31.48,
+ "END1": 26.08,
+ "END2": 28.68,
+ "VOICE_END": 26.08,
+ "S": [
+  {
+   "kind": "c",
+   "obj": "S01_mains-ciel",
+   "anim": "rise",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "LE",
+       0.44,
+       false
+      ],
+      [
+       "PROPHÈTE",
+       0.54,
+       false
+      ],
+      [
+       "ﷺ",
+       1.003,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "A",
+       2.26,
+       false
+      ],
+      [
+       "DIT :",
+       2.42,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 0.2,
+   "last": 2.42,
+   "t1": 3.55
+  },
+  {
+   "kind": "c",
+   "obj": "S02_coeur-lumiere",
+   "anim": "pop",
+   "glow": "CROYANT",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "« ÉTONNANTE",
+       3.7,
+       false
+      ],
+      [
+       "EST",
+       4.16,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "L'AFFAIRE",
+       4.36,
+       false
+      ],
+      [
+       "DU",
+       4.62,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "CROYANT !",
+       4.78,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 3.55,
+   "last": 4.78,
+   "t1": 6.17
+  },
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "عَجَبًا لِأَمْرِ الْمُؤْمِنِ<br>إِنَّ أَمْرَهُ كُلَّهُ خَيْرٌ",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "Tout,",
+       6.32,
+       false
+      ],
+      [
+       "dans",
+       6.83,
+       false
+      ],
+      [
+       "son",
+       7.43,
+       false
+      ],
+      [
+       "affaire,",
+       7.59,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "est",
+       8.4,
+       false
+      ],
+      [
+       "un",
+       8.8,
+       false
+      ],
+      [
+       "bien",
+       8.92,
+       true
+      ],
+      [
+       "pour",
+       9.12,
+       false
+      ],
+      [
+       "lui,",
+       9.38,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       10.56,
+       false
+      ],
+      [
+       "cela",
+       10.64,
+       false
+      ],
+      [
+       "n'est",
+       10.8,
+       false
+      ],
+      [
+       "pour",
+       10.98,
+       false
+      ],
+      [
+       "personne",
+       11.12,
+       false
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "d'autre",
+       11.46,
+       false
+      ],
+      [
+       "que",
+       11.92,
+       false
+      ],
+      [
+       "pour",
+       12.48,
+       false
+      ],
+      [
+       "le",
+       12.66,
+       false
+      ],
+      [
+       "croyant.",
+       12.84,
+       true
+      ]
+     ]
+    }
+   ],
+   "t0": 6.17,
+   "last": 12.84,
+   "t1": 14.37
+  },
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "إِنْ أَصَابَتْهُ سَرَّاءُ شَكَرَ",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "S'il",
+       14.52,
+       false
+      ],
+      [
+       "lui",
+       14.76,
+       false
+      ],
+      [
+       "arrive",
+       14.86,
+       false
+      ],
+      [
+       "un",
+       15.08,
+       false
+      ],
+      [
+       "bonheur,",
+       15.22,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "il",
+       16.28,
+       false
+      ],
+      [
+       "est",
+       16.4,
+       false
+      ],
+      [
+       "reconnaissant,",
+       16.48,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       17.87,
+       false
+      ],
+      [
+       "c'est",
+       17.94,
+       false
+      ],
+      [
+       "un",
+       18.08,
+       false
+      ],
+      [
+       "bien",
+       18.22,
+       false
+      ],
+      [
+       "pour",
+       18.46,
+       false
+      ],
+      [
+       "lui.",
+       18.72,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 14.37,
+   "last": 18.72,
+   "t1": 20.01
+  },
+  {
+   "kind": "q",
+   "chip": "HADITH",
+   "ar": "وَإِنْ أَصَابَتْهُ ضَرَّاءُ صَبَرَ",
+   "src": "Sahîh Muslim 2999",
+   "lines": [
+    {
+     "small": false,
+     "w": [
+      [
+       "Et",
+       20.16,
+       false
+      ],
+      [
+       "s'il",
+       20.26,
+       false
+      ],
+      [
+       "lui",
+       20.44,
+       false
+      ],
+      [
+       "arrive",
+       20.58,
+       false
+      ],
+      [
+       "un",
+       20.82,
+       false
+      ],
+      [
+       "malheur,",
+       20.96,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "il",
+       22.04,
+       false
+      ],
+      [
+       "patiente,",
+       22.1,
+       true
+      ]
+     ]
+    },
+    {
+     "small": false,
+     "w": [
+      [
+       "et",
+       23.78,
+       false
+      ],
+      [
+       "c'est",
+       23.86,
+       false
+      ],
+      [
+       "un",
+       24.11,
+       false
+      ],
+      [
+       "bien",
+       24.36,
+       false
+      ],
+      [
+       "pour",
+       24.61,
+       false
+      ],
+      [
+       "lui. »",
+       24.98,
+       false
+      ]
+     ]
+    }
+   ],
+   "t0": 20.01,
+   "last": 24.98,
+   "t1": 26.08
+  }
+ ],
+ "SOURCES": "Sahîh Muslim 2999<br><span style='font-size:42px;opacity:.8'>rapporté par Suhayb</span>"
+}
